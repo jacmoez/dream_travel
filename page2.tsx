@@ -2,7 +2,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import "./globals.css";
-import GallerySliderRow from './gallery_slide/page';
 
 const HomePage: React.FC = () => {
   // --- Modal States ---
@@ -123,63 +122,36 @@ const HomePage: React.FC = () => {
 
   // --- Travel Packages Data ---
   const travelPackages = [
-    //first (6)
-    { title: "3 DAYS 2 NIGHTS VIENTIANE - LUANGPRABANG", duration: "3 DAYS 2 NIGHTS", img: "https://a.cdn-hotels.com/gdcs/production107/d1830/2877c6eb-c1c6-43d0-a4dd-3dd31dab1c76.jpg" },
-    { title: "4 DAYS 3 NIGHTS VIENTIANE – LUANG PRABANG", duration: "4 DAYS 3 NIGHTS", img: "https://a.cdn-hotels.com/gdcs/production61/d1069/7edaacd7-d458-4b7e-9089-bff46a813fcd.jpg?impolicy=fcrop&w=1600&h=1066&q=medium" },
+    { title: "3 DAYS 2 NIGHTS VIENTIANE - LUANGPRABANG", duration: "3 DAYS 2 NIGHTS", img: "https://via.placeholder.com/280x160?text=Travel+Package" },
+    { title: "4 DAYS 3 NIGHTS VIENTIANE – LUANG PRABANG", duration: "4 DAYS 3 NIGHTS", img: "https://via.placeholder.com/280x160?text=Travel+Package" },
     { title: "2 DAYS 1 NIGHT VTE - VV", duration: "2 DAYS 1 NIGHT", img: "https://media.nomadicmatt.com/2022/vangvieng1.jpeg" },
     { title: "4 DAYS 3 NIGHTS LPQ-VV-VTE", duration: "4 DAYS 3", img: "https://media.worldnomads.com/explore/laos/5-things-laos-social.jpg" },
     { title: "2 DAYS 1 NIGHT VTE - MF - VTE", duration: "2 DAYS 1 NIGHT", img: "https://www.golaos.tours/wp-content/uploads/2025/07/Laos-Travel-Budget-guide.jpg" },
-    { title: "5 DAYS 4 NIGHTS HUX-PK-LPQ", duration: "5 DAYS 4 NIGHTS", img: "https://s27363.pcdn.co/wp-content/uploads/2024/11/Laos-Header-Image.jpg.webp" },
-    // second
-    {title :"VTE-VV-LPQ (3D2N)", duration:"3 DAYS 2 NIGHTS",img:"https://southeastasiabackpacker.com/wp-content/uploads/2025/01/Gibbon-Experience-edited-1200x800.jpg"},
-    // third (word)
-    { title: "3 DAYS 2 NIGHTS LUANGPRABANG HERITAGE ESCAPE", duration: "3 DAYS 2 NIGHTS", img: "https://s27363.pcdn.co/wp-content/uploads/2024/11/Laos-Header-Image.jpg.webp" },  
-    {title:"VANG VIENG ADVENTURE DAY TRIP – FULL DAY",duration: "FULL DAY", img: "https://golaos.com/wp-content/uploads/2020/02/Huay-Xai-1-1.jpg" },
-    {title:"VIENTIANE CAPITAL DISCOVERY – FULL DAY",duration: "FULL DAY", img: "https://static2.tripoto.com/media/filter/tst/img/583082/TripDocument/1575279829_img_20191114_wa0012.jpg" },
-    {title:"LUANG PRABANG & VANG VIENG EXPLORER – 4 DAYS / 3 NIGHTS",duration: "4 DAYS 3 NIGHTS", img: "https://ilsvoyagent.fr/wp-content/uploads/2020/05/Fronti%C3%A8re-1024x576.jpg" },
-    {title:"SOUTHERN LAOS & 4,000 ISLANDS ESCAPE – 4 DAYS / 3 NIGHTS",duration: "4 DAYS 3 NIGHTS", img: "https://southeastasiabackpacker.com/wp-content/uploads/2025/01/Gibbon-Experience-edited-1200x800.jpg" },
-  
+    { title: "5 DAYS 4 NIGHTS HUX-PK-LPQ", duration: "5 DAYS 4 NIGHTS", img: "https://s27363.pcdn.co/wp-content/uploads/2024/11/Laos-Header-Image.jpg.webp" }
   ];
 
   // Map travel package title to the ID used in package detail component
   const travelPackageIdMap: Record<string, string> = {
-    // first (6)
     "3 DAYS 2 NIGHTS VIENTIANE - LUANGPRABANG": "three_days_two_nights_vte_lpq",
     "4 DAYS 3 NIGHTS VIENTIANE – LUANG PRABANG": "four_days_three_nights_vte_lpq",
     "2 DAYS 1 NIGHT VTE - VV": "two_days_one_night_vte_vv",
     "4 DAYS 3 NIGHTS LPQ-VV-VTE": "four_days_three_nights_lpq_vv_vte",
     "2 DAYS 1 NIGHT VTE - MF - VTE": "two_days_one_night_vte_mf",
     "5 DAYS 4 NIGHTS HUX-PK-LPQ": "five_days_four_nights_hux_pk_lpq",
-    // second
-    "VTE-VV-LPQ (3D2N)":"three_days_two_nights_vte_vv_lpq",
-    // third (word)
-    "3 DAYS 2 NIGHTS LUANGPRABANG HERITAGE ESCAPE":"three_day_two_nights_luangpraband_heritage_escape",
-    "VANG VIENG ADVENTURE DAY TRIP – FULL DAY": "vang_vieng_adventure_day_trip",
-    "VIENTIANE CAPITAL DISCOVERY – FULL DAY": "vientiane_capital_discovery",
-    "LUANG PRABANG & VANG VIENG EXPLORER – 4 DAYS / 3 NIGHTS": "luang_prabang_vang_vieng_explorer",
-    "SOUTHERN LAOS & 4,000 ISLANDS ESCAPE – 4 DAYS / 3 NIGHTS": "southern_laos_4000_islands_escape",
   };
 
   // --- Golf Packages Data ---
   const golfPackages = [
-    { title: "4D3N Golf Package – LCC & Lake View", duration: "4 DAYS / 3 NIGHTS", desc: "Enjoy 2 rounds of golf at Luang Prabang Golf Club. Includes green fees, caddie, golf cart, and luxury accommodation.", img: "https://golfdigest.sports.sndimg.com/content/dam/images/golfdigest/fullset/2018/06/06/5b172fb47abc957b64518a7b_GettyImages-942686126.jpg.rend.hgtvcom.966.644.suffix/1573243603510.jpeg" },
-    { title: "5D4N Golf Package – LCC, Lake View & SEA Games Course", duration: "5 DAYS / 4 NIGHTS", desc: "Premium golf experience with 3 rounds at top courses, luxury resort accommodation, spa treatment.", img: "https://media.npr.org/assets/img/2023/03/01/gettyimages-1410422468_wide-f64095a661d8b05ad0433ef9da08b1f83dd23d24.jpg" },
-    { title: "5D4N Golf Package – LCC, Lake View & Dansavanh", duration: "5 DAYS / 4 NIGHTS", desc: "Combine luxury resort stay with 2 rounds of golf. Includes accommodation, breakfast, green fees, and club rental.", img: "https://www.pgaresort.com/images/content/homepageclubslidersmallimg/palm-harbor---innisbrook-resort---golf---2024-folklore-films-_12-1-.jpg" },
-    { title: "5D4N Golf Package – LCC, Lake View & Vang Vieng", duration: "5 DAYS / 4 NIGHTS", desc: "Combine luxury resort stay with 2 rounds of golf. Includes accommodation, breakfast, green fees, and club rental.", img: "https://www.pgaresort.com/images/content/homepageclubslidersmallimg/palm-harbor---innisbrook-resort---golf---2024-folklore-films-_12-1-.jpg" },
-    { title: "4D3N Golf Package – Luang Prabang (LPQ)", duration: "4 DAYS / 3 NIGHTS", desc: "Combine luxury resort stay with 2 rounds of golf. Includes accommodation, breakfast, green fees, and club rental.", img: "https://www.pgaresort.com/images/content/homepageclubslidersmallimg/palm-harbor---innisbrook-resort---golf---2024-folklore-films-_12-1-.jpg" },
-    { title: "Vientiane Golf & Leisure Escape – 7 Days / 6 Nights", duration: "7 DAYS / 6 NIGHTS", desc: "Enjoy 2 rounds of golf at Luang Prabang Golf Club. Includes green fees, caddie, golf cart, and luxury accommodation.", img: "https://golfdigest.sports.sndimg.com/content/dam/images/golfdigest/fullset/2018/06/06/5b172fb47abc957b64518a7b_GettyImages-942686126.jpg.rend.hgtvcom.966.644.suffix/1573243603510.jpeg" },
-
+    { title: "LP Golf Getaway", duration: "2 Rounds", desc: "Enjoy 2 rounds of golf at Luang Prabang Golf Club. Includes green fees, caddie, golf cart, and luxury accommodation.", img: "https://golfdigest.sports.sndimg.com/content/dam/images/golfdigest/fullset/2018/06/06/5b172fb47abc957b64518a7b_GettyImages-942686126.jpg.rend.hgtvcom.966.644.suffix/1573243603510.jpeg" },
+    { title: "Premium Golf Experience", duration: "3 Rounds", desc: "Premium golf experience with 3 rounds at top courses, luxury resort accommodation, spa treatment.", img: "https://media.npr.org/assets/img/2023/03/01/gettyimages-1410422468_wide-f64095a661d8b05ad0433ef9da08b1f83dd23d24.jpg" },
+    { title: "Resort Golf Package", duration: "2N + 2R", desc: "Combine luxury resort stay with 2 rounds of golf. Includes accommodation, breakfast, green fees, and club rental.", img: "https://www.pgaresort.com/images/content/homepageclubslidersmallimg/palm-harbor---innisbrook-resort---golf---2024-folklore-films-_12-1-.jpg" },
   ];
 
   // Map golf package titles to the actual package ID (all point to the new 8‑day golf package)
   const golfPackageIdMap: Record<string, string> = {
-    "4D3N Golf Package – LCC & Lake View": "four_days_three_nights_lcc_and_lake_view",
-    "5D4N Golf Package – LCC, Lake View & SEA Games Course": "fight_days_four_lcc_and_lake_view_and_sea_game",
-    "5D4N Golf Package – LCC, Lake View & Dansavanh": "fight_days_four_nights_lcc_and_lake_view_and_dansavanh",
-    "5D4N Golf Package – LCC, Lake View & Vang Vieng": "fight_days_four_nights_lcc_and_lake_view_and_vang_vieng",
-    "4D3N Golf Package – Luang Prabang (LPQ)": "four_days_three_nights_laung_prabang",
-    "Vientiane Golf & Leisure Escape – 7 Days / 6 Nights": "seven_days_six_nights_laung_prabang_vientiane_leisure_escape",
-
+    "LP Golf Getaway": "eight_days_seven_nights_golf_leisure",
+    "Premium Golf Experience": "eight_days_seven_nights_golf_leisure",
+    "Resort Golf Package": "eight_days_seven_nights_golf_leisure",
   };
 
   // Golf club ID mapping (used for dynamic routes)
@@ -232,7 +204,6 @@ const HomePage: React.FC = () => {
     "Championship Junior": "eight_days_seven_nights_golf_leisure",
   };
 
-  
   // --- Carousel Handlers (Hero) ---
   const goToSlide = useCallback((newIndex: number) => {
     if (isTransitioning) return;
@@ -504,9 +475,6 @@ const HomePage: React.FC = () => {
           <div className="package-card-new-price">{pkg.priceTag}</div>
           <p className="package-card-new-desc">{pkg.desc}</p>
           <div className="package-card-buttons">
-            {/* <Link href={`/package/${packageId}`} className="card-details-btn" onClick={(e) => e.stopPropagation()}>
-              <i className="fas fa-info-circle"></i> Details
-            </Link> */}
             <Link href={`/package/${packageId}`} className="card-details-btn" onClick={(e) => e.stopPropagation()}>
               <i className="fas fa-info-circle"></i> Details
             </Link>
@@ -947,70 +915,61 @@ const HomePage: React.FC = () => {
           </div>
         </div>
 
-        {/* Popular Trips - FIXED: no nested <a> tags */}
+        {/* Popular Trips */}
         <div className="section-container">
           <div className="w-full full-width mx-auto py-8">
             <h2 className="text-2xl font-semibold text-[#2E7D32] mb-6 text-center border-b-2 border-[#ED6A02] pb-2 inline-block mx-auto block w-fit px-8">
               Popular Trips in Laos
             </h2>
             <div className="popular-trips-grid mt-8">
-              {[
-                {
-                  href: "/city/luang-prabang",
-                  img: "https://s27363.pcdn.co/wp-content/uploads/2024/11/Laos-Header-Image.jpg.webp",
-                  title: "Luang Prabang",
-                  desc: "Ancient temples & alms giving ceremony",
-                  mapLink: "https://www.google.com/maps/search/?api=1&query=Luang+Prabang+Laos"
-                },
-                {
-                  href: "/city/vang-vieng",
-                  img: "https://media.nomadicmatt.com/2022/vangvieng1.jpeg",
-                  title: "Vang Vieng",
-                  desc: "Karst mountains & blue lagoons",
-                  mapLink: "https://www.google.com/maps/search/?api=1&query=Vang+Vieng+Laos"
-                },
-                {
-                  href: "/city/kuang-si-falls",
-                  img: "https://media.worldnomads.com/explore/laos/5-things-laos-social.jpg",
-                  title: "Kuang Si Falls",
-                  desc: "Turquoise waterfalls & jungle pools",
-                  mapLink: "https://www.google.com/maps/search/?api=1&query=Kuang+Si+Falls+Luang+Prabang+Laos"
-                },
-                {
-                  href: "/city/plain-of-jars",
-                  img: "https://www.golaos.tours/wp-content/uploads/2025/07/Laos-Travel-Budget-guide.jpg",
-                  title: "Plain of Jars",
-                  desc: "Megalithic archaeological mystery",
-                  mapLink: "https://www.google.com/maps/search/?api=1&query=Plain+of+Jars+Phonsavan+Laos"
-                }
-              ].map((trip) => (
-                <div key={trip.title} className="trip-card">
-                  <Link href={trip.href} className="block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition hover:-translate-y-2 h-full">
-                    <img src={trip.img} alt={trip.title} className="w-full h-48 object-cover" />
-                    <div className="p-4">
-                      <h3 className="font-bold text-lg text-[#2E7D32]">{trip.title}</h3>
-                      <p className="text-sm text-gray-600 mt-1">{trip.desc}</p>
-                      {/* Location link: now a <div> with onClick instead of an <a> */}
-                      <div className="mt-2">
-                        <div
-                          onClick={(e) => {
-                            e.preventDefault();
-                            window.open(trip.mapLink, '_blank', 'noopener,noreferrer');
-                          }}
-                          className="text-sm text-[#ED6A02] hover:underline inline-flex items-center gap-1 cursor-pointer"
-                        >
-                          <i className="fas fa-map-marker-alt"></i> {trip.title}
-                        </div>
-                      </div>
-                      <div className="flex gap-2 mt-3">
-                        <span className="bg-[#2E7D32] text-white px-3 py-1 rounded-full text-xs hover:bg-[#ED6A02] transition inline-block">
-                          Details
-                        </span>
-                      </div>
+              <div className="trip-card">
+                <Link href="/city/luang-prabang" className="block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition hover:-translate-y-2 h-full">
+                  <img src="https://s27363.pcdn.co/wp-content/uploads/2024/11/Laos-Header-Image.jpg.webp" alt="Luang Prabang" className="w-full h-48 object-cover" />
+                  <div className="p-4">
+                    <h3 className="font-bold text-lg text-[#2E7D32]">Luang Prabang</h3>
+                    <p className="text-sm text-gray-600 mt-1">Ancient temples & alms giving ceremony</p>
+                    <div className="flex gap-2 mt-3">
+                      <span className="bg-[#2E7D32] text-white px-3 py-1 rounded-full text-xs hover:bg-[#ED6A02] transition inline-block">Details</span>
                     </div>
-                  </Link>
-                </div>
-              ))}
+                  </div>
+                </Link>
+              </div>
+              <div className="trip-card">
+                <Link href="/city/vang-vieng" className="block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition hover:-translate-y-2 h-full">
+                  <img src="https://media.nomadicmatt.com/2022/vangvieng1.jpeg" alt="Vang Vieng" className="w-full h-48 object-cover" />
+                  <div className="p-4">
+                    <h3 className="font-bold text-lg text-[#2E7D32]">Vang Vieng</h3>
+                    <p className="text-sm text-gray-600 mt-1">Karst mountains & blue lagoons</p>
+                    <div className="flex gap-2 mt-3">
+                      <span className="bg-[#2E7D32] text-white px-3 py-1 rounded-full text-xs hover:bg-[#ED6A02] transition inline-block">Details</span>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+              <div className="trip-card">
+                <Link href="/city/kuang-si-falls" className="block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition hover:-translate-y-2 h-full">
+                  <img src="https://media.worldnomads.com/explore/laos/5-things-laos-social.jpg" alt="Kuang Si Falls" className="w-full h-48 object-cover" />
+                  <div className="p-4">
+                    <h3 className="font-bold text-lg text-[#2E7D32]">Kuang Si Falls</h3>
+                    <p className="text-sm text-gray-600 mt-1">Turquoise waterfalls & jungle pools</p>
+                    <div className="flex gap-2 mt-3">
+                      <span className="bg-[#2E7D32] text-white px-3 py-1 rounded-full text-xs hover:bg-[#ED6A02] transition inline-block">Details</span>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+              <div className="trip-card">
+                <Link href="/city/plain-of-jars" className="block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition hover:-translate-y-2 h-full">
+                  <img src="https://www.golaos.tours/wp-content/uploads/2025/07/Laos-Travel-Budget-guide.jpg" alt="Plain of Jars" className="w-full h-48 object-cover" />
+                  <div className="p-4">
+                    <h3 className="font-bold text-lg text-[#2E7D32]">Plain of Jars</h3>
+                    <p className="text-sm text-gray-600 mt-1">Megalithic archaeological mystery</p>
+                    <div className="flex gap-2 mt-3">
+                      <span className="bg-[#2E7D32] text-white px-3 py-1 rounded-full text-xs hover:bg-[#ED6A02] transition inline-block">Details</span>
+                    </div>
+                  </div>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -1053,9 +1012,7 @@ const HomePage: React.FC = () => {
                         <div className="package-mini-title">{pkg.title}</div>
                         <div className="package-mini-duration-text">{pkg.duration}</div>
                         <div className="package-mini-footer">
-                          {/* <Link href={`/package/${packageId}`} className="btn-details">Details</Link> */}
-
-                          <Link href={`travel_package_detail/${packageId}`} className="btn-details">Details</Link>
+                          <Link href={`/package/${packageId}`} className="btn-details">Details</Link>
                           <button className="btn-book" onClick={() => openBookingModal(pkg.title)}>Book</button>
                         </div>
                       </div>
@@ -1085,7 +1042,7 @@ const HomePage: React.FC = () => {
                         <div className="package-mini-title">{pkg.title}</div>
                         <div className="package-mini-duration-text">{pkg.duration}</div>
                         <div className="package-mini-footer">
-                          <Link href={`/golf_package_detail/${packageId}`} className="btn-details">Details</Link>
+                          <Link href={`/package/${packageId}`} className="btn-details">Details</Link>
                           <button className="btn-book" onClick={() => openBookingModal(pkg.title)}>Book</button>
                         </div>
                       </div>
@@ -1144,9 +1101,6 @@ const HomePage: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* gallery row */}
-         <GallerySliderRow />
 
         {/* Contact Us Section */}
         <div className="w-full max-w-6xl mx-auto px-4 pb-12">
