@@ -14,7 +14,37 @@ interface CityData {
 }
 
 const cityDataMap: Record<string, CityData> = {
-  'luang-prabang': {
+  'champasak': {
+    name: 'Champasak',
+    location: 'Champasak Province, Southern Laos',
+    description: [
+      'Located along the banks of the Mekong River in southern Laos, Champasak is a quiet, rustic town best known as the gateway to the ancient Khmer temple complex of Wat Phu, a UNESCO World Heritage Site. Unlike the bustle of larger cities, Champasak retains a slow, laid‑back charm with French colonial villas, riverside guesthouses, and a landscape dotted with palm trees and rice paddies.',
+      'The main attraction, Wat Phu, dates back to the 11th–13th centuries and is dramatically set at the base of Mount Phu Khao, offering stunning views over the Mekong floodplain. Visitors can also explore the nearby Bolaven Plateau for its coffee plantations and waterfalls, take a boat trip to the 4,000 Islands (Si Phan Don), or cycle through the peaceful countryside dotted with traditional Lao villages.'
+    ],
+    images: [
+      'https://i.imgur.com/4QhvN7F.jpeg',
+      'https://i.imgur.com/SoUuIxH.jpeg',
+      'https://i.imgur.com/6gw7SDG.jpeg',
+      'https://i.imgur.com/sG5jnE9.jpeg',
+      'https://i.imgur.com/Su8Mr90.jpeg'
+    ]
+  },
+  'vientiane': {   // corrected spelling from 'vieataine'
+    name: 'Vientiane',
+    location: 'Vientiane Capital, Central Laos',
+    description: [
+      'Stretched along the lazy Mekong River, Vientiane is Southeast Asia’s most relaxed capital – a charming blend of Lao, Thai, Chinese, and French influences. Unlike bustling metropolises, this city of 800,000 offers wide, tree‑lined boulevards, sidewalk cafes, and a slow‑paced rhythm perfect for exploration by bicycle or on foot. The skyline is dominated by golden stupas and red‑tiled temple roofs, most notably the iconic Pha That Luang, a 16th‑century Buddhist monument covered in gleaming gold leaf.',
+      'Visitors can explore the ancient Wat Sisaket with its thousands of tiny Buddha statues, the mysterious Patuxai Victory Monument (often called "Laos’ Arc de Triomphe"), and the quirky Buddha Park filled with surreal concrete sculptures. As the sun sets, the Mekong riverside promenade comes alive with night markets, street food stalls, and locals exercising. Vientiane offers a gentle introduction to Lao culture, combining colonial heritage with genuine Buddhist spirituality.'
+    ],
+    images: [
+      'https://i.imgur.com/TX7Xt7r.jpeg',
+      'https://i.imgur.com/RzxbuvD.jpeg',
+      'https://i.imgur.com/MExGgeh.jpeg',
+      'https://i.imgur.com/x5qaByk.jpeg',
+      'https://i.imgur.com/Yf9qVtG.jpeg'
+    ]
+  },
+  'luang-prabang': {   // corrected spelling from 'Laung Prabaung'
     name: 'Luang Prabang',
     location: 'Luang Prabang Province, Northern Laos',
     description: [
@@ -22,41 +52,30 @@ const cityDataMap: Record<string, CityData> = {
       'The town is also famous for its daily alms-giving ceremony, vibrant night markets, and the nearby Kuang Si Falls. Whether you explore its golden temples, cruise the Mekong, or simply relax in a riverside café, Luang Prabang offers a timeless journey into Lao culture.'
     ],
     images: [
-      'https://images.unsplash.com/photo-1528127269322-539801943592',
-      'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a',
-      'https://images.unsplash.com/photo-1583417319070-4a69db38a482',
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e'
+      'https://i.imgur.com/J4OGK1a.jpeg',
+      'https://i.imgur.com/WMgocZ8.jpeg',
+      'https://i.imgur.com/4HTtNcg.jpeg',
+      'https://i.imgur.com/ZQdmvVd.jpeg',
+      'https://i.imgur.com/CqBAdf4.jpeg'
     ]
   },
-  'vang-vieng': {
-    name: 'Vang Vieng',
-    location: 'Vientiane Province, Central Laos',
+  'pak-beng': {   // new entry
+    name: 'Pak Beng',
+    location: 'Oudomxay Province, Northern Laos',
     description: [
-      'Once notorious as Southeast Asia\'s party capital, Vang Vieng has successfully reinvented itself as an eco-adventure paradise set against a breathtaking backdrop of dramatic karst limestone mountains and the winding Nam Song River. Today, the town focuses on its stunning natural assets, drawing travelers for a range of outdoor activities including exploring cool caves, kayaking on quiet rivers, trekking to bright blue lagoons, and touring picturesque rice paddies that stretch towards sheer cliffs.',
-      'Sunrise hot air balloon rides, rock climbing, and tubing remain popular, but the atmosphere is now more relaxed and family-friendly. Vang Vieng is the perfect base for those seeking both adrenaline and serenity amid some of Laos’ most spectacular scenery.'
+      'Tucked between steep jungle‑covered mountains on the banks of the Mekong River, Pak Beng is a tiny port town that serves as the traditional overnight stop for slow boats traveling between Luang Prabang (Laos) and Huay Xai (Thailand). Despite its small size, the town has developed a surprising number of comfortable guesthouses, riverside restaurants, and night markets that cater to the steady flow of backpackers and adventurers.',
+      'Most visitors only stay one night, but the town’s serene atmosphere, friendly locals, and beautiful sunsets over the Mekong make it a memorable pause on the classic river journey. For those with extra time, short treks to nearby hill‑tribe villages or a dip in the Nam Beng River are rewarding detours.'
     ],
     images: [
-      'https://images.unsplash.com/photo-1558121638-4712f0c8c9d9',
-      'https://images.unsplash.com/photo-1560185009-8e5c6ea8a5f7',
-      'https://images.unsplash.com/photo-1544731612-de7f96afe55f',
-      'https://images.unsplash.com/photo-1539642932569-1e1352e48fe4'
+      'https://i.imgur.com/SJlpWSx.jpeg',
+      'https://i.imgur.com/mfuu9Ar.jpeg',
+      'https://i.imgur.com/V8TST5G.jpeg',
+      'https://i.imgur.com/965W9kt.jpeg',
+      'https://i.imgur.com/UZI13Qj.jpeg',
+      'https://i.imgur.com/C7vmBhu.jpeg'
     ]
   },
-  'kuang-si-falls': {
-    name: 'Kuang Si Falls',
-    location: 'Near Luang Prabang, Northern Laos',
-    description: [
-      'Located about 30 kilometers south of Luang Prabang, Kuang Si Falls is a spectacular multi-tiered natural wonder, where turquoise, mineral-rich water cascades 50 meters down a lush jungle hillside. The falls are renowned for their surreal "Tiffany blue" pools, which are perfect for swimming, and the main drop creates a dramatic natural curtain of water.',
-      'The surrounding park also features a well-regarded bear rescue center, making it a complete day-trip destination for both relaxation and wildlife conservation. Whether you climb to the top for panoramic views or cool off in the lower pools, Kuang Si Falls is an unforgettable highlight of any Laos itinerary.'
-    ],
-    images: [
-      'https://images.unsplash.com/photo-1577561515701-f8d2f35598d1',
-      'https://images.unsplash.com/photo-1583389505823-f3faab3cfbcc',
-      'https://images.unsplash.com/photo-1528484902624-7c6b96be2ec0',
-      'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a'
-    ]
-  },
-  'plain-of-jars': {
+  'plain-of-jars': {   // corrected spelling
     name: 'Plain of Jars',
     location: 'Xieng Khouang Plateau, Northern Laos',
     description: [
@@ -64,13 +83,33 @@ const cityDataMap: Record<string, CityData> = {
       'Despite over a century of research, the original purpose of the jars—whether as giant funeral urns or vessels for celebratory rice wine—remains a mystery, a puzzle deepened by the site\'s rugged beauty and history of wartime bombing. Visitors can explore several jar sites, learn about UXO clearance efforts, and witness stunning sunrise views over the ancient plain.'
     ],
     images: [
-      'https://images.unsplash.com/photo-1544935435-4f3e3e6ac4d8',
-      'https://images.unsplash.com/photo-1584703998276-d4f9d7d4e9b3',
-      'https://images.unsplash.com/photo-1566224564248-f6b8c0f9a0c6',
-      'https://images.unsplash.com/photo-1576109931187-dfda1b7f9a9d'
+      'https://i.imgur.com/pd2ByH1.jpeg',
+      'https://i.imgur.com/O90k98P.jpeg',
+      'https://i.imgur.com/iZ70kkR.jpeg'
+    ]
+  },
+  'vang-vieng': {   // corrected spelling from 'Vang Ving'
+    name: 'Vang Vieng',
+    location: 'Vientiane Province, Central Laos',
+    description: [
+      'Once notorious as Southeast Asia\'s party capital, Vang Vieng has successfully reinvented itself as an eco‑adventure paradise set against a breathtaking backdrop of dramatic karst limestone mountains and the winding Nam Song River. Today, the town focuses on its stunning natural assets, drawing travelers for a range of outdoor activities including exploring cool caves, kayaking on quiet rivers, trekking to bright blue lagoons, and touring picturesque rice paddies that stretch towards sheer cliffs.',
+      'Sunrise hot air balloon rides, rock climbing, and tubing remain popular, but the atmosphere is now more relaxed and family‑friendly. Vang Vieng is the perfect base for those seeking both adrenaline and serenity amid some of Laos’ most spectacular scenery.'
+    ],
+    images: [
+      'https://i.imgur.com/4AvfdfO.jpeg',
+      'https://i.imgur.com/MkfSakl.jpeg',
+      'https://i.imgur.com/B6vdCe4.jpeg',
+      'https://i.imgur.com/oCAOEjp.jpeg',
+      'https://i.imgur.com/PodUv1U.jpeg',
+      'https://i.imgur.com/HqX4UWX.jpeg',
+      'https://i.imgur.com/qpvI54M.jpeg',
+      'https://i.imgur.com/yLcw1z5.jpeg',
+      'https://i.imgur.com/A4PqFsS.jpeg',
+      'https://i.imgur.com/syg89ua.jpeg',
+      'https://i.imgur.com/eqXBYaO.jpeg'
     ]
   }
-};
+};  
 
 const defaultCity = cityDataMap['luang-prabang'];
 

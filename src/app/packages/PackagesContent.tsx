@@ -13,7 +13,7 @@ interface Package {
 }
 
 const GolfTravelPackages: React.FC = () => {
-  // ---------- UPDATED PACKAGE DATA (same as HomePage) ----------
+  // ---------- PACKAGE DATA (unchanged) ----------
   const travelPackagesList: Package[] = [
     { name: '3 DAYS 2 NIGHTS VIENTIANE - LUANGPRABANG', slug: 'three_days_two_nights_vte_lpq', type: 'travel', image: 'https://a.cdn-hotels.com/gdcs/production107/d1830/2877c6eb-c1c6-43d0-a4dd-3dd31dab1c76.jpg', duration: '3 DAYS 2 NIGHTS', description: 'Immerse yourself in the spiritual heart of Laos. This heritage-focused journey takes you through Luang Prabang\'s gilded temples, the sacred alms-giving ritual at dawn, and the breathtaking Kuang Si Falls.' },
     { name: '4 DAYS 3 NIGHTS VIENTIANE – LUANG PRABANG', slug: 'four_days_three_nights_vte_lpq', type: 'travel', image: 'https://a.cdn-hotels.com/gdcs/production61/d1069/7edaacd7-d458-4b7e-9089-bff46a813fcd.jpg', duration: '4 DAYS 3 NIGHTS', description: 'For thrill-seekers and nature lovers, Vang Vieng is Laos\'s adventure capital. Towering karst mountains, crystal-blue lagoons, and vast cave systems set the stage for kayaking, zip-lining, hot air ballooning, and rock climbing.' },
@@ -30,10 +30,12 @@ const GolfTravelPackages: React.FC = () => {
   ];
 
   const golfPackagesList: Package[] = [
-    { name: 'Vientiane Escape', slug: 'eight_days_seven_nights_golf_leisure', type: 'golf', image: 'https://golfdigest.sports.sndimg.com/content/dam/images/golfdigest/fullset/2018/06/06/5b172fb47abc957b64518a7b_GettyImages-942686126.jpg', duration: '4 Days / 3 Nights', description: '2 rounds at Long Vien & Lakeview courses. Includes luxury hotel, transfers, and temple tour.' },
-    { name: 'Luang Prabang Adventure', slug: 'eight_days_seven_nights_golf_leisure', type: 'golf', image: 'https://media.npr.org/assets/img/2023/03/01/gettyimages-1410422468_wide-f64095a661d8b05ad0433ef9da08b1f83dd23d24.jpg', duration: '3 Days / 2 Nights', description: '1 round at Luang Prabang Golf Club + UNESCO city tour & Kuang Si Falls. Riverside hotel.' },
-    { name: 'Vang Vieng Golf Retreat', slug: 'eight_days_seven_nights_golf_leisure', type: 'golf', image: 'https://www.pgaresort.com/images/content/homepageclubslidersmallimg/palm-harbor---innisbrook-resort---golf---2024-folklore-films-_12-1-.jpg', duration: '5 Days / 4 Nights', description: '3 rounds at Vang Vieng Golf Resort + hot air balloon, kayaking, and cave exploration.' },
-    { name: 'Champasak Golf Tour', slug: 'eight_days_seven_nights_golf_leisure', type: 'golf', image: 'https://media.npr.org/assets/img/2023/03/01/gettyimages-1410422468_wide-f64095a661d8b05ad0433ef9da08b1f83dd23d24.jpg', duration: '6 Days / 5 Nights', description: '4 rounds + Vat Phou temple tour, Bolaven Plateau coffee visit. Luxury Mekong resort.' }
+    { name: '4D3N Golf Package – LCC & Lake View', slug: 'four_days_three_nights_lcc_and_lake_view', type: 'golf',duration: '4 Days / 3 Nights', image: 'https://golfdigest.sports.sndimg.com/content/dam/images/golfdigest/fullset/2018/06/06/5b172fb47abc957b64518a7b_GettyImages-942686126.jpg',  description: '2 rounds at Long Vien & Lakeview courses. Includes luxury hotel, transfers, and temple tour.' },
+    { name: '5D4N Golf Package – LCC, Lake View & SEA Games Course', slug: 'fight_days_four_lcc_and_lake_view_and_sea_game', type: 'golf',duration: '5 Days / 4 Nights', image: 'https://media.npr.org/assets/img/2023/03/01/gettyimages-1410422468_wide-f64095a661d8b05ad0433ef9da08b1f83dd23d24.jpg',  description: '1 round at Luang Prabang Golf Club + UNESCO city tour & Kuang Si Falls. Riverside hotel.' },
+    { name: '5D4N Golf Package – LCC, Lake View & Dansavanh', slug: 'fight_days_four_nights_lcc_and_lake_view_and_dansavanh', type: 'golf',duration: '5 Days / 4 Nights', image: 'https://www.pgaresort.com/images/content/homepageclubslidersmallimg/palm-harbor---innisbrook-resort---golf---2024-folklore-films-_12-1-.jpg',  description: '3 rounds at Vang Vieng Golf Resort + hot air balloon, kayaking, and cave exploration.' },
+    { name: '5D4N Golf Package – LCC, Lake View & Vang Vieng', slug: 'fight_days_four_nights_lcc_and_lake_view_and_vang_vieng', type: 'golf', duration: '5 Days / 4 Nights',image: 'https://media.npr.org/assets/img/2023/03/01/gettyimages-1410422468_wide-f64095a661d8b05ad0433ef9da08b1f83dd23d24.jpg', description: '4 rounds + Vat Phou temple tour, Bolaven Plateau coffee visit. Luxury Mekong resort.' },
+    { name: '4D3N Golf Package – Luang Prabang (LPQ)', slug: 'four_days_three_nights_laung_prabang', type: 'golf',duration: '4 Days / 3 Nights', image: 'https://golfdigest.sports.sndimg.com/content/dam/images/golfdigest/fullset/2018/06/06/5b172fb47abc957b64518a7b_GettyImages-942686126.jpg',  description: '2 rounds at Long Vien & Lakeview courses. Includes luxury hotel, transfers, and temple tour.' },
+    { name: 'Vientiane Golf & Leisure Escape – 7 Days / 6 Nights', slug: 'seven_days_six_nights_laung_prabang_vientiane_leisure_escape', type: 'golf',duration: '4 Days / 3 Nights', image: 'https://golfdigest.sports.sndimg.com/content/dam/images/golfdigest/fullset/2018/06/06/5b172fb47abc957b64518a7b_GettyImages-942686126.jpg',  description: '2 rounds at Long Vien & Lakeview courses. Includes luxury hotel, transfers, and temple tour.' },
   ];
 
   const allPackages: Record<'golf' | 'travel', Package[]> = {
@@ -56,6 +58,17 @@ const GolfTravelPackages: React.FC = () => {
   const [bookingPackage, setBookingPackage] = useState('');
   const [isFading, setIsFading] = useState(false);
   const [sliderStyle, setSliderStyle] = useState({ transform: 'translateX(0)', width: '0px' });
+
+  // Booking modal form state (UPDATED: added for API integration)
+  const [bookingFirstName, setBookingFirstName] = useState('');
+  const [bookingLastName, setBookingLastName] = useState('');
+  const [bookingEmail, setBookingEmail] = useState('');
+  const [bookingPhone, setBookingPhone] = useState('');
+  const [bookingNationality, setBookingNationality] = useState('');
+  const [bookingArrivalDate, setBookingArrivalDate] = useState('');
+  const [bookingTravellers, setBookingTravellers] = useState('');
+  const [bookingMessage, setBookingMessage] = useState('');
+  const [isBookingSubmitting, setIsBookingSubmitting] = useState(false);
 
   const btnGolfRef = useRef<HTMLButtonElement>(null);
   const btnTravelRef = useRef<HTMLButtonElement>(null);
@@ -110,13 +123,54 @@ const GolfTravelPackages: React.FC = () => {
     setIsModalOpen(false);
     document.body.style.overflow = '';
     document.body.classList.remove('modal-open');
+    // Reset form fields
+    setBookingFirstName('');
+    setBookingLastName('');
+    setBookingEmail('');
+    setBookingPhone('');
+    setBookingNationality('');
+    setBookingArrivalDate('');
+    setBookingTravellers('');
+    setBookingMessage('');
   }, []);
 
-  const sendBookingEmail = useCallback((e: React.FormEvent) => {
+  // UPDATED: Real API call instead of alert
+  const handleBookingSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert(`Booking Request Sent for: ${bookingPackage}`);
-    closeBookingModal();
-  }, [bookingPackage, closeBookingModal]);
+    setIsBookingSubmitting(true);
+
+    try {
+      const response = await fetch("/api/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: bookingFirstName,
+          lastName: bookingLastName,
+          email: bookingEmail,
+          phone: bookingPhone,
+          nationality: bookingNationality,
+          arrivalDate: bookingArrivalDate,
+          travellers: bookingTravellers,
+          message: bookingMessage,
+          packageName: bookingPackage,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send booking request");
+      }
+
+      alert(`Booking request sent for ${bookingPackage}!\nWe'll contact you within 24 hours.`);
+      closeBookingModal();
+    } catch (error) {
+      console.error("Booking error:", error);
+      alert(error instanceof Error ? error.message : "Failed to send request. Please try again later.");
+    } finally {
+      setIsBookingSubmitting(false);
+    }
+  };
 
   // Effects
   useEffect(() => {
@@ -156,12 +210,11 @@ const GolfTravelPackages: React.FC = () => {
 
   const todayDate = new Date().toISOString().split('T')[0];
 
-  // Helper to get detail link based on package type
   const getDetailLink = (pkg: Package) => {
     if (pkg.type === 'travel') {
       return `/travel_package_detail/${pkg.slug}`;
     } else {
-      return `/package/${pkg.slug}`;
+      return `/golf_package_detail/${pkg.slug}`;
     }
   };
 
@@ -381,7 +434,6 @@ const GolfTravelPackages: React.FC = () => {
                     <h3 className="font-semibold text-lg text-[var(--emerald-deep)] leading-snug mb-2">{pkg.name}</h3>
                     <p className="text-[var(--muted)] text-xs leading-relaxed mb-4">{pkg.description.substring(0, 90)}...</p>
                     <div className="mt-auto">
-                      <div className="flex items-end gap-1 mb-4"></div>
                       <div className="flex gap-2">
                         <button onClick={() => openBookingModal(pkg.name)} className="btn-primary flex-1">
                           <i className="fas fa-calendar-check text-xs"></i> Book
@@ -399,36 +451,94 @@ const GolfTravelPackages: React.FC = () => {
         </section>
       </main>
 
-      {/* Booking Modal */}
+      {/* Booking Modal - UPDATED with controlled inputs and real API */}
       <div className={`modal ${isModalOpen ? 'active' : ''}`} onClick={(e) => e.target === e.currentTarget && closeBookingModal()}>
         <div className="modal-content">
           <span className="modal-close" onClick={closeBookingModal}>&times;</span>
           <div className="modal-icon"><i className="fas fa-envelope-open-text"></i></div>
           <h3 className="modal-title">Request a Booking</h3>
           <p className="modal-subtitle">Booking: {bookingPackage}</p>
-          <form onSubmit={sendBookingEmail}>
+          <form onSubmit={handleBookingSubmit}>
             <input type="hidden" name="packageName" value={bookingPackage} />
             <div className="flex flex-wrap gap-4 mb-3">
-              <input type="text" className="modal-input flex-1 min-w-[120px]" placeholder="First Name" required />
-              <input type="text" className="modal-input flex-1 min-w-[120px]" placeholder="Last Name" required />
+              <input
+                type="text"
+                className="modal-input flex-1 min-w-[120px]"
+                placeholder="First Name"
+                required
+                value={bookingFirstName}
+                onChange={(e) => setBookingFirstName(e.target.value)}
+              />
+              <input
+                type="text"
+                className="modal-input flex-1 min-w-[120px]"
+                placeholder="Last Name"
+                required
+                value={bookingLastName}
+                onChange={(e) => setBookingLastName(e.target.value)}
+              />
             </div>
-            <input type="email" className="modal-input mb-3" placeholder="Email Address" required />
-            <input type="tel" className="modal-input mb-3" placeholder="Phone Number (optional)" />
-            <div className="flag-select mb-3">
-              <input type="text" className="modal-input mb-3" placeholder="Enter Nationality" required />
-            </div>
+            <input
+              type="email"
+              className="modal-input mb-3"
+              placeholder="Email Address"
+              required
+              value={bookingEmail}
+              onChange={(e) => setBookingEmail(e.target.value)}
+            />
+            <input
+              type="tel"
+              className="modal-input mb-3"
+              placeholder="Phone Number (optional)"
+              value={bookingPhone}
+              onChange={(e) => setBookingPhone(e.target.value)}
+            />
+            <input
+              type="text"
+              className="modal-input mb-3"
+              placeholder="Enter Nationality"
+              required
+              value={bookingNationality}
+              onChange={(e) => setBookingNationality(e.target.value)}
+            />
             <div className="flex flex-wrap items-center gap-4 mb-3">
               <p className="flex items-center h-10 mb-5">Arrival Date</p>
-              <input type="date" className="modal-input flex-1 min-w-[150px]" min={todayDate} required />
+              <input
+                type="date"
+                className="modal-input flex-1 min-w-[150px]"
+                min={todayDate}
+                required
+                value={bookingArrivalDate}
+                onChange={(e) => setBookingArrivalDate(e.target.value)}
+              />
             </div>
             <div className="mb-3">
-              <div className="flag-select mb-3">
-                <input type="text" className="modal-input mb-3" placeholder="Number of Travellers" required />
-              </div>
+              <input
+                type="number"
+                className="modal-input mb-3"
+                placeholder="Number of Travellers"
+                required
+                value={bookingTravellers}
+                onChange={(e) => setBookingTravellers(e.target.value)}
+              />
             </div>
-            <textarea className="modal-input mb-3" rows={3} placeholder="Additional requests or travel dates..."></textarea>
-            <button type="submit" className="modal-btn">
-              <i className="fas fa-paper-plane"></i> Send Booking Request
+            <textarea
+              className="modal-input mb-3"
+              rows={3}
+              placeholder="Additional requests or travel dates..."
+              value={bookingMessage}
+              onChange={(e) => setBookingMessage(e.target.value)}
+            ></textarea>
+            <button type="submit" className="modal-btn" disabled={isBookingSubmitting}>
+              {isBookingSubmitting ? (
+                <>
+                  <i className="fas fa-spinner fa-spin mr-2"></i> Sending...
+                </>
+              ) : (
+                <>
+                  <i className="fas fa-paper-plane"></i> Send Booking Request
+                </>
+              )}
             </button>
           </form>
         </div>

@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const BookNowPage: React.FC = () => {
   // Form state
@@ -17,17 +17,11 @@ const BookNowPage: React.FC = () => {
     message: '',
   });
 
-  // Set min date for arrival/departure inputs
-  useEffect(() => {
-    const today = new Date().toISOString().split('T')[0];
-    // We'll use state to set min attribute in JSX directly
-    // So just store today's date in a constant for use in render
-    // No need for DOM manipulation
-  }, []);
-
+  // Loading state
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const todayDate = new Date().toISOString().split('T')[0];
 
-  // Handle input changes
+  // Handle input changes (checkbox arrays + text inputs)
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target;
     if (type === 'checkbox') {
@@ -53,14 +47,49 @@ const BookNowPage: React.FC = () => {
     }
   };
 
-  // Form submission handler
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  // Reset form to initial empty state
+  const resetForm = () => {
+    setFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      interests: [],
+      destinations: [],
+      nationality: '',
+      arrivalDate: '',
+      departureDate: '',
+      numberOfTravellers: '',
+      message: '',
+    });
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Here you would typically send data to an API or email service
-    // For now, show an alert with the collected data
-    alert(`Booking request sent!\n\nWe'll get back to you within 24 hours.\n\nDetails:\nName: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nInterests: ${formData.interests.join(', ')}\nDestinations: ${formData.destinations.join(', ')}\nNationality: ${formData.nationality}\nArrival: ${formData.arrivalDate}\nDeparture: ${formData.departureDate}\nTravellers: ${formData.numberOfTravellers}\nMessage: ${formData.message}`);
-    // Reset form if desired
-    // setFormData(initialState);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/book_now", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send booking request");
+      }
+
+      alert("Booking request sent! We'll get back to you within 24 hours.");
+      resetForm(); // ✅ Clear all fields after successful submission
+    } catch (error) {
+      console.error("Book now error:", error);
+      alert(error instanceof Error ? error.message : "Failed to send request. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -121,27 +150,13 @@ const BookNowPage: React.FC = () => {
         }
 
         .fleur-de-leah-regular {
-          font-family: "Fleur De Leah", cursive;
-          font-weight: 400;
-          font-style: italic;
-        }
-
-        .fleur-de-leah-regular {
-          /* font-family: "Fleur De Leah", cursive; */
           font-family: "Pinyon Script", cursive;
           font-weight: 400;
           letter-spacing: 2px;
-          /* font-style: italic; */
         }
       `}</style>
 
       <main className="flex-1 max-w-4xl mx-auto px-4 py-8 w-full bg-[#f0f7f0]">
-        {/* Back Button (commented out as per original) */}
-        {/* <a href="javascript:history.back()"
-          className="inline-flex items-center text-[#2E7D32] hover:text-[#ED6A02] transition mb-4">
-          <i className="fas fa-arrow-left mr-2"></i> Back
-        </a> */}
-
         {/* Page Title */}
         <h1 className="text-3xl md:text-4xl font-bold text-[#2E7D32] mb-6 text-center">Book Your Dream Trip</h1>
 
@@ -230,7 +245,7 @@ const BookNowPage: React.FC = () => {
               {/* Name Fields */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-extrabold  mb-1">First Name <span className='text-red-700'>*</span></label>
+                  <label className="block text-sm font-extrabold mb-1">First Name <span className='text-red-700'>*</span></label>
                   <input
                     type="text"
                     name="firstName"
@@ -241,7 +256,7 @@ const BookNowPage: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-extrabold  mb-1">Last Name <span className='text-red-700'>*</span></label>
+                  <label className="block text-sm font-extrabold mb-1">Last Name <span className='text-red-700'>*</span></label>
                   <input
                     type="text"
                     name="lastName"
@@ -255,7 +270,7 @@ const BookNowPage: React.FC = () => {
 
               {/* Email */}
               <div>
-                <label className="block text-sm font-extrabold  mb-1">Email Address <span className='text-red-700'>*</span></label>
+                <label className="block text-sm font-extrabold mb-1">Email Address <span className='text-red-700'>*</span></label>
                 <input
                   type="email"
                   name="email"
@@ -280,7 +295,7 @@ const BookNowPage: React.FC = () => {
 
               {/* Interests (Travel/Golf) */}
               <div>
-                <label className="block text-sm font-extrabold  mb-2">Interested In Laos <span className='text-red-700'>*</span></label>
+                <label className="block text-sm font-extrabold mb-2">Interested In Laos <span className='text-red-700'>*</span></label>
                 <div className="flex flex-row grid grid-cols-2 gap-4">
                   <label className="inline-flex items-center gap-2">
                     <input
@@ -309,7 +324,7 @@ const BookNowPage: React.FC = () => {
 
               {/* Destinations */}
               <div>
-                <label className="block text-sm font-extrabold  mb-2">Interested Destinations <span className='text-red-700'>*</span></label>
+                <label className="block text-sm font-extrabold mb-2">Interested Destinations <span className='text-red-700'>*</span></label>
                 <div className="grid grid-cols-2 gap-4">
                   {[
                     'Luang Prabang', 'Vang Vieng', 'Kuang Si Falls', 'Plain of Jars',
@@ -333,7 +348,7 @@ const BookNowPage: React.FC = () => {
 
               {/* Nationality */}
               <div>
-                <label className="block text-sm font-extrabold  mb-1">Nationality <span className='text-red-700'>*</span></label>
+                <label className="block text-sm font-extrabold mb-1">Nationality <span className='text-red-700'>*</span></label>
                 <input
                   type="text"
                   name="nationality"
@@ -400,9 +415,18 @@ const BookNowPage: React.FC = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-[#ED6A02] text-white py-3 rounded-lg font-bold hover:bg-[#2E7D32] transition flex items-center justify-center gap-2 text-lg"
+                disabled={isSubmitting}
+                className="w-full bg-[#ED6A02] text-white py-3 rounded-lg font-bold hover:bg-[#2E7D32] transition flex items-center justify-center gap-2 text-lg disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                <i className="fas fa-paper-plane"></i> Send Message
+                {isSubmitting ? (
+                  <>
+                    <i className="fas fa-spinner fa-spin"></i> Sending...
+                  </>
+                ) : (
+                  <>
+                    <i className="fas fa-paper-plane"></i> Send Message
+                  </>
+                )}
               </button>
             </form>
           </div>

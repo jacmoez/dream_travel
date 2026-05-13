@@ -1,76 +1,105 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const ContactUs: React.FC = () => {
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalPackageName, setModalPackageName] = useState('Fill in your details and we\'ll contact you');
-  
+  const [modalPackageName, setModalPackageName] = useState(
+    "Fill in your details and we'll contact you"
+  );
+
   // Booking form state (nationality removed)
-  const [userName, setUserName] = useState('');
-  const [userLastName, setUserLastName] = useState('');
-  const [userEmail, setUserEmail] = useState('');
-  const [userPhone, setUserPhone] = useState('');
-  const [userMessage, setUserMessage] = useState('');
+  const [userName, setUserName] = useState("");
+  const [userLastName, setUserLastName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [userPhone, setUserPhone] = useState("");
+  const [userMessage, setUserMessage] = useState("");
 
   // Contact form state
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [message, setMessage] = useState('');
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+
+  // Loading state for contact form submission
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Modal handlers
   const openBookingModal = (packageName?: string) => {
     if (packageName) {
       setModalPackageName(`Request booking for: ${packageName}`);
     } else {
-      setModalPackageName('Fill in your details and we\'ll contact you');
+      setModalPackageName("Fill in your details and we'll contact you");
     }
     setIsModalOpen(true);
   };
 
   const closeBookingModal = () => {
     setIsModalOpen(false);
-    // Reset form fields
-    setUserName('');
-    setUserLastName('');
-    setUserEmail('');
-    setUserPhone('');
-    setUserMessage('');
+    setUserName("");
+    setUserLastName("");
+    setUserEmail("");
+    setUserPhone("");
+    setUserMessage("");
   };
 
   const handleBookingSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send data to your backend
-    console.log('Booking Request:', {
+    console.log("Booking Request:", {
       name: userName,
       lastName: userLastName,
       email: userEmail,
       phone: userPhone,
       message: userMessage,
     });
-    alert('Booking request sent! We will contact you within 24 hours.');
+    alert("Booking request sent! We will contact you within 24 hours.");
     closeBookingModal();
   };
 
-  const handleContactSubmit = (e: React.FormEvent) => {
+  // UPDATED: Async submit handler with API call
+  const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send data to your backend
-    console.log('Contact Message:', {
-      firstName,
-      lastName,
-      email,
-      phone,
-      message,
-    });
-    alert('Message sent successfully! We will get back to you soon.');
-    // Reset form
-    setFirstName('');
-    setLastName('');
-    setEmail('');
-    setPhone('');
-    setMessage('');
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          phone,
+          message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      alert("Message sent successfully! We will get back to you soon.");
+      // Reset form on success
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPhone("");
+      setMessage("");
+    } catch (error) {
+      console.error("Contact form error:", error);
+      alert(
+        error instanceof Error
+          ? error.message
+          : "Failed to send message. Please try again later."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -253,27 +282,18 @@ const ContactUs: React.FC = () => {
         }
       `}</style>
 
-      <main className="flex-1 flex flex-col items-center  p-4 sm:p-6 bg-[#f0f7f0] min-h-screen">
+      <main className="flex-1 flex flex-col items-center p-4 sm:p-6 bg-[#f0f7f0] min-h-screen">
         <div className="w-full max-w-6xl mx-auto">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-center text-[#2E7D32] mb-6 sm:mb-8 mt-4 sm:mt-5 tracking-tight">
             Contact Us
           </h1>
-          
-          {/* Book Now Button (optional, currently commented) */}
-          {/* <div className="flex justify-end mb-4">
-            <button
-              onClick={() => openBookingModal()}
-              className="bg-[#ED6A02] text-white px-6 py-2 rounded-full font-semibold shadow-lg hover:bg-[#2E7D32] transition duration-300 transform hover:scale-105 flex items-center gap-2"
-            >
-              <i className="fas fa-calendar-alt"></i> Book Your Trip
-            </button>
-          </div> */}
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             {/* LEFT COLUMN: Contact Info */}
             <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 border border-[#2E7D32]/20 contact-card">
               <h2 className="text-xl sm:text-2xl font-semibold text-[#2E7D32] mb-4 sm:mb-6 flex items-center">
-                <i className="fas fa-circle-info text-[#ED6A02] mr-2 sm:mr-3"></i> Contact Information
+                <i className="fas fa-circle-info text-[#ED6A02] mr-2 sm:mr-3"></i>{" "}
+                Contact Information
               </h2>
               {/* Phone */}
               <div className="flex items-start mb-4 sm:mb-6 group hover:bg-[#f0f7f0] p-2 sm:p-3 rounded-xl transition">
@@ -282,7 +302,9 @@ const ContactUs: React.FC = () => {
                 </div>
                 <div className="contact-text">
                   <p className="text-xs sm:text-sm text-gray-500">Phone</p>
-                  <p className="text-base sm:text-lg font-semibold text-gray-800 contact-text-lg">+856 205 825 0515</p>
+                  <p className="text-base sm:text-lg font-semibold text-gray-800 contact-text-lg">
+                    +856 205 825 0515
+                  </p>
                 </div>
               </div>
               {/* Email */}
@@ -290,7 +312,7 @@ const ContactUs: React.FC = () => {
                 <div className="bg-[#2E7D32]/10 p-2 sm:p-3 rounded-full mr-3 sm:mr-4 group-hover:bg-[#ED6A02]/10 contact-icon">
                   <i className="fas fa-envelope text-xl sm:text-2xl text-[#2E7D32] group-hover:text-[#ED6A02]"></i>
                 </div>
-                <div className="contact-text" style={{ wordBreak: 'break-word' }}>
+                <div className="contact-text" style={{ wordBreak: "break-word" }}>
                   <p className="text-xs sm:text-sm text-gray-500">Email</p>
                   <p className="text-sm sm:text-lg font-semibold text-gray-800 contact-text-lg">
                     dreamdestination.vtelaos@gmail.com
@@ -304,49 +326,79 @@ const ContactUs: React.FC = () => {
                 </div>
                 <div className="contact-text">
                   <p className="text-xs sm:text-sm text-gray-500">Head Office</p>
-                  <p className="text-base sm:text-lg font-semibold text-gray-800 contact-text-lg">123 Main Street, Yangon</p>
+                  <p className="text-base sm:text-lg font-semibold text-gray-800 contact-text-lg">
+                    123 Main Street, Yangon
+                  </p>
                   <p className="text-xs sm:text-sm text-gray-500">Laos</p>
                 </div>
               </div>
               {/* Social Media Links */}
               <h3 className="text-lg sm:text-xl font-semibold text-[#2E7D32] mb-3 sm:mb-4 flex items-center">
-                <i className="fas fa-share-alt text-[#ED6A02] mr-2"></i> Follow Us
+                <i className="fas fa-share-alt text-[#ED6A02] mr-2"></i> Follow
+                Us
               </h3>
               <div className="flex flex-wrap gap-3 sm:gap-4">
-                <a href="https://wa.me/8562012345678" target="_blank" rel="noopener noreferrer"
-                  className="bg-white rounded-full p-2 sm:p-3 shadow-md hover:shadow-lg transition-shadow hover:scale-110 transform duration-200 border-2 border-[#2E7D32] flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12">
-                  <i className="fab fa-whatsapp text-xl sm:text-2xl" style={{ color: '#2E7D32' }}></i>
+                <a
+                  href="https://wa.me/8562012345678"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white rounded-full p-2 sm:p-3 shadow-md hover:shadow-lg transition-shadow hover:scale-110 transform duration-200 border-2 border-[#2E7D32] flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12"
+                >
+                  <i
+                    className="fab fa-whatsapp text-xl sm:text-2xl"
+                    style={{ color: "#2E7D32" }}
+                  ></i>
                 </a>
-                <a href="https://facebook.com/dreamdestination" target="_blank" rel="noopener noreferrer"
-                  className="bg-[#1877F2] rounded-full p-2 sm:p-3 shadow-md hover:shadow-lg transition-shadow hover:scale-110 transform duration-200 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12">
+                <a
+                  href="https://facebook.com/dreamdestination"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#1877F2] rounded-full p-2 sm:p-3 shadow-md hover:shadow-lg transition-shadow hover:scale-110 transform duration-200 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12"
+                >
                   <i className="fab fa-facebook-f text-xl sm:text-2xl text-white"></i>
                 </a>
-                <a href="https://instagram.com/dreamdestination" target="_blank" rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-[#833AB4] via-[#E4405F] to-[#FCAF45] rounded-full p-2 sm:p-3 shadow-md hover:shadow-lg transition-shadow hover:scale-110 transform duration-200 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12">
+                <a
+                  href="https://instagram.com/dreamdestination"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gradient-to-r from-[#833AB4] via-[#E4405F] to-[#FCAF45] rounded-full p-2 sm:p-3 shadow-md hover:shadow-lg transition-shadow hover:scale-110 transform duration-200 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12"
+                >
                   <i className="fab fa-instagram text-xl sm:text-2xl text-white"></i>
                 </a>
-                <a href="https://tiktok.com/@dreamdestination" target="_blank" rel="noopener noreferrer"
-                  className="bg-black rounded-full p-2 sm:p-3 shadow-md hover:shadow-lg transition-shadow hover:scale-110 transform duration-200 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12">
+                <a
+                  href="https://tiktok.com/@dreamdestination"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-black rounded-full p-2 sm:p-3 shadow-md hover:shadow-lg transition-shadow hover:scale-110 transform duration-200 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12"
+                >
                   <i className="fab fa-tiktok text-xl sm:text-2xl text-white"></i>
                 </a>
-                <a href="https://linkedin.com/company/dreamdestination" target="_blank" rel="noopener noreferrer"
-                  className="bg-[#0A66C2] rounded-full p-2 sm:p-3 shadow-md hover:shadow-lg transition-shadow hover:scale-110 transform duration-200 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12">
+                <a
+                  href="https://linkedin.com/company/dreamdestination"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#0A66C2] rounded-full p-2 sm:p-3 shadow-md hover:shadow-lg transition-shadow hover:scale-110 transform duration-200 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12"
+                >
                   <i className="fab fa-linkedin-in text-xl sm:text-2xl text-white"></i>
                 </a>
               </div>
-              <p className="text-xs sm:text-sm text-gray-500 mt-4 sm:mt-6 italic">We typically respond within 24 hours on business days.</p>
+              <p className="text-xs sm:text-sm text-gray-500 mt-4 sm:mt-6 italic">
+                We typically respond within 24 hours on business days.
+              </p>
             </div>
 
             {/* RIGHT COLUMN: Send Email Form */}
             <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 border border-[#2E7D32]/20 contact-card">
               <h2 className="text-xl sm:text-2xl font-semibold text-[#2E7D32] mb-4 sm:mb-6 flex items-center">
-                <i className="fas fa-paper-plane text-[#ED6A02] mr-2 sm:mr-3"></i> Send us a message
+                <i className="fas fa-paper-plane text-[#ED6A02] mr-2 sm:mr-3"></i>{" "}
+                Send us a message
               </h2>
               <form onSubmit={handleContactSubmit} className="space-y-4 sm:space-y-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* First Name */}
                   <div>
-                    <label className="block text-sm font-extrabold  mb-1">First Name <span className='text-red-700'>*</span></label>
+                    <label className="block text-sm font-extrabold mb-1">
+                      First Name <span className="text-red-700">*</span>
+                    </label>
                     <input
                       type="text"
                       value={firstName}
@@ -355,9 +407,10 @@ const ContactUs: React.FC = () => {
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2E7D32] focus:ring-1 focus:ring-[#2E7D32] outline-none transition"
                     />
                   </div>
-                  {/* Last Name */}
                   <div>
-                    <label className="block text-sm font-extrabold  mb-1">Last Name <span className='text-red-700'>*</span></label>
+                    <label className="block text-sm font-extrabold mb-1">
+                      Last Name <span className="text-red-700">*</span>
+                    </label>
                     <input
                       type="text"
                       value={lastName}
@@ -368,10 +421,11 @@ const ContactUs: React.FC = () => {
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-xs sm:text-sm font-extrabold  mb-1">Email Address <span className='text-red-700'>*</span></label>
+                  <label className="block text-xs sm:text-sm font-extrabold mb-1">
+                    Email Address <span className="text-red-700">*</span>
+                  </label>
                   <input
                     type="email"
-                    id="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -379,19 +433,21 @@ const ContactUs: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block text-xs sm:text-sm font-extrabold text-gray-700 mb-1">Phone Number (optional)</label>
+                  <label className="block text-xs sm:text-sm font-extrabold text-gray-700 mb-1">
+                    Phone Number (optional)
+                  </label>
                   <input
                     type="tel"
-                    id="phone"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     className="form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2E7D32] focus:border-transparent outline-none transition"
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-xs sm:text-sm font-extrabold  mb-1">Message <span className='text-red-700'>*</span></label>
+                  <label className="block text-xs sm:text-sm font-extrabold mb-1">
+                    Message <span className="text-red-700">*</span>
+                  </label>
                   <textarea
-                    id="message"
                     rows={4}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
@@ -402,72 +458,30 @@ const ContactUs: React.FC = () => {
                 <div>
                   <button
                     type="submit"
-                    className="w-full bg-[#2E7D32] text-white font-semibold py-2 sm:py-3 px-4 sm:px-6 text-sm sm:text-base rounded-lg hover:bg-[#ED6A02] transition duration-300 shadow-md hover:shadow-xl transform hover:-translate-y-1"
+                    disabled={isSubmitting}
+                    className="w-full bg-[#2E7D32] text-white font-semibold py-2 sm:py-3 px-4 sm:px-6 text-sm sm:text-base rounded-lg hover:bg-[#ED6A02] transition duration-300 shadow-md hover:shadow-xl transform hover:-translate-y-1 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    <i className="fas fa-paper-plane mr-2"></i> Send Message
+                    {isSubmitting ? (
+                      <>
+                        <i className="fas fa-spinner fa-spin mr-2"></i> Sending...
+                      </>
+                    ) : (
+                      <>
+                        <i className="fas fa-paper-plane mr-2"></i> Send Message
+                      </>
+                    )}
                   </button>
                 </div>
-                <p className="text-xs text-gray-400 text-center mt-3 sm:mt-4">We'll never share your information. By submitting, you agree to our privacy policy.</p>
+                <p className="text-xs text-gray-400 text-center mt-3 sm:mt-4">
+                  We'll never share your information. By submitting, you agree
+                  to our privacy policy.
+                </p>
               </form>
             </div>
           </div>
         </div>
       </main>
-
-      {/* Booking Modal (nationality removed) */}
-      <div className={`modal ${isModalOpen ? 'active' : ''}`}>
-        <div className="modal-content">
-          <span className="modal-close" onClick={closeBookingModal}>&times;</span>
-          <div className="modal-icon"><i className="fas fa-envelope-open-text"></i></div>
-          <h3 className="modal-title">Request a Booking</h3>
-          <p className="modal-subtitle">{modalPackageName}</p>
-          <form onSubmit={handleBookingSubmit}>
-            <input type="hidden" name="packageName" />
-
-            <input
-              type="text"
-              className="modal-input"
-              placeholder="First Name"
-              value={userName}
-              onChange={(e) => setUserName(e.target.value)}
-              required
-            />
-            <input
-              type="text"
-              className="modal-input"
-              placeholder="Last Name"
-              value={userLastName}
-              onChange={(e) => setUserLastName(e.target.value)}
-              required
-            />
-
-            <input
-              type="email"
-              className="modal-input"
-              placeholder="Email Address"
-              value={userEmail}
-              onChange={(e) => setUserEmail(e.target.value)}
-              required
-            />
-            <input
-              type="tel"
-              className="modal-input"
-              placeholder="Phone Number (optional)"
-              value={userPhone}
-              onChange={(e) => setUserPhone(e.target.value)}
-            />
-
-            <textarea
-              className="modal-input"
-              rows={3}
-              placeholder="Additional requests or travel dates..."
-              value={userMessage}
-              onChange={(e) => setUserMessage(e.target.value)}
-            ></textarea>
-            <button type="submit" className="modal-btn"><i className="fas fa-paper-plane"></i> Send Booking Request</button>
-          </form>
-        </div>
-      </div>
+      
     </>
   );
 };
