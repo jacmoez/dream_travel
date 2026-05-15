@@ -44,10 +44,10 @@ const HomePage: React.FC = () => {
       description: "A scenic riverside course surrounded by mountains, offering a relaxing yet challenging golf experience.",
       mapLink: "https://maps.google.com/?q=Luang+Prabang+Golf+Club",
       images: [
-        "https://images.unsplash.com/photo-1592919505780-303950717480",
-        "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa",
-        "https://images.unsplash.com/photo-1505842465776-3d90f616310f",
-        "https://images.unsplash.com/photo-1560272564-c83b66b1ad12"
+        "https://i.imgur.com/8GLWfNM.jpeg",
+        "https://i.imgur.com/gWt7Rav.jpeg",
+        "https://i.imgur.com/pv1D9kn.jpeg",
+        "https://i.imgur.com/e245TCA.jpeg"
       ]
     },
     {
@@ -58,10 +58,10 @@ const HomePage: React.FC = () => {
       description: "One of the best maintained golf courses in Laos, featuring wide fairways and modern facilities.",
       mapLink: "https://maps.google.com/?q=Long+Vien+Golf+Club",
       images: [
-        "https://images.unsplash.com/photo-1551524164-6cf2ac3fcb5b",
-        "https://images.unsplash.com/photo-1521412644187-c49fa049e84d",
-        "https://images.unsplash.com/photo-1599058917765-a780eda07a3e",
-        "https://images.unsplash.com/photo-1603570419884-1b2c6d9c4c52"
+        "https://i.imgur.com/JVPhgWk.jpeg",
+        "https://i.imgur.com/x3Hi1cE.jpeg",
+        "https://i.imgur.com/JUkGbSX.jpeg",
+        "https://i.imgur.com/nPMJGmc.jpeg"
       ]
     },
     {
@@ -72,10 +72,10 @@ const HomePage: React.FC = () => {
       description: "Built for international tournaments, this course offers a challenging layout with wide greens.",
       mapLink: "https://maps.google.com/?q=SEA+Games+Golf+Club+Laos",
       images: [
-        "https://images.unsplash.com/photo-1517649763962-0c623066013b",
-        "https://images.unsplash.com/photo-1570111838200-3a3f1e8f9c89",
-        "https://images.unsplash.com/photo-1603570419884-1b2c6d9c4c52",
-        "https://images.unsplash.com/photo-1505842465776-3d90f616310f"
+        "https://i.imgur.com/ZgpyWr7.jpeg",
+        "https://i.imgur.com/jpYEbS8.jpeg",
+        "https://i.imgur.com/SrPmRtD.jpeg",
+        "https://i.imgur.com/XU1zWaH.jpeg"
       ]
     },
     {
@@ -86,10 +86,10 @@ const HomePage: React.FC = () => {
       description: "Located near the Laos–Thailand border, this course offers a peaceful environment with beautiful views.",
       mapLink: "https://maps.google.com/?q=Dansavanh+Golf+Club",
       images: [
-        "https://images.unsplash.com/photo-1592919505780-303950717480",
-        "https://images.unsplash.com/photo-1560272564-c83b66b1ad12",
-        "https://images.unsplash.com/photo-1521412644187-c49fa049e84d",
-        "https://images.unsplash.com/photo-1551524164-6cf2ac3fcb5b"
+        "https://i.imgur.com/XZvE8bz.jpeg",
+        "https://i.imgur.com/yKLbHjP.jpeg",
+        "https://i.imgur.com/aRon90B.jpeg",
+        "https://i.imgur.com/LAjkAx8.jpeg"
       ]
     },
     {
@@ -100,10 +100,10 @@ const HomePage: React.FC = () => {
       description: "One of the oldest golf courses in Laos, popular with both locals and tourists.",
       mapLink: "https://maps.google.com/?q=Lao+Country+Club",
       images: [
-        "https://images.unsplash.com/photo-1599058917765-a780eda07a3e",
-        "https://images.unsplash.com/photo-1505842465776-3d90f616310f",
-        "https://images.unsplash.com/photo-1570111838200-3a3f1e8f9c89",
-        "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa"
+        "https://i.imgur.com/ROl7cXI.jpeg",
+        "https://i.imgur.com/BBj46pw.jpeg",
+        "https://i.imgur.com/JXBibsR.jpeg",
+        "https://i.imgur.com/tUDZpHK.jpeg"
       ]
     },
     {
@@ -114,28 +114,28 @@ const HomePage: React.FC = () => {
       description: "A modern course with water hazards and scenic lake views, great for experienced players.",
       mapLink: "https://maps.google.com/?q=Lakeview+Vientiane+Golf+Club",
       images: [
-        "https://images.unsplash.com/photo-1603570419884-1b2c6d9c4c52",
-        "https://images.unsplash.com/photo-1551524164-6cf2ac3fcb5b",
-        "https://images.unsplash.com/photo-1521412644187-c49fa049e84d",
-        "https://images.unsplash.com/photo-1560272564-c83b66b1ad12"
+        "https://i.imgur.com/DvCUwm4.jpeg",
+        "https://i.imgur.com/HSCY4hR.jpeg",
+        "hhttps://i.imgur.com/Y7b37MJ.jpeg",
+        "https://i.imgur.com/7s5pMGL.jpeg"
       ]
     }
   ];
 
   // --- Travel Packages Data ---
   const travelPackages = [
-    { title: "3 DAYS 2 NIGHTS VIENTIANE - LUANGPRABANG", duration: "3 DAYS 2 NIGHTS", img: "https://a.cdn-hotels.com/gdcs/production107/d1830/2877c6eb-c1c6-43d0-a4dd-3dd31dab1c76.jpg" },
-    { title: "4 DAYS 3 NIGHTS VIENTIANE – LUANG PRABANG", duration: "4 DAYS 3 NIGHTS", img: "https://a.cdn-hotels.com/gdcs/production61/d1069/7edaacd7-d458-4b7e-9089-bff46a813fcd.jpg?impolicy=fcrop&w=1600&h=1066&q=medium" },
-    { title: "2 DAYS 1 NIGHT VTE - VV", duration: "2 DAYS 1 NIGHT", img: "https://media.nomadicmatt.com/2022/vangvieng1.jpeg" },
-    { title: "4 DAYS 3 NIGHTS LPQ-VV-VTE", duration: "4 DAYS 3", img: "https://media.worldnomads.com/explore/laos/5-things-laos-social.jpg" },
-    { title: "2 DAYS 1 NIGHT VTE - MF - VTE", duration: "2 DAYS 1 NIGHT", img: "https://www.golaos.tours/wp-content/uploads/2025/07/Laos-Travel-Budget-guide.jpg" },
-    { title: "5 DAYS 4 NIGHTS HUX-PK-LPQ", duration: "5 DAYS 4 NIGHTS", img: "https://s27363.pcdn.co/wp-content/uploads/2024/11/Laos-Header-Image.jpg.webp" },
-    { title: "VTE-VV-LPQ (3D2N)", duration: "3 DAYS 2 NIGHTS", img: "https://southeastasiabackpacker.com/wp-content/uploads/2025/01/Gibbon-Experience-edited-1200x800.jpg" },
-    { title: "3 DAYS 2 NIGHTS LUANGPRABANG HERITAGE ESCAPE", duration: "3 DAYS 2 NIGHTS", img: "https://s27363.pcdn.co/wp-content/uploads/2024/11/Laos-Header-Image.jpg.webp" },
-    { title: "VANG VIENG ADVENTURE DAY TRIP – FULL DAY", duration: "FULL DAY", img: "https://golaos.com/wp-content/uploads/2020/02/Huay-Xai-1-1.jpg" },
-    { title: "VIENTIANE CAPITAL DISCOVERY – FULL DAY", duration: "FULL DAY", img: "https://static2.tripoto.com/media/filter/tst/img/583082/TripDocument/1575279829_img_20191114_wa0012.jpg" },
-    { title: "LUANG PRABANG & VANG VIENG EXPLORER – 4 DAYS / 3 NIGHTS", duration: "4 DAYS 3 NIGHTS", img: "https://ilsvoyagent.fr/wp-content/uploads/2020/05/Fronti%C3%A8re-1024x576.jpg" },
-    { title: "SOUTHERN LAOS & 4,000 ISLANDS ESCAPE – 4 DAYS / 3 NIGHTS", duration: "4 DAYS 3 NIGHTS", img: "https://southeastasiabackpacker.com/wp-content/uploads/2025/01/Gibbon-Experience-edited-1200x800.jpg" },
+    { title: "3 DAYS 2 NIGHTS VIENTIANE - LUANGPRABANG", duration: "3 DAYS 2 NIGHTS", img: "https://i.imgur.com/4QhvN7F.jpeg" },
+    { title: "4 DAYS 3 NIGHTS VIENTIANE – LUANG PRABANG", duration: "4 DAYS 3 NIGHTS", img: "https://i.imgur.com/TX7Xt7r.jpeg" },
+    { title: "2 DAYS 1 NIGHT VTE - VV", duration: "2 DAYS 1 NIGHT", img: "https://i.imgur.com/J4OGK1a.jpeg" },
+    { title: "4 DAYS 3 NIGHTS LPQ-VV-VTE", duration: "4 DAYS 3", img: "https://i.imgur.com/4HTtNcg.jpeg" },
+    { title: "2 DAYS 1 NIGHT VTE - MF - VTE", duration: "2 DAYS 1 NIGHT", img: "https://i.imgur.com/SJlpWSx.jpeg" },
+    { title: "5 DAYS 4 NIGHTS HUX-PK-LPQ", duration: "5 DAYS 4 NIGHTS", img: "https://i.imgur.com/V8TST5G.jpeg" },
+    { title: "VTE-VV-LPQ (3D2N)", duration: "3 DAYS 2 NIGHTS", img: "https://i.imgur.com/UZI13Qj.jpeg" },
+    { title: "3 DAYS 2 NIGHTS LUANGPRABANG HERITAGE ESCAPE", duration: "3 DAYS 2 NIGHTS", img: "https://i.imgur.com/pd2ByH1.jpeg" },
+    { title: "VANG VIENG ADVENTURE DAY TRIP – FULL DAY", duration: "FULL DAY", img: "https://i.imgur.com/4AvfdfO.jpeg" },
+    { title: "VIENTIANE CAPITAL DISCOVERY – FULL DAY", duration: "FULL DAY", img: "https://i.imgur.com/B6vdCe4.jpeg" },
+    { title: "LUANG PRABANG & VANG VIENG EXPLORER – 4 DAYS / 3 NIGHTS", duration: "4 DAYS 3 NIGHTS", img: "https://i.imgur.com/sG5jnE9.jpeg" },
+    { title: "SOUTHERN LAOS & 4,000 ISLANDS ESCAPE – 4 DAYS / 3 NIGHTS", duration: "4 DAYS 3 NIGHTS", img: "https://i.imgur.com/GwVFh0V.jpeg" },
   ];
 
   const travelPackageIdMap: Record<string, string> = {
@@ -185,42 +185,42 @@ const HomePage: React.FC = () => {
     {
       name: "4D3N Golf Package – LCC & Lake View",
       slug: "four_days_three_nights_lcc_and_lake_view",
-      image: "https://golfdigest.sports.sndimg.com/content/dam/images/golfdigest/fullset/2018/06/06/5b172fb47abc957b64518a7b_GettyImages-942686126.jpg",
+      image: "https://i.imgur.com/HSCY4hR.jpeg",
       duration: "4 Days / 3 Nights",
       description: "2 rounds at Long Vien & Lakeview courses. Includes luxury hotel, transfers, and temple tour."
     },
     {
       name: "5D4N Golf Package – LCC, Lake View & SEA Games Course",
       slug: "fight_days_four_lcc_and_lake_view_and_sea_game",
-      image: "https://media.npr.org/assets/img/2023/03/01/gettyimages-1410422468_wide-f64095a661d8b05ad0433ef9da08b1f83dd23d24.jpg",
+      image: "https://i.imgur.com/Y7b37MJ.jpeg",
       duration: "5 Days / 4 Nights",
       description: "1 round at Luang Prabang Golf Club + UNESCO city tour & Kuang Si Falls. Riverside hotel."
     },
     {
       name: "5D4N Golf Package – LCC, Lake View & Dansavanh",
       slug: "fight_days_four_nights_lcc_and_lake_view_and_dansavanh",
-      image: "https://www.pgaresort.com/images/content/homepageclubslidersmallimg/palm-harbor---innisbrook-resort---golf---2024-folklore-films-_12-1-.jpg",
+      image: "https://i.imgur.com/7s5pMGL.jpeg",
       duration: "5 Days / 4 Nights",
       description: "3 rounds at Vang Vieng Golf Resort + hot air balloon, kayaking, and cave exploration."
     },
     {
       name: "5D4N Golf Package – LCC, Lake View & Vang Vieng",
       slug: "fight_days_four_nights_lcc_and_lake_view_and_vang_vieng",
-      image: "https://media.npr.org/assets/img/2023/03/01/gettyimages-1410422468_wide-f64095a661d8b05ad0433ef9da08b1f83dd23d24.jpg",
+      image: "https://i.imgur.com/nvwDjla.jpeg",
       duration: "5 Days / 4 Nights",
       description: "4 rounds + Vat Phou temple tour, Bolaven Plateau coffee visit. Luxury Mekong resort."
     },
     {
       name: "4D3N Golf Package – Luang Prabang (LPQ)",
       slug: "four_days_three_nights_laung_prabang",
-      image: "https://golfdigest.sports.sndimg.com/content/dam/images/golfdigest/fullset/2018/06/06/5b172fb47abc957b64518a7b_GettyImages-942686126.jpg",
+      image: "https://i.imgur.com/qK8XEKt.jpeg",
       duration: "4 Days / 3 Nights",
       description: "2 rounds at Long Vien & Lakeview courses. Includes luxury hotel, transfers, and temple tour."
     },
     {
       name: "Vientiane Golf & Leisure Escape – 7 Days / 6 Nights",
       slug: "seven_days_six_nights_laung_prabang_vientiane_leisure_escape",
-      image: "https://golfdigest.sports.sndimg.com/content/dam/images/golfdigest/fullset/2018/06/06/5b172fb47abc957b64518a7b_GettyImages-942686126.jpg",
+      image: "https://i.imgur.com/4tIIfCr.jpeg",
       duration: "4 Days / 3 Nights",
       description: "2 rounds at Long Vien & Lakeview courses. Includes luxury hotel, transfers, and temple tour."
     }

@@ -7,66 +7,32 @@ type GalleryItem = {
   image: string;
 };
 
-// Mix of Laos city & golf images
+// Mix of Laos city & golf images (unchanged)
 const galleryItems: GalleryItem[] = [
-  // Golf images
-  {
-    image: "https://i.imgur.com/slvDFMu.jpeg",
-  },
-  {
-    image:'https://i.imgur.com/FNM2BjK.jpeg'
-  },
-  {
-    image:'https://i.imgur.com/9rE4DTD.jpeg'
-  },
-  {
-    image:'https://i.imgur.com/HqX4UWX.jpeg'
-  },
-  {
-    image:'https://i.imgur.com/UZI13Qj.jpeg'
-  },
-  {
-    image: "https://i.imgur.com/sl2GMR9.jpeg",
-  },
-  {
-    image: "https://i.imgur.com/GYBpuLK.jpeg",
-  },
-  {
-    image: "https://i.imgur.com/i5mLMaT.jpeg",
-  },
-  // Laos city / cultural images
-  {
-    image: "https://i.imgur.com/agPehZc.jpeg",
-  },
-  {
-    image: "https://i.imgur.com/b0jCu0S.jpeg",
-  },
-  {
-    image: "https://i.imgur.com/CcqbEqO.jpeg",
-  },
-  {
-    image: "https://i.imgur.com/dkoiZnj.jpeg",
-  },
-  {
-    image: "https://i.imgur.com/D5oLKnh.jpeg",
-  },
-  {
-    image: "https://i.imgur.com/mzxOH7o.jpeg",
-  },
-  {
-    image: "https://i.imgur.com/Y7b37MJ.jpeg",
-  },
-  {
-    image: "https://i.imgur.com/qK8XEKt.jpeg",
-  },
-  {
-    image: "https://i.imgur.com/7s5pMGL.jpeg",
-  },
+  { image: "https://i.imgur.com/slvDFMu.jpeg" },
+  { image: "https://i.imgur.com/FNM2BjK.jpeg" },
+  { image: "https://i.imgur.com/9rE4DTD.jpeg" },
+  { image: "https://i.imgur.com/HqX4UWX.jpeg" },
+  { image: "https://i.imgur.com/UZI13Qj.jpeg" },
+  { image: "https://i.imgur.com/sl2GMR9.jpeg" },
+  { image: "https://i.imgur.com/GYBpuLK.jpeg" },
+  { image: "https://i.imgur.com/i5mLMaT.jpeg" },
+  { image: "https://i.imgur.com/agPehZc.jpeg" },
+  { image: "https://i.imgur.com/b0jCu0S.jpeg" },
+  { image: "https://i.imgur.com/CcqbEqO.jpeg" },
+  { image: "https://i.imgur.com/dkoiZnj.jpeg" },
+  { image: "https://i.imgur.com/D5oLKnh.jpeg" },
+  { image: "https://i.imgur.com/mzxOH7o.jpeg" },
+  { image: "https://i.imgur.com/Y7b37MJ.jpeg" },
+  { image: "https://i.imgur.com/qK8XEKt.jpeg" },
+  { image: "https://i.imgur.com/7s5pMGL.jpeg" },
 ];
 
 export default function GallerySliderRow() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const nextSlide = () => {
     if (!trackRef.current) return;
@@ -124,8 +90,26 @@ export default function GallerySliderRow() {
     return () => container.removeEventListener("scroll", handleScroll);
   }, [currentIndex]);
 
+  // --- AUTO-PLAY LOGIC ---
+  useEffect(() => {
+    if (isHovered) {
+      // Pause when mouse is over the gallery
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      return;
+    }
+    // Start auto-play: advance every 4 seconds
+    intervalRef.current = setInterval(nextSlide, 2000);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [isHovered, nextSlide]); // nextSlide is stable
+
   return (
-    <div className="w-full mx-auto px-4 py-6">
+    <div
+      className="w-full mx-auto px-4 py-6"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <h2 className="text-3xl font-bold mb-6 text-center text-[#2E7D32]">Our Gallery</h2>
       <div className="relative flex items-center gap-2">
         {/* Previous button */}
