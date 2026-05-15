@@ -11,35 +11,56 @@ type GalleryItem = {
 const galleryItems: GalleryItem[] = [
   // Golf images
   {
-    image: "https://golfaurea.com/uploads/laos-golf/441499286-956565899589006-3158131433977066534-n.jpg",
+    image: "https://i.imgur.com/slvDFMu.jpeg",
   },
   {
-    image: "https://www.golfsavers.com/assets/image/luang-prabang-golf-club-green-2.jpg",
+    image:'https://i.imgur.com/FNM2BjK.jpeg'
   },
   {
-    image: "https://cdn.golflux.com/wp-content/uploads/2023/02/Luang-Prabang-Golf-Club-1-4.jpg",
+    image:'https://i.imgur.com/9rE4DTD.jpeg'
   },
   {
-    image: "https://golftreks.com.au/wp-content/uploads/2025/12/imageedit_2_8073057567.jpg",
+    image:'https://i.imgur.com/HqX4UWX.jpeg'
+  },
+  {
+    image:'https://i.imgur.com/UZI13Qj.jpeg'
+  },
+  {
+    image: "https://i.imgur.com/sl2GMR9.jpeg",
+  },
+  {
+    image: "https://i.imgur.com/GYBpuLK.jpeg",
+  },
+  {
+    image: "https://i.imgur.com/i5mLMaT.jpeg",
   },
   // Laos city / cultural images
   {
-    image: "https://images.unsplash.com/photo-1528181304800-259b08848526?w=1200&h=-1&s=1",
+    image: "https://i.imgur.com/agPehZc.jpeg",
   },
   {
-    image: "https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=800&q=80",
+    image: "https://i.imgur.com/b0jCu0S.jpeg",
   },
   {
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80",
+    image: "https://i.imgur.com/CcqbEqO.jpeg",
   },
   {
-    image: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&q=80",
+    image: "https://i.imgur.com/dkoiZnj.jpeg",
   },
   {
-    image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&q=80",
+    image: "https://i.imgur.com/D5oLKnh.jpeg",
   },
   {
-    image: "https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/27/5d/3c.jpg",
+    image: "https://i.imgur.com/mzxOH7o.jpeg",
+  },
+  {
+    image: "https://i.imgur.com/Y7b37MJ.jpeg",
+  },
+  {
+    image: "https://i.imgur.com/qK8XEKt.jpeg",
+  },
+  {
+    image: "https://i.imgur.com/7s5pMGL.jpeg",
   },
 ];
 
