@@ -1,9 +1,11 @@
+
+
 "use client";
 
 import { useState, useEffect } from "react";
 
 export default function HuayxaiPakbengLuangPrabangTour() {
-  // Slideshow images – real Mekong / Pakbeng / Luang Prabang
+  // Slideshow images updated to reflect Mekong, Pakbeng, Pak Ou Caves, Luang Prabang
  const images = [
     "https://th.bing.com/th/id/R.5961ddb3299d632d7df1e6b95a96ce3a?rik=hSrTXWFw0KMbSA&pid=ImgRaw&r=0?w=800&h=500&fit=crop", // That Luang
     "https://cdn.audleytravel.com/1050/750/79/502483-patuxai-monument-in-vientiane-laos.jpg?w=800&h=500&fit=crop", // Patuxai
@@ -12,6 +14,68 @@ export default function HuayxaiPakbengLuangPrabangTour() {
     "https://faszination-suedostasien.de/wp-content/uploads/2019/09/vientiane-goldener-buddha-413489188.jpg?w=800&h=500&fit=crop", // Wat Xieng Thong
   ];
 
+  // Package selection component
+  const Packages = () => {
+    return (
+      <section className="mb-8">
+        <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">Package Selection (Hotels & Pricing)</h3>
+        <div className="overflow-x-auto">
+          <table className="min-w-full border border-gray-300 text-sm">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="border p-2 text-left">Package</th>
+                <th className="border p-2 text-left">Vientiane Hotel</th>
+                <th className="border p-2 text-left">Luang Prabang Hotel</th>
+                <th className="border p-2 text-left">Twin Sharing</th>
+                <th className="border p-2 text-left">Single Room</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border p-2 font-semibold">Package A</td>
+                <td className="border p-2">
+                  Sethta Palace Hotel (5★)<br />
+                  <span className="text-xs text-gray-500">Standard Room</span>
+                </td>
+                <td className="border p-2">
+                  Satri House (5★)<br />
+                  <span className="text-xs text-gray-500">Deluxe Room</span>
+                </td>
+                <td className="border p-2 font-semibold">USD 1,651</td>
+                <td className="border p-2 font-semibold">USD 2,298</td>
+              </tr>
+              <tr>
+                <td className="border p-2 font-semibold">Package B</td>
+                <td className="border p-2">
+                  Mintra Hotel (4★)<br />
+                  <span className="text-xs text-gray-500">Deluxe Room</span>
+                </td>
+                <td className="border p-2">
+                  Burasari Heritage (4★)<br />
+                  <span className="text-xs text-gray-500">Superior / Deluxe Room</span>
+                </td>
+                <td className="border p-2 font-semibold">USD 1,334</td>
+                <td className="border p-2 font-semibold">USD 1,721</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="text-xs text-gray-500 mt-2">
+          * Pricing based on a minimum of 4 golfers traveling together (Net Tour Operator Pricing).
+        </div>
+        <div className="text-xs text-gray-500 mt-1">
+          <strong>Hotels Information:</strong>{" "}
+          <a href="https://setthapalace.com/" target="_blank" className="text-blue-600 underline" rel="noopener noreferrer">Sethta Palace Hotel (5★)</a>{" "}
+          |{" "}
+          <a href="https://mintrahotel.com/" target="_blank" className="text-blue-600 underline" rel="noopener noreferrer">Mintra Hotel (4★)</a>{" "}
+          |{" "}
+          <a href="https://www.satrihouse.com/" target="_blank" className="text-blue-600 underline" rel="noopener noreferrer">Satri House (5★)</a>{" "}
+          |{" "}
+          <a href="https://burasari.com/burasari-heritage-luang-prabang/" target="_blank" className="text-blue-600 underline" rel="noopener noreferrer">Burasari Heritage (4★)</a>
+        </div>
+      </section>
+    );
+  };
 
   const Slideshow = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -65,6 +129,9 @@ export default function HuayxaiPakbengLuangPrabangTour() {
         HOUAYXAI – PAKBENG – LUANG PRABANG (Mekong Cruise)
       </h2>
 
+      {/* New Package Selection Table */}
+      <Packages />
+
       {/* Itinerary */}
       <section className="mb-8">
         <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">Itinerary</h3>
@@ -79,7 +146,7 @@ export default function HuayxaiPakbengLuangPrabangTour() {
             <p className="text-sm text-gray-600"><strong>Overnight:</strong> Pakbeng</p>
           </div>
           <div>
-            <h4 className="text-lg font-semibold">DAY 2: Pakbeng – Luang Prabang (Downstream) (B/L)</h4>
+            <h4 className="text-lg font-semibold">DAY 2: Pakbeng – Luang Prabang (Downstream)</h4>
             <p className="mt-1">
               Continue cruise downstream to Luang Prabang.
               Visit Pak Ou Caves and Whisky Village before arriving in the evening.
@@ -88,7 +155,7 @@ export default function HuayxaiPakbengLuangPrabangTour() {
             <p className="text-sm text-gray-600"><strong>Overnight:</strong> Luang Prabang</p>
           </div>
           <div>
-            <h4 className="text-lg font-semibold">DAY 3: Luang Prabang Full Day Tour (B/L)</h4>
+            <h4 className="text-lg font-semibold">DAY 3: Luang Prabang Full Day Tour</h4>
             <p className="mt-1">
               Early morning alms giving followed by city tour.
               Visit temples, Royal Palace, and Mount Phousi for sunset.
@@ -97,7 +164,7 @@ export default function HuayxaiPakbengLuangPrabangTour() {
             <p className="text-sm text-gray-600"><strong>Overnight:</strong> Luang Prabang</p>
           </div>
           <div>
-            <h4 className="text-lg font-semibold">DAY 4: Luang Prabang Full Day Tour (B/L)</h4>
+            <h4 className="text-lg font-semibold">DAY 4: Luang Prabang Full Day Tour</h4>
             <p className="mt-1">
               Visit Kuang Si Waterfall and Bear Rescue Center. In the evening, enjoy a traditional cultural performance.
             </p>
@@ -105,7 +172,7 @@ export default function HuayxaiPakbengLuangPrabangTour() {
             <p className="text-sm text-gray-600"><strong>Overnight:</strong> Luang Prabang</p>
           </div>
           <div>
-            <h4 className="text-lg font-semibold">DAY 5: Departure (B)</h4>
+            <h4 className="text-lg font-semibold">DAY 5: Departure</h4>
             <p className="mt-1">
               Free time before transfer to airport for departure.
             </p>
@@ -114,7 +181,7 @@ export default function HuayxaiPakbengLuangPrabangTour() {
         </div>
       </section>
 
-      {/* Inclusions & Exclusions (exactly as provided) */}
+      {/* Inclusions & Exclusions */}
       <div className="grid md:grid-cols-2 gap-6 mb-8">
         <div className="bg-green-50 p-4 rounded-lg">
           <h3 className="text-lg font-bold text-green-800 mb-2">Tour inclusive of:</h3>
@@ -140,7 +207,7 @@ export default function HuayxaiPakbengLuangPrabangTour() {
         </div>
       </div>
 
-      {/* Hotel List – preserved exactly as given, including the unusual formatting */}
+      {/* Hotel List (as provided) */}
       <section className="mb-8">
         <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">HOTEL LIST OR SIMILARS</h3>
         <div className="overflow-x-auto">

@@ -27,10 +27,15 @@ const Header: React.FC = () => {
     setIsServicesDropdownOpen(!isServicesDropdownOpen);
   };
 
+  // Helper function to close mobile menu
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    setIsServicesDropdownOpen(false); // also close submenu for better UX
+  };
+
   return (
     <>
-      {/* --- OVERLAY / BACKDROP --- */}
-      {/* This div covers the screen when menu is open. Clicking it closes the menu. */}
+      {/* OVERLAY / BACKDROP */}
       {isMobileMenuOpen && (
         <div
           className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
@@ -39,12 +44,12 @@ const Header: React.FC = () => {
         ></div>
       )}
 
-      {/* --- HEADER --- */}
+      {/* HEADER */}
       <header className="bg-emerald-900 text-white sticky top-0 z-50 shadow-md w-full">
         <div className="w-full px-2">
           <div className="flex justify-between items-center h-14">
             {/* LOGO */}
-            <Link href="/" className="flex items-center">
+            <Link href="/" className="flex items-center" onClick={closeMobileMenu}>
               <span 
                 className="text-3xl fleur-de-leah-regular" 
                 style={{  color: '#FFE0B2' }}
@@ -98,9 +103,8 @@ const Header: React.FC = () => {
         </div>
 
         {/* MOBILE MENU */}
-        {/* Changed 'flex-col' to 'fixed' and added top-14 to position below header */}
         <div className={`${isMobileMenuOpen ? 'flex' : 'hidden'} fixed inset-x-0 top-14 z-[60] md:hidden flex-col bg-emerald-800 border-t border-emerald-700 transition-all duration-300`}>
-          <Link href="/book-now" className="block px-4 py-3 border-b border-white/10 hover:bg-emerald-700">
+          <Link href="/book-now" className="block px-4 py-3 border-b border-white/10 hover:bg-emerald-700" onClick={closeMobileMenu}>
             Book Now
           </Link>
           <div className="border-b border-white/10">
@@ -111,24 +115,24 @@ const Header: React.FC = () => {
               </svg>
             </button>
             <div className={`${isServicesDropdownOpen ? 'block' : 'hidden'} bg-emerald-900/50`}>
-              <Link href="/packages?category=travel" className="block px-8 py-3 text-sm hover:bg-emerald-700">
+              <Link href="/packages?category=travel" className="block px-8 py-3 text-sm hover:bg-emerald-700" onClick={closeMobileMenu}>
                 • Travel Packages
               </Link>
-              <Link href="/packages?category=golf" className="block px-8 py-3 text-sm hover:bg-emerald-700">
+              <Link href="/packages?category=golf" className="block px-8 py-3 text-sm hover:bg-emerald-700" onClick={closeMobileMenu}>
                 • Golf Packages
               </Link>
-              <Link href="/contactus" className="block px-8 py-3 text-sm hover:bg-emerald-700">
+              <Link href="/contactus" className="block px-8 py-3 text-sm hover:bg-emerald-700" onClick={closeMobileMenu}>
                 • Customize Package
               </Link>
             </div>
           </div>
-          <Link href="/gallery" className="block px-4 py-3 border-b border-white/10 hover:bg-emerald-700">
+          <Link href="/gallery" className="block px-4 py-3 border-b border-white/10 hover:bg-emerald-700" onClick={closeMobileMenu}>
             Our Gallery
           </Link>
-          <Link href="/contactus" className="block px-4 py-3 border-b border-white/10 hover:bg-emerald-700">
+          <Link href="/contactus" className="block px-4 py-3 border-b border-white/10 hover:bg-emerald-700" onClick={closeMobileMenu}>
             Contact Us
           </Link>
-          <Link href="/about" className="block px-4 py-3 hover:bg-emerald-700">
+          <Link href="/about" className="block px-4 py-3 hover:bg-emerald-700" onClick={closeMobileMenu}>
             About
           </Link>
         </div>

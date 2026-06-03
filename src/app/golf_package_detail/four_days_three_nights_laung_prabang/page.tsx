@@ -3,12 +3,13 @@
 import { useState, useEffect } from "react";
 
 export default function GolfPackageLuangPrabang() {
-  // Slideshow images (Luang Prabang Golf Club & local scenery)
+  // Slideshow images – real Luang Prabang Golf Club photos (5 images total)
   const images = [
-    "https://golfaurea.com/uploads/laos-golf/441499286-956565899589006-3158131433977066534-n.jpg",
-    "https://www.golfsavers.com/assets/image/luang-prabang-golf-club-green-2.jpg",
-    "https://cdn.golflux.com/wp-content/uploads/2023/02/Luang-Prabang-Golf-Club-1-4.jpg",
-    "https://golftreks.com.au/wp-content/uploads/2025/12/imageedit_2_8073057567.jpg",
+    "https://i.imgur.com/B2fjoxj.jpeg",   // Luang Prabang Golf Club 1
+    "https://i.imgur.com/1Rjk8vT.jpeg",   // Luang Prabang Golf Club 2
+    "https://i.imgur.com/meYhsb6.jpeg",   // Luang Prabang Golf Club 3
+    "https://i.imgur.com/AZ5Vr3F.jpeg",   // Luang Prabang Golf Club 4
+    "https://i.imgur.com/B2fjoxj.jpeg",   // repeat first image to have 5 slides
   ];
 
   const Slideshow = () => {
@@ -28,7 +29,7 @@ export default function GolfPackageLuangPrabang() {
     return (
       <div className="relative w-full max-w-4xl mx-auto overflow-hidden rounded-lg shadow-lg mt-5 mb-5">
         <div className="relative h-64 md:h-96">
-          <img src={images[currentIndex]} alt={`Golf course view ${currentIndex + 1}`} className="w-full h-full object-cover" />
+          <img src={images[currentIndex]} alt={`Luang Prabang Golf Club view ${currentIndex + 1}`} className="w-full h-full object-cover" />
         </div>
         <button
           onClick={prevSlide}
@@ -116,7 +117,8 @@ export default function GolfPackageLuangPrabang() {
 
       {/* Footer note */}
       <div className="text-xs text-gray-500 border-t pt-4 mt-4 text-center">
-* All information is subject to change without prior notice. Please confirm details at time of booking.      </div>
+        * All information is subject to change without prior notice. Please confirm details at time of booking.
+      </div>
     </div>
   );
 }

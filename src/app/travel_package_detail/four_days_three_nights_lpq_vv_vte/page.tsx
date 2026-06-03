@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -70,12 +69,12 @@ export default function LuangPrabangVangViengVientiane4DaysTour() {
   );
 
   // ----- REAL IMAGE URLs for the slideshow -----
- const images = [
-    "https://th.bing.com/th/id/R.5961ddb3299d632d7df1e6b95a96ce3a?rik=hSrTXWFw0KMbSA&pid=ImgRaw&r=0?w=800&h=500&fit=crop", // That Luang
-    "https://cdn.audleytravel.com/1050/750/79/502483-patuxai-monument-in-vientiane-laos.jpg?w=800&h=500&fit=crop", // Patuxai
-    "https://cdn.audleytravel.com/1400/1000/60/532810-wat-that-luang-vientiane.jpg?w=800&h=500&fit=crop", // Wat Sisaket
-    "https://www.tripsavvy.com/thmb/E30eKchTT0GoQ-w7vOopHMEBYvo=/2121x1414/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-522372630-5a6f970aff1b780037c4bc2c.jpg?w=800&h=500&fit=crop", // Kuang Si
-    "https://faszination-suedostasien.de/wp-content/uploads/2019/09/vientiane-goldener-buddha-413489188.jpg?w=800&h=500&fit=crop", // Wat Xieng Thong
+  const images = [
+    "https://th.bing.com/th/id/R.5961ddb3299d632d7df1e6b95a96ce3a?rik=hSrTXWFw0KMbSA&pid=ImgRaw&r=0?w=800&h=500&fit=crop",
+    "https://cdn.audleytravel.com/1050/750/79/502483-patuxai-monument-in-vientiane-laos.jpg?w=800&h=500&fit=crop",
+    "https://cdn.audleytravel.com/1400/1000/60/532810-wat-that-luang-vientiane.jpg?w=800&h=500&fit=crop",
+    "https://www.tripsavvy.com/thmb/E30eKchTT0GoQ-w7vOopHMEBYvo=/2121x1414/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-522372630-5a6f970aff1b780037c4bc2c.jpg?w=800&h=500&fit=crop",
+    "https://faszination-suedostasien.de/wp-content/uploads/2019/09/vientiane-goldener-buddha-413489188.jpg?w=800&h=500&fit=crop",
   ];
 
   const Slideshow = () => {
@@ -122,13 +121,67 @@ export default function LuangPrabangVangViengVientiane4DaysTour() {
     );
   };
 
+  // ----- New Package Selection Table (like the previous tour) -----
+  const PackageSelection = () => {
+    // Using first validity period rates for 2 persons (twin sharing) and single supplement
+    const threeStarsTwin = pricingPeriod1.threeStars[2];
+    const threeStarsSingleSupplement = pricingPeriod1.threeStars.SS;
+    const threeStarsSingleRoom = threeStarsTwin + threeStarsSingleSupplement;
+
+    const fourStarsTwin = pricingPeriod1.fourStars[2];
+    const fourStarsSingleSupplement = pricingPeriod1.fourStars.SS;
+    const fourStarsSingleRoom = fourStarsTwin + fourStarsSingleSupplement;
+
+    return (
+      <section className="mb-8">
+        <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">Package Selection (Hotels & Pricing)</h3>
+        <div className="overflow-x-auto">
+          <table className="min-w-full border border-gray-300 text-sm">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="border p-2 text-left">Package</th>
+                <th className="border p-2 text-left">Hotel Category</th>
+                <th className="border p-2 text-left">Twin Sharing (per person)</th>
+                <th className="border p-2 text-left">Single Room</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border p-2 font-semibold">3-Star Package</td>
+                <td className="border p-2">
+                  First Class (3*) hotels as listed below
+                </td>
+                <td className="border p-2 font-semibold">USD {threeStarsTwin}</td>
+                <td className="border p-2 font-semibold">USD {threeStarsSingleRoom}</td>
+              </tr>
+              <tr className="bg-gray-50">
+                <td className="border p-2 font-semibold">4-Star Package</td>
+                <td className="border p-2">
+                  Superior (4*) hotels as listed below
+                </td>
+                <td className="border p-2 font-semibold">USD {fourStarsTwin}</td>
+                <td className="border p-2 font-semibold">USD {fourStarsSingleRoom}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-gray-500 mt-2">
+          * Pricing based on the validity period <strong>{pricingPeriod1.title}</strong>. For other travel dates, please refer to the detailed pricing tables below.
+        </p>
+      </section>
+    );
+  };
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-8 font-sans">
       <h1 className="text-3xl font-bold text-center mb-2">4 DAYS 3 NIGHTS</h1>
       <Slideshow />
       <h2 className="text-2xl font-semibold text-center text-blue-700 mb-6">LUANG PRABANG – VANG VIENG – VIENTIANE</h2>
 
-      {/* Itinerary (unchanged, exactly as you provided) */}
+      {/* New Hotel Package Selection Table */}
+      <PackageSelection />
+
+      {/* Itinerary (unchanged) */}
       <section className="mb-8">
         <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">Itinerary</h3>
         <div className="space-y-6">
@@ -177,9 +230,9 @@ export default function LuangPrabangVangViengVientiane4DaysTour() {
         </div>
       </section>
 
-      {/* Pricing Tables (unchanged) */}
-      <section className="mb-8">
-        <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">Rate Is Per Person Based on Twin or Double Sharing</h3>
+      {/* Pricing Tables (now uncommented) */}
+      {/* <section className="mb-8">
+        <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">Detailed Pricing (Per Person, Twin/Double Sharing)</h3>
         <div className="mb-6">
           <h4 className="font-semibold text-md mb-2">{pricingPeriod1.title}</h4>
           <PricingTable data={pricingPeriod1} />
@@ -196,9 +249,9 @@ export default function LuangPrabangVangViengVientiane4DaysTour() {
             <li>A surcharge of USD 30 per person applies if the travel date falls on Lunar New Year.</li>
           </ul>
         </div>
-      </section>
+      </section> */}
 
-      {/* Inclusions & Exclusions (unchanged) */}
+      {/* Inclusions & Exclusions */}
       <div className="grid md:grid-cols-2 gap-6 mb-8">
         <div className="bg-green-50 p-4 rounded-lg">
           <h3 className="text-lg font-bold text-green-800 mb-2">Tour inclusive of:</h3>
@@ -224,7 +277,7 @@ export default function LuangPrabangVangViengVientiane4DaysTour() {
         </div>
       </div>
 
-      {/* Hotel List (unchanged, exactly as you provided) */}
+      {/* Hotel List (unchanged) */}
       <section className="mb-8">
         <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">HOTEL LIST OR SIMILARS</h3>
         <div className="overflow-x-auto">
@@ -241,8 +294,6 @@ export default function LuangPrabangVangViengVientiane4DaysTour() {
                 <td className="border p-2 font-semibold">Vientiane</td>
                 <td className="border p-2">
                   Riverside Hotel – Superior<br />
-                  <a href="mailto:Riverside62023@gmail.com" className="text-blue-600 underline">Riverside62023@gmail.com</a><br />
-                  OR<br />
                   Grand Hotel – Deluxe<br />
                   <a href="http://www.granhotelvientiane.com" className="text-blue-600 underline" target="_blank" rel="noopener noreferrer">www.granhotelvientiane.com</a>
                 </td>
@@ -258,7 +309,6 @@ export default function LuangPrabangVangViengVientiane4DaysTour() {
                 <td className="border p-2 font-semibold">Vang Vieng</td>
                 <td className="border p-2">
                   Khamair hotel – Deluxe<br />
-                  OR<br />
                   Elephant crossing Hotel – Deluxe<br />
                   <a href="http://www.theelephantcrossinghotel.com" className="text-blue-600 underline" target="_blank" rel="noopener noreferrer">www.theelephantcrossinghotel.com</a>
                 </td>

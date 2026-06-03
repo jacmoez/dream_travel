@@ -3,15 +3,14 @@
 import { useState, useEffect } from "react";
 
 export default function VientianeCapitalDiscovery() {
-  // Slideshow images (real Vientiane landmarks and Buddha Park)
+  // Slideshow images – real Vientiane landmarks
   const images = [
-    "https://a.cdn-hotels.com/gdcs/production193/d674/35ae1968-d1d4-43cd-8637-42639f664e8a.jpg?impolicy=fcrop&w=1600&h=1066&q=medium?w=800&h=500&fit=crop", // Vang Vieng mountains
-    "https://www.agoda.com/wp-content/uploads/2024/03/Featured-image-Nam-Song-River-in-Vang-Vieng-Laos.jpg?w=800&h=500&fit=crop", // Nam Song River
-    "https://images.travelandleisureasia.com/wp-content/uploads/sites/6/2025/04/14173201/Vang-Vieng-1.jpg?w=800&h=500&fit=crop", // Hot air balloon
-    "https://i.pinimg.com/originals/f9/45/a0/f945a05e558a46483f9bfa6dcd794312.jpg?w=800&h=500&fit=crop", // Kayaking
-    "https://cdn.getyourguide.com/img/location/5a086527d1738.jpeg/88.jpg?w=800&h=500&fit=crop", // Nang Fa Cave
+    "https://upload.wikimedia.org/wikipedia/commons/0/0f/Pha_That_Luang%2C_Vientiane_%282%29.jpg?w=800&h=500&fit=crop", // Pha That Luang
+    "https://upload.wikimedia.org/wikipedia/commons/1/14/Patuxai_Monument_Vientiane.jpg?w=800&h=500&fit=crop", // Patuxai
+    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/1b/1b/ee/buddha-park.jpg?w=800&h=500&fc=1", // Buddha Park
+    "https://cdn.getyourguide.com/img/location/5a086527d1738.jpeg/88.jpg?w=800&h=500&fit=crop", // Wat Sisaket
+    "https://www.tripsavvy.com/thmb/E30eKchTT0GoQ-w7vOopHMEBYvo=/2121x1414/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-522372630-5a6f970aff1b780037c4bc2c.jpg?w=800&h=500&fit=crop", // Mekong sunset
   ];
-
 
   const Slideshow = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -57,6 +56,45 @@ export default function VientianeCapitalDiscovery() {
     );
   };
 
+  // ----- Package Selection Component -----
+  const PackageSelection = () => {
+    // Prices from the detailed table (2-person rate)
+    const standardPrice2Pax = 65;   // for 2 persons
+    const deluxePrice2Pax = 85;     // includes lunch + sunset stop
+
+    return (
+      <section className="mb-8">
+        <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">Package Selection</h3>
+        <div className="overflow-x-auto">
+          <table className="min-w-full border border-gray-300 text-sm">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="border p-2 text-left">Package</th>
+                <th className="border p-2 text-left">Description</th>
+                <th className="border p-2 text-left">Price (per person, 2 persons)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border p-2 font-semibold">Standard Package</td>
+                <td className="border p-2">Private transport, English guide, entrance fees, mineral water</td>
+                <td className="border p-2 font-semibold">USD {standardPrice2Pax}</td>
+              </tr>
+              <tr className="bg-gray-50">
+                <td className="border p-2 font-semibold">Deluxe Package</td>
+                <td className="border p-2">Standard inclusions + local lunch + Mekong sunset stop + cold towel</td>
+                <td className="border p-2 font-semibold">USD {deluxePrice2Pax}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-gray-500 mt-2">
+          * Prices are per person and vary with group size. See detailed table below.
+        </p>
+      </section>
+    );
+  };
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-8 font-sans">
       <h1 className="text-3xl font-bold text-center mb-2">Vientiane Capital Discovery</h1>
@@ -65,16 +103,16 @@ export default function VientianeCapitalDiscovery() {
 
       {/* Short Description */}
       <div className="bg-gray-50 p-4 rounded-lg mb-6 text-center italic">
-        {`Discover the peaceful charm of Vientiane with its temples, monuments, and riverside lifestyle.`}
+        Discover the peaceful charm of Vientiane with its golden temples, colonial monuments, and the quirky Buddha Park – a journey through Lao culture and history.
       </div>
 
       {/* Duration & Destinations */}
       <div className="grid md:grid-cols-2 gap-4 mb-6">
         <div className="bg-blue-50 p-3 rounded">
-          <span className="font-bold">Duration:</span> Full Day
+          <span className="font-bold">Duration:</span> Full Day (approx. 8 hours)
         </div>
         <div className="bg-blue-50 p-3 rounded">
-          <span className="font-bold">Destinations Covered:</span> Vientiane City – Buddha Park
+          <span className="font-bold">Destinations Covered:</span> Vientiane City – Buddha Park (Xieng Khuan)
         </div>
       </div>
 
@@ -82,74 +120,134 @@ export default function VientianeCapitalDiscovery() {
       <section className="mb-8">
         <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-3">Highlights</h3>
         <ul className="list-disc list-inside space-y-1 ml-4">
-          <li>Visit Pha That Luang</li>
-          <li>Explore Patuxai</li>
-          <li>Discover Buddha Park</li>
-          <li>Mekong riverside sunset</li>
+          <li>Visit the iconic Pha That Luang – the national symbol of Laos</li>
+          <li>Climb Patuxai Victory Monument for panoramic city views</li>
+          <li>Explore ancient temples: Wat Sisaket, Wat Phra Keo, Wat Mixay</li>
+          <li>Discover the surreal Buddha Park (Xieng Khuan) with over 200 Buddhist and Hindu statues</li>
+          <li>Enjoy a sunset stroll along the Mekong Riverside</li>
         </ul>
       </section>
 
-      {/* Itinerary */}
+      {/* Package Selection Table */}
+      <PackageSelection />
+
+      {/* Detailed Itinerary */}
       <section className="mb-8">
         <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">Itinerary</h3>
         <div className="space-y-3">
-          <div>
-            <span className="font-semibold">Morning:</span> City tour including temples and Patuxai
+          <div className="bg-gray-50 p-4 rounded">
+            <span className="font-semibold text-lg">08:30 AM:</span> Pick up from your hotel in Vientiane.
           </div>
-          <div>
-            <span className="font-semibold">Afternoon:</span> Visit Buddha Park, return to city
+          <div className="bg-gray-50 p-4 rounded">
+            <span className="font-semibold text-lg">09:00 AM – 10:30 AM:</span> Visit Pha That Luang – the great golden stupa, and the nearby That Luang Temple.
           </div>
+          <div className="bg-gray-50 p-4 rounded">
+            <span className="font-semibold text-lg">10:30 AM – 11:30 AM:</span> Explore Patuxai Victory Monument – climb to the top for views.
+          </div>
+          <div className="bg-gray-50 p-4 rounded">
+            <span className="font-semibold text-lg">11:30 AM – 12:30 PM:</span> Temple tour: Wat Sisaket (oldest temple with thousands of Buddha images), Wat Phra Keo (former royal temple), and Wat Mixay.
+          </div>
+          <div className="bg-gray-50 p-4 rounded">
+            <span className="font-semibold text-lg">12:30 PM – 01:30 PM:</span> Lunch at a local restaurant (included only in Deluxe Package).
+          </div>
+          <div className="bg-gray-50 p-4 rounded">
+            <span className="font-semibold text-lg">02:00 PM – 03:30 PM:</span> Drive to Buddha Park (Xieng Khuan) – 25 km southeast of the city. Explore hundreds of concrete statues depicting Buddhist and Hindu deities.
+          </div>
+          <div className="bg-gray-50 p-4 rounded">
+            <span className="font-semibold text-lg">03:30 PM – 04:30 PM:</span> Return to Vientiane. Stop at a local weaving village or COPE Visitor Centre (optional – time permitting).
+          </div>
+          <div className="bg-gray-50 p-4 rounded">
+            <span className="font-semibold text-lg">04:30 PM – 05:30 PM:</span> Mekong Riverside sunset walk (included in Deluxe Package). Enjoy the view of the river and the Thai border.
+          </div>
+          <div className="bg-gray-50 p-4 rounded">
+            <span className="font-semibold text-lg">05:30 PM:</span> Drop off at your hotel.
+          </div>
+        </div>
+        <div className="bg-blue-50 border-l-4 border-blue-400 p-3 mt-4 text-sm">
+          <p className="font-semibold">Note:</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>Dress code for temples: shoulders and knees must be covered. Remove shoes before entering temple buildings.</li>
+            <li>The itinerary can be adjusted based on your preferences and weather conditions.</li>
+          </ul>
         </div>
       </section>
 
-      {/* Price Table */}
-      <section className="mb-8">
+      {/* Detailed Pricing Table (uncommented) */}
+      {/* <section className="mb-8">
         <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">Price (USD per person)</h3>
         <div className="overflow-x-auto">
           <table className="min-w-full border border-gray-300 text-sm">
             <thead className="bg-gray-100">
               <tr>
-                <th className="border p-2 text-left">Pax</th>
-                <th className="border p-2 text-left">Price</th>
+                <th className="border p-2 text-left">Group Size (Pax)</th>
+                <th className="border p-2 text-left">Standard Package</th>
+                <th className="border p-2 text-left">Deluxe Package</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td className="border p-2">1</td><td className="border p-2">$90</td></tr>
-              <tr><td className="border p-2">2</td><td className="border p-2">$65</td></tr>
-              <tr><td className="border p-2">3–4</td><td className="border p-2">$55</td></tr>
-              <tr><td className="border p-2">5+</td><td className="border p-2">$50</td></tr>
+              <tr><td className="border p-2">1</td><td className="border p-2">$90</td><td className="border p-2">$110</td></tr>
+              <tr className="bg-gray-50"><td className="border p-2">2</td><td className="border p-2">$65</td><td className="border p-2">$85</td></tr>
+              <tr><td className="border p-2">3–4</td><td className="border p-2">$55</td><td className="border p-2">$75</td></tr>
+              <tr className="bg-gray-50"><td className="border p-2">5+</td><td className="border p-2">$50</td><td className="border p-2">$70</td></tr>
             </tbody>
           </table>
         </div>
-      </section>
+        <p className="text-xs text-gray-500 mt-1">
+          * Lunch and sunset stop are included only in Deluxe Package. Standard Package includes all entrance fees but no meals.
+        </p>
+        <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 text-sm mt-4">
+          <p className="font-semibold">Notes:</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>A surcharge of USD 10 per person applies for hotel pick‑ups outside Vientiane city center.</li>
+            <li>Lunar New Year surcharge: USD 15 per person (28 Jan – 3 Feb 2027).</li>
+          </ul>
+        </div>
+      </section> */}
 
-      {/* Inclusions & Exclusions */}
+      {/* Inclusions & Exclusions (detailed) */}
       <div className="grid md:grid-cols-2 gap-6 mb-8">
         <div className="bg-green-50 p-4 rounded-lg">
-          <h3 className="text-lg font-bold text-green-800 mb-2">Inclusions</h3>
+          <h3 className="text-lg font-bold text-green-800 mb-2">Inclusions (both packages)</h3>
           <ul className="list-disc list-inside space-y-1 text-sm">
-            <li>✔ Transport</li>
-            <li>✔ Guide</li>
-            <li>✔ Entrance fees</li>
+            <li>Private air‑conditioned vehicle for the whole day</li>
+            <li>English‑speaking licensed guide</li>
+            <li>All entrance fees: Pha That Luang, Patuxai, Wat Sisaket, Wat Phra Keo, Buddha Park</li>
+            <li>Complimentary mineral water (2 bottles per person)</li>
+            <li>All taxes and service charges</li>
+          </ul>
+          <p className="mt-2 font-semibold text-green-800">Deluxe Package adds:</p>
+          <ul className="list-disc list-inside space-y-1 text-sm">
+            <li>Local Lao lunch (set menu with non‑alcoholic drink)</li>
+            <li>Mekong Riverside sunset stop (30 minutes)</li>
+            <li>Cold towel after Buddha Park visit</li>
           </ul>
         </div>
         <div className="bg-red-50 p-4 rounded-lg">
           <h3 className="text-lg font-bold text-red-800 mb-2">Exclusions</h3>
           <ul className="list-disc list-inside space-y-1 text-sm">
-            <li>✘ Meals</li>
-            <li>✘ Personal expenses</li>
+            <li>Meals and drinks (unless specified in Deluxe Package)</li>
+            <li>Optional activities (COPE Visitor Centre entrance – $3)</li>
+            <li>Tipping for guide and driver</li>
+            <li>Personal expenses (souvenirs, extra drinks, etc.)</li>
+            <li>Travel insurance</li>
           </ul>
         </div>
       </div>
 
       {/* Optional Add-ons */}
       <section className="mb-8">
-        <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">Optional Add-ons</h3>
+        <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">Optional Add-ons (pre‑booking recommended)</h3>
         <ul className="list-disc list-inside space-y-1 ml-4">
-          <li>Sunset dinner by Mekong</li>
-          <li>Spa experience</li>
+          <li>COPE Visitor Centre (UXO museum) – USD 3 entrance fee, free time (30 minutes)</li>
+          <li>Sunset dinner cruise on the Mekong – USD 25/person (includes BBQ dinner, 2 hours)</li>
+          <li>Traditional Lao massage (1 hour) – USD 15/person (at reputable spa near city centre)</li>
         </ul>
       </section>
+
+      {/* Footer note */}
+      <div className="text-xs text-gray-500 border-t pt-4 mt-4 text-center">
+        * All information is subject to change without prior notice. Please confirm details at time of booking.
+      </div>
     </div>
   );
 }

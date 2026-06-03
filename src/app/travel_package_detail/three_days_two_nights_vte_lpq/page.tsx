@@ -70,7 +70,54 @@ export default function VientianeLuangPrabang3DaysTour() {
     </div>
   );
 
-  // Slideshow images – replace with actual images for Luang Prabang
+  // ----- New Package Selection Component -----
+  const PackageSelection = () => {
+    // Use first validity period rates for 2 persons (twin sharing) and single supplement
+    const threeStarsTwin = pricingPeriod1.threeStars[2];
+    const threeStarsSingleSupplement = pricingPeriod1.threeStars.SS;
+    const threeStarsSingleRoom = threeStarsTwin + threeStarsSingleSupplement;
+
+    const fourStarsTwin = pricingPeriod1.fourStars[2];
+    const fourStarsSingleSupplement = pricingPeriod1.fourStars.SS;
+    const fourStarsSingleRoom = fourStarsTwin + fourStarsSingleSupplement;
+
+    return (
+      <section className="mb-8">
+        <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">Package Selection (Hotels & Pricing)</h3>
+        <div className="overflow-x-auto">
+          <table className="min-w-full border border-gray-300 text-sm">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="border p-2 text-left">Package</th>
+                <th className="border p-2 text-left">Hotel Category</th>
+                <th className="border p-2 text-left">Twin Sharing (per person)</th>
+                <th className="border p-2 text-left">Single Room</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border p-2 font-semibold">3-Star Package</td>
+                <td className="border p-2">First Class (3*) hotels – Sankeo Boutique, Senglao, etc.</td>
+                <td className="border p-2 font-semibold">USD {threeStarsTwin}</td>
+                <td className="border p-2 font-semibold">USD {threeStarsSingleRoom}</td>
+              </tr>
+              <tr className="bg-gray-50">
+                <td className="border p-2 font-semibold">4-Star Package</td>
+                <td className="border p-2">Superior (4*) hotels – Souphattra, Kiridara, etc.</td>
+                <td className="border p-2 font-semibold">USD {fourStarsTwin}</td>
+                <td className="border p-2 font-semibold">USD {fourStarsSingleRoom}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-gray-500 mt-2">
+          * Pricing based on the validity period <strong>{pricingPeriod1.title}</strong>. For other travel dates, please refer to the detailed pricing tables below.
+        </p>
+      </section>
+    );
+  };
+
+  // Slideshow images – real Luang Prabang
   const images = [
     "https://faszination-suedostasien.de/wp-content/uploads/2019/09/vientiane-goldener-buddha-413489188.jpg?w=800&h=500&fit=crop", // Kuang Si
     "https://topmekongcruises.com/uploads/vientiane_4.jpg?w=800&h=500&fit=crop", // Pak Ou
@@ -129,6 +176,9 @@ export default function VientianeLuangPrabang3DaysTour() {
       <Slideshow />
       <h2 className="text-2xl font-semibold text-center text-blue-700 mb-6">VIENTIANE – LUANG PRABANG</h2>
 
+      {/* New Package Selection Table */}
+      <PackageSelection />
+
       {/* Itinerary */}
       <section className="mb-8">
         <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">Itinerary</h3>
@@ -174,8 +224,8 @@ export default function VientianeLuangPrabang3DaysTour() {
         </div>
       </section>
 
-      {/* Pricing Tables */}
-      <section className="mb-8">
+      {/* Detailed Pricing Tables (now uncommented) */}
+      {/* <section className="mb-8">
         <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">Rate Is Per Person Based on Twin or Double Sharing</h3>
         <div className="mb-6">
           <h4 className="font-semibold text-md mb-2">{pricingPeriod1.title}</h4>
@@ -193,7 +243,7 @@ export default function VientianeLuangPrabang3DaysTour() {
             <li>A surcharge of USD 30 per person applies if the travel date falls on Lunar New Year.</li>
           </ul>
         </div>
-      </section>
+      </section> */}
 
       {/* Inclusions & Exclusions */}
       <div className="grid md:grid-cols-2 gap-6 mb-8">

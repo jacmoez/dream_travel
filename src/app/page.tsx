@@ -18,124 +18,122 @@ const HomePage: React.FC = () => {
   // --- Carousel State ---
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const totalSlides = 4;
+  const totalSlides = 5;
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // --- Refs for package carousels ---
+  const slideTexts = [
+    "Step into a land where time moves slowly and nature shines bright. Ancient temples greet the sunrise, and the Mekong whispers stories of old. From the golden stupa of That Luang to the sleepy riverside villages, every corner invites you to pause and breathe. Welcome to Laos – the jewel of Southeast Asia.",
+    "Luang Prabang awaits with gilded rooftops and cascading waterfalls. Wake up at dawn to the gentle sound of monk alms, then hike to the turquoise pools of Kuang Si Falls. Explore hidden caves along the Mekong, and let the calm of the misty mountains embrace you. This UNESCO town is a living postcard of serenity.",
+    "For the love of golf and adventure – play on greens framed by limestone karsts and tropical forests. Each swing offers a new perspective, each fairway a discovery of Lao beauty. After your round, relax in a luxury resort or explore nearby temples. Tee off in paradise, where golf meets cultural wonder.",
+    "Vang Vieng is more than a postcard – it's a playground for the soul. Drift down the Nam Song River, climb to secret blue lagoons, and watch the sun set behind jagged karst peaks. Whether you're kayaking, rock climbing, or simply lounging with a fresh coconut, adventure and tranquility walk hand in hand here.",
+    "Taste the warmth of Lao hospitality in every bite – from zesty green papaya salad to fragrant laap. Sip rich, dark Lao coffee overlooking the Mekong, or learn to make sticky rice with a local family. Every meal tells a story of tradition, community, and the simple joy of sharing. Your journey will be a feast for all the senses."
+  ];
+
   const travelCarouselRef = useRef<HTMLDivElement>(null);
   const golfCarouselRef = useRef<HTMLDivElement>(null);
 
-  // --- Helper to create URL-friendly slug from package title ---
   const getPackageSlug = (title: string) => {
-    return title
-      .toLowerCase()
-      .replace(/[&]/g, '')
-      .replace(/\s+/g, '-')
-      .replace(/[^a-z0-9-]/g, '');
+    return title.toLowerCase().replace(/[&]/g, '').replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
   };
 
-  // --- Golf Places Data with Images ---
+  // --- Golf Places Data with SINGLE image ---
   const golfPlaces = [
     {
-      name: "Luang Prabang Golf Club",
-      location: "Luang Prabang, Laos",
+      name: "Dansavanh Golf Club",
+      city: "Vientiane Province",
+      location: "Dansavanh Golf Club, Vientiane Province, Laos",
       holes: "18 Holes",
       yards: "7,200 yards",
       description: "A scenic riverside course surrounded by mountains, offering a relaxing yet challenging golf experience.",
-      mapLink: "https://maps.google.com/?q=Luang+Prabang+Golf+Club",
-      images: [
-        "https://i.imgur.com/8GLWfNM.jpeg",
-        "https://i.imgur.com/gWt7Rav.jpeg",
-        "https://i.imgur.com/pv1D9kn.jpeg",
-        "https://i.imgur.com/e245TCA.jpeg"
-      ]
+      mapLink: "https://maps.google.com/?q=Dansavanh+Golf+Club+Laos",
+      image: "https://i.imgur.com/GK6YDQS.jpeg"
     },
     {
-      name: "Long Vien Golf Club",
-      location: "Vientiane, Laos",
+      name: "Mekong Golf Club",
+      city: "Vientiane",
+      location: "Mekong Golf Club, Vientiane, Laos",
       holes: "18 Holes",
-      yards: "6,850 yards",
-      description: "One of the best maintained golf courses in Laos, featuring wide fairways and modern facilities.",
-      mapLink: "https://maps.google.com/?q=Long+Vien+Golf+Club",
-      images: [
-        "https://i.imgur.com/JVPhgWk.jpeg",
-        "https://i.imgur.com/x3Hi1cE.jpeg",
-        "https://i.imgur.com/JUkGbSX.jpeg",
-        "https://i.imgur.com/nPMJGmc.jpeg"
-      ]
-    },
-    {
-      name: "SEA Games Golf Club",
-      location: "Vientiane, Laos",
-      holes: "27 Holes",
-      yards: "7,100 yards",
-      description: "Built for international tournaments, this course offers a challenging layout with wide greens.",
-      mapLink: "https://maps.google.com/?q=SEA+Games+Golf+Club+Laos",
-      images: [
-        "https://i.imgur.com/ZgpyWr7.jpeg",
-        "https://i.imgur.com/jpYEbS8.jpeg",
-        "https://i.imgur.com/SrPmRtD.jpeg",
-        "https://i.imgur.com/XU1zWaH.jpeg"
-      ]
-    },
-    {
-      name: "Dansavanh Golf & Country Club",
-      location: "Vientiane Province, Laos",
-      holes: "18 Holes",
-      yards: "7,000 yards",
-      description: "Located near the Laos–Thailand border, this course offers a peaceful environment with beautiful views.",
-      mapLink: "https://maps.google.com/?q=Dansavanh+Golf+Club",
-      images: [
-        "https://i.imgur.com/XZvE8bz.jpeg",
-        "https://i.imgur.com/yKLbHjP.jpeg",
-        "https://i.imgur.com/aRon90B.jpeg",
-        "https://i.imgur.com/LAjkAx8.jpeg"
-      ]
+      yards: "7,300 yards",
+      description: "A modern championship course along the Mekong River, with wide fairways and breathtaking sunset views.",
+      mapLink: "https://maps.google.com/?q=Mekong+Golf+Club+Vientiane",
+      image: "https://i.imgur.com/kVV2Z5z.jpeg"
     },
     {
       name: "Lao Country Club",
-      location: "Vientiane, Laos",
+      city: "Vientiane",
+      location: "Lao Country Club, Vientiane, Laos",
       holes: "18 Holes",
       yards: "6,500 yards",
-      description: "One of the oldest golf courses in Laos, popular with both locals and tourists.",
-      mapLink: "https://maps.google.com/?q=Lao+Country+Club",
-      images: [
-        "https://i.imgur.com/ROl7cXI.jpeg",
-        "https://i.imgur.com/BBj46pw.jpeg",
-        "https://i.imgur.com/JXBibsR.jpeg",
-        "https://i.imgur.com/tUDZpHK.jpeg"
-      ]
+      description: "One of the oldest golf courses in Laos, popular with both locals and tourists for its classic charm.",
+      mapLink: "https://maps.google.com/?q=Lao+Country+Club+Vientiane",
+      image: "https://i.imgur.com/x4A7hpH.jpeg"
+    },
+    {
+      name: "Vang Vieng Golf Club",
+      city: "Vang Vieng",
+      location: "Vang Vieng Golf Club, Vang Vieng, Laos",
+      holes: "18 Holes",
+      yards: "6,500 yards",
+      description: "A picturesque course set amid limestone karsts and rice paddies, perfect for a relaxed round in nature.",
+      mapLink: "https://maps.google.com/?q=Vang+Vieng+Golf+Club+Laos",
+      image: "https://i.imgur.com/BIHfV2W.jpeg"
+    },
+    {
+      name: "Long Vien Golf Club",
+      city: "Vientiane",
+      location: "Long Vien Golf Club, Vientiane, Laos",
+      holes: "18 Holes",
+      yards: "6,850 yards",
+      description: "One of the best maintained golf courses in Laos, featuring wide fairways and modern facilities.",
+      mapLink: "https://maps.google.com/?q=Long+Vien+Golf+Club+Vientiane",
+      image: "https://i.imgur.com/M7rWEZK.jpeg"
     },
     {
       name: "Lakeview Vientiane Golf Club",
-      location: "Vientiane, Laos",
+      city: "Vientiane",
+      location: "Lakeview Vientiane Golf Club, Vientiane, Laos",
       holes: "18 Holes",
       yards: "7,300 yards",
       description: "A modern course with water hazards and scenic lake views, great for experienced players.",
       mapLink: "https://maps.google.com/?q=Lakeview+Vientiane+Golf+Club",
-      images: [
-        "https://i.imgur.com/DvCUwm4.jpeg",
-        "https://i.imgur.com/HSCY4hR.jpeg",
-        "hhttps://i.imgur.com/Y7b37MJ.jpeg",
-        "https://i.imgur.com/7s5pMGL.jpeg"
-      ]
+      image: "https://i.imgur.com/nZqSXz6.jpeg"
+    },
+    {
+      name: "Luang Prabang Golf Club",
+      city: "Luang Prabang",
+      location: "Luang Prabang Golf Club, Luang Prabang, Laos",
+      holes: "18 Holes",
+      yards: "7,200 yards",
+      description: "A tranquil highland course surrounded by misty mountains and UNESCO heritage landscapes.",
+      mapLink: "https://maps.google.com/?q=Luang+Prabang+Golf+Club",
+      image: "https://i.imgur.com/B2fjoxj.jpeg"
+    },
+    {
+      name: "SEA Games Golf Club",
+      city: "Vientiane",
+      location: "SEA Games Golf Club, Vientiane, Laos",
+      holes: "27 Holes",
+      yards: "7,100 yards",
+      description: "Built for international tournaments, this course offers a challenging layout with wide, undulating greens.",
+      mapLink: "https://maps.google.com/?q=SEA+Games+Golf+Club+Vientiane",
+      image: "https://i.imgur.com/rDMj7bS.jpeg"
     }
   ];
 
-  // --- Travel Packages Data ---
+  // --- Travel Packages Data (with prices) ---
   const travelPackages = [
-    { title: "3 DAYS 2 NIGHTS VIENTIANE - LUANGPRABANG", duration: "3 DAYS 2 NIGHTS", img: "https://i.imgur.com/4QhvN7F.jpeg" },
-    { title: "4 DAYS 3 NIGHTS VIENTIANE – LUANG PRABANG", duration: "4 DAYS 3 NIGHTS", img: "https://i.imgur.com/TX7Xt7r.jpeg" },
-    { title: "2 DAYS 1 NIGHT VTE - VV", duration: "2 DAYS 1 NIGHT", img: "https://i.imgur.com/J4OGK1a.jpeg" },
-    { title: "4 DAYS 3 NIGHTS LPQ-VV-VTE", duration: "4 DAYS 3", img: "https://i.imgur.com/4HTtNcg.jpeg" },
-    { title: "2 DAYS 1 NIGHT VTE - MF - VTE", duration: "2 DAYS 1 NIGHT", img: "https://i.imgur.com/SJlpWSx.jpeg" },
-    { title: "5 DAYS 4 NIGHTS HUX-PK-LPQ", duration: "5 DAYS 4 NIGHTS", img: "https://i.imgur.com/V8TST5G.jpeg" },
-    { title: "VTE-VV-LPQ (3D2N)", duration: "3 DAYS 2 NIGHTS", img: "https://i.imgur.com/UZI13Qj.jpeg" },
-    { title: "3 DAYS 2 NIGHTS LUANGPRABANG HERITAGE ESCAPE", duration: "3 DAYS 2 NIGHTS", img: "https://i.imgur.com/pd2ByH1.jpeg" },
-    { title: "VANG VIENG ADVENTURE DAY TRIP – FULL DAY", duration: "FULL DAY", img: "https://i.imgur.com/4AvfdfO.jpeg" },
-    { title: "VIENTIANE CAPITAL DISCOVERY – FULL DAY", duration: "FULL DAY", img: "https://i.imgur.com/B6vdCe4.jpeg" },
-    { title: "LUANG PRABANG & VANG VIENG EXPLORER – 4 DAYS / 3 NIGHTS", duration: "4 DAYS 3 NIGHTS", img: "https://i.imgur.com/sG5jnE9.jpeg" },
-    { title: "SOUTHERN LAOS & 4,000 ISLANDS ESCAPE – 4 DAYS / 3 NIGHTS", duration: "4 DAYS 3 NIGHTS", img: "https://i.imgur.com/GwVFh0V.jpeg" },
+    { title: "3 DAYS 2 NIGHTS VIENTIANE - LUANGPRABANG", duration: "3 DAYS 2 NIGHTS", price: "$939/one person", img: "https://i.imgur.com/4QhvN7F.jpeg" },
+    { title: "4 DAYS 3 NIGHTS VIENTIANE – LUANG PRABANG", duration: "4 DAYS 3 NIGHTS", price: "$1,199/one person", img: "https://i.imgur.com/TX7Xt7r.jpeg" },
+    { title: "2 DAYS 1 NIGHT VTE - VV", duration: "2 DAYS 1 NIGHT", price: "$599/one person", img: "https://i.imgur.com/J4OGK1a.jpeg" },
+    { title: "4 DAYS 3 NIGHTS LPQ-VV-VTE", duration: "4 DAYS 3 NIGHTS", price: "$1,199/one person", img: "https://i.imgur.com/4HTtNcg.jpeg" },
+    { title: "2 DAYS 1 NIGHT VTE - MF - VTE", duration: "2 DAYS 1 NIGHT", price: "$599/one person", img: "https://i.imgur.com/SJlpWSx.jpeg" },
+    { title: "5 DAYS 4 NIGHTS HUX-PK-LPQ", duration: "5 DAYS 4 NIGHTS", price: "$1,499/one person", img: "https://i.imgur.com/V8TST5G.jpeg" },
+    { title: "VTE-VV-LPQ (3D2N)", duration: "3 DAYS 2 NIGHTS", price: "$939/one person", img: "https://i.imgur.com/UZI13Qj.jpeg" },
+    { title: "3 DAYS 2 NIGHTS LUANGPRABANG HERITAGE ESCAPE", duration: "3 DAYS 2 NIGHTS", price: "$939/one person", img: "https://i.imgur.com/pd2ByH1.jpeg" },
+    { title: "VANG VIENG ADVENTURE DAY TRIP – FULL DAY", duration: "FULL DAY", price: "$299/one person", img: "https://i.imgur.com/4AvfdfO.jpeg" },
+    { title: "VIENTIANE CAPITAL DISCOVERY – FULL DAY", duration: "FULL DAY", price: "$299/one person", img: "https://i.imgur.com/B6vdCe4.jpeg" },
+    { title: "LUANG PRABANG & VANG VIENG EXPLORER – 4 DAYS / 3 NIGHTS", duration: "4 DAYS 3 NIGHTS", price: "$1,199/one person", img: "https://i.imgur.com/sG5jnE9.jpeg" },
+    { title: "SOUTHERN LAOS & 4,000 ISLANDS ESCAPE – 4 DAYS / 3 NIGHTS", duration: "4 DAYS 3 NIGHTS", price: "$1,199/one person", img: "https://i.imgur.com/GwVFh0V.jpeg" },
   ];
 
   const travelPackageIdMap: Record<string, string> = {
@@ -153,14 +151,51 @@ const HomePage: React.FC = () => {
     "SOUTHERN LAOS & 4,000 ISLANDS ESCAPE – 4 DAYS / 3 NIGHTS": "southern_laos_4000_islands_escape",
   };
 
+  // --- Golf Packages Carousel Data (with prices) ---
   const golfPackages = [
-    { title: "4D3N Golf Package – LCC & Lake View", duration: "4 DAYS / 3 NIGHTS", desc: "Enjoy 2 rounds of golf at Luang Prabang Golf Club. Includes green fees, caddie, golf cart, and luxury accommodation.", img: "https://golfdigest.sports.sndimg.com/content/dam/images/golfdigest/fullset/2018/06/06/5b172fb47abc957b64518a7b_GettyImages-942686126.jpg.rend.hgtvcom.966.644.suffix/1573243603510.jpeg" },
-    { title: "5D4N Golf Package – LCC, Lake View & SEA Games Course", duration: "5 DAYS / 4 NIGHTS", desc: "Premium golf experience with 3 rounds at top courses, luxury resort accommodation, spa treatment.", img: "https://media.npr.org/assets/img/2023/03/01/gettyimages-1410422468_wide-f64095a661d8b05ad0433ef9da08b1f83dd23d24.jpg" },
-    { title: "5D4N Golf Package – LCC, Lake View & Dansavanh", duration: "5 DAYS / 4 NIGHTS", desc: "Combine luxury resort stay with 2 rounds of golf. Includes accommodation, breakfast, green fees, and club rental.", img: "https://www.pgaresort.com/images/content/homepageclubslidersmallimg/palm-harbor---innisbrook-resort---golf---2024-folklore-films-_12-1-.jpg" },
-    { title: "5D4N Golf Package – LCC, Lake View & Vang Vieng", duration: "5 DAYS / 4 NIGHTS", desc: "Combine luxury resort stay with 2 rounds of golf. Includes accommodation, breakfast, green fees, and club rental.", img: "https://www.pgaresort.com/images/content/homepageclubslidersmallimg/palm-harbor---innisbrook-resort---golf---2024-folklore-films-_12-1-.jpg" },
-    { title: "4D3N Golf Package – Luang Prabang (LPQ)", duration: "4 DAYS / 3 NIGHTS", desc: "Combine luxury resort stay with 2 rounds of golf. Includes accommodation, breakfast, green fees, and club rental.", img: "https://www.pgaresort.com/images/content/homepageclubslidersmallimg/palm-harbor---innisbrook-resort---golf---2024-folklore-films-_12-1-.jpg" },
-    { title: "Vientiane Golf & Leisure Escape – 7 Days / 6 Nights", duration: "7 DAYS / 6 NIGHTS", desc: "Enjoy 2 rounds of golf at Luang Prabang Golf Club. Includes green fees, caddie, golf cart, and luxury accommodation.", img: "https://golfdigest.sports.sndimg.com/content/dam/images/golfdigest/fullset/2018/06/06/5b172fb47abc957b64518a7b_GettyImages-942686126.jpg.rend.hgtvcom.966.644.suffix/1573243603510.jpeg" },
-  ];
+  { 
+    title: "4D3N Golf Package – LCC & Lake View", 
+    duration: "4 DAYS / 3 NIGHTS", 
+    price: "$999/one person", 
+    desc: "Enjoy 2 rounds of golf at Luang Prabang Golf Club. Includes green fees, caddie, golf cart, and luxury accommodation.", 
+    img: "https://i.imgur.com/x4A7hpH.jpeg"   // Lao Country Club
+  },
+  { 
+    title: "5D4N Golf Package – LCC, Lake View & SEA Games Course", 
+    duration: "5 DAYS / 4 NIGHTS", 
+    price: "$1,299/one person", 
+    desc: "Premium golf experience with 3 rounds at top courses, luxury resort accommodation, spa treatment.", 
+    img: "https://i.imgur.com/rDMj7bS.jpeg"   // SEA Games Golf Club
+  },
+  { 
+    title: "5D4N Golf Package – LCC, Lake View & Dansavanh", 
+    duration: "5 DAYS / 4 NIGHTS", 
+    price: "$1,299/one person", 
+    desc: "Combine luxury resort stay with 2 rounds of golf. Includes accommodation, breakfast, green fees, and club rental.", 
+    img: "https://i.imgur.com/GK6YDQS.jpeg"   // Dansavanh Golf Club
+  },
+  { 
+    title: "5D4N Golf Package – LCC, Lake View & Vang Vieng", 
+    duration: "5 DAYS / 4 NIGHTS", 
+    price: "$1,299/one person", 
+    desc: "Combine luxury resort stay with 2 rounds of golf. Includes accommodation, breakfast, green fees, and club rental.", 
+    img: "https://i.imgur.com/BIHfV2W.jpeg"   // Vang Vieng Golf Club
+  },
+  { 
+    title: "4D3N Golf Package – Luang Prabang (LPQ)", 
+    duration: "4 DAYS / 3 NIGHTS", 
+    price: "$999/one person", 
+    desc: "Combine luxury resort stay with 2 rounds of golf. Includes accommodation, breakfast, green fees, and club rental.", 
+    img: "https://i.imgur.com/B2fjoxj.jpeg"   // Luang Prabang Golf Club
+  },
+  { 
+    title: "Vientiane Golf & Leisure Escape – 7 Days / 6 Nights", 
+    duration: "7 DAYS / 6 NIGHTS", 
+    price: "$1,699/one person", 
+    desc: "Enjoy 2 rounds of golf at Luang Prabang Golf Club. Includes green fees, caddie, golf cart, and luxury accommodation.", 
+    img: "https://i.imgur.com/nZqSXz6.jpeg"   // Lakeview Vientiane Golf Club
+  },
+];
 
   const golfPackageIdMap: Record<string, string> = {
     "4D3N Golf Package – LCC & Lake View": "four_days_three_nights_lcc_and_lake_view",
@@ -171,22 +206,27 @@ const HomePage: React.FC = () => {
     "Vientiane Golf & Leisure Escape – 7 Days / 6 Nights": "seven_days_six_nights_laung_prabang_vientiane_leisure_escape",
   };
 
+  // --- Golf Club ID Map (typo left unchanged as requested) ---
   const golfClubIdMap: Record<string, string> = {
+    "Dansavanh Golf Club":"dansavanh_golf_club",
     "Luang Prabang Golf Club": "luang-prabang-golf-club",
     "Long Vien Golf Club": "long-vien-golf-club",
     "SEA Games Golf Club": "sea-games-golf-club",
-    "Dansavanh Golf & Country Club": "dansavanh-golf-country-club",
+    "Country Club": "dansavanh-golf-country-club",
     "Lao Country Club": "lao-country-club",
-    "Lakeview Vientiane Golf Club": "lakeview-vientiane-golf-club"
+    "Lakeview Vientiane Golf Club": "lakeview-vientiane-golf-club",
+    "Mekong Golf Club":"mekong_golf_club",
+    "Vang Vieng Golf Club":"vang_vieng_golf_glub"   // typo kept
   };
 
-  // --- NEW: Golf Packages List for the "Golf Packages" section ---
+  // --- Popular Golf Packages List (with prices and fixed durations) ---
   const golfPackagesList = [
     {
       name: "4D3N Golf Package – LCC & Lake View",
       slug: "four_days_three_nights_lcc_and_lake_view",
       image: "https://i.imgur.com/HSCY4hR.jpeg",
       duration: "4 Days / 3 Nights",
+      price: "$999/one person",
       description: "2 rounds at Long Vien & Lakeview courses. Includes luxury hotel, transfers, and temple tour."
     },
     {
@@ -194,6 +234,7 @@ const HomePage: React.FC = () => {
       slug: "fight_days_four_lcc_and_lake_view_and_sea_game",
       image: "https://i.imgur.com/Y7b37MJ.jpeg",
       duration: "5 Days / 4 Nights",
+      price: "$1,299/one person",
       description: "1 round at Luang Prabang Golf Club + UNESCO city tour & Kuang Si Falls. Riverside hotel."
     },
     {
@@ -201,6 +242,7 @@ const HomePage: React.FC = () => {
       slug: "fight_days_four_nights_lcc_and_lake_view_and_dansavanh",
       image: "https://i.imgur.com/7s5pMGL.jpeg",
       duration: "5 Days / 4 Nights",
+      price: "$1,299/one person",
       description: "3 rounds at Vang Vieng Golf Resort + hot air balloon, kayaking, and cave exploration."
     },
     {
@@ -208,6 +250,7 @@ const HomePage: React.FC = () => {
       slug: "fight_days_four_nights_lcc_and_lake_view_and_vang_vieng",
       image: "https://i.imgur.com/nvwDjla.jpeg",
       duration: "5 Days / 4 Nights",
+      price: "$1,299/one person",
       description: "4 rounds + Vat Phou temple tour, Bolaven Plateau coffee visit. Luxury Mekong resort."
     },
     {
@@ -215,13 +258,15 @@ const HomePage: React.FC = () => {
       slug: "four_days_three_nights_laung_prabang",
       image: "https://i.imgur.com/qK8XEKt.jpeg",
       duration: "4 Days / 3 Nights",
+      price: "$999/one person",
       description: "2 rounds at Long Vien & Lakeview courses. Includes luxury hotel, transfers, and temple tour."
     },
     {
       name: "Vientiane Golf & Leisure Escape – 7 Days / 6 Nights",
       slug: "seven_days_six_nights_laung_prabang_vientiane_leisure_escape",
       image: "https://i.imgur.com/4tIIfCr.jpeg",
-      duration: "4 Days / 3 Nights",
+      duration: "7 Days / 6 Nights",
+      price: "$1,699/one person",
       description: "2 rounds at Long Vien & Lakeview courses. Includes luxury hotel, transfers, and temple tour."
     }
   ];
@@ -331,126 +376,19 @@ const HomePage: React.FC = () => {
     }
   };
 
+  // --- Simplified GolfPlaceCard: static image, no slideshow ---
   const GolfPlaceCard: React.FC<{ place: typeof golfPlaces[0] }> = ({ place }) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const sliderRef = useRef<HTMLDivElement>(null);
-    const startX = useRef(0);
-    const isDragging = useRef(false);
-    const startTransform = useRef(0);
-    const totalImages = place.images.length;
-
-    const goToImage = (newIndex: number) => {
-      if (newIndex < 0) newIndex = totalImages - 1;
-      if (newIndex >= totalImages) newIndex = 0;
-      setCurrentIndex(newIndex);
-    };
-
-    const handleTouchStart = (e: React.TouchEvent) => {
-      startX.current = e.touches[0].clientX;
-      isDragging.current = true;
-      if (sliderRef.current) {
-        startTransform.current = -currentIndex * 100;
-        sliderRef.current.style.transition = 'none';
-      }
-    };
-
-    const handleTouchMove = (e: React.TouchEvent) => {
-      if (!isDragging.current || !sliderRef.current) return;
-      const deltaX = e.touches[0].clientX - startX.current;
-      const movePercent = (deltaX / sliderRef.current.offsetWidth) * 100;
-      const newPercent = startTransform.current + movePercent;
-      sliderRef.current.style.transform = `translateX(${newPercent}%)`;
-    };
-
-    const handleTouchEnd = () => {
-      if (!isDragging.current || !sliderRef.current) {
-        if (sliderRef.current) sliderRef.current.style.transition = '';
-        isDragging.current = false;
-        return;
-      }
-      isDragging.current = false;
-      const currentTransform = sliderRef.current.style.transform;
-      const match = currentTransform.match(/translateX\(([-\d.]+)%\)/);
-      if (match) {
-        let percent = parseFloat(match[1]);
-        let newIndex = Math.round(-percent / 100);
-        if (newIndex < 0) newIndex = 0;
-        if (newIndex >= totalImages) newIndex = totalImages - 1;
-        if (newIndex !== currentIndex) setCurrentIndex(newIndex);
-      }
-      sliderRef.current.style.transition = '';
-      sliderRef.current.style.transform = `translateX(-${currentIndex * 100}%)`;
-    };
-
-    const handleMouseDown = (e: React.MouseEvent) => {
-      e.preventDefault();
-      startX.current = e.clientX;
-      isDragging.current = true;
-      if (sliderRef.current) {
-        startTransform.current = -currentIndex * 100;
-        sliderRef.current.style.transition = 'none';
-      }
-      window.addEventListener('mousemove', handleMouseMove);
-      window.addEventListener('mouseup', handleMouseUp);
-    };
-
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!isDragging.current || !sliderRef.current) return;
-      const deltaX = e.clientX - startX.current;
-      const movePercent = (deltaX / sliderRef.current.offsetWidth) * 100;
-      const newPercent = startTransform.current + movePercent;
-      sliderRef.current.style.transform = `translateX(${newPercent}%)`;
-    };
-
-    const handleMouseUp = () => {
-      if (!isDragging.current || !sliderRef.current) {
-        if (sliderRef.current) sliderRef.current.style.transition = '';
-        isDragging.current = false;
-        window.removeEventListener('mousemove', handleMouseMove);
-        window.removeEventListener('mouseup', handleMouseUp);
-        return;
-      }
-      isDragging.current = false;
-      const currentTransform = sliderRef.current.style.transform;
-      const match = currentTransform.match(/translateX\(([-\d.]+)%\)/);
-      if (match) {
-        let percent = parseFloat(match[1]);
-        let newIndex = Math.round(-percent / 100);
-        if (newIndex < 0) newIndex = 0;
-        if (newIndex >= totalImages) newIndex = totalImages - 1;
-        if (newIndex !== currentIndex) setCurrentIndex(newIndex);
-      }
-      sliderRef.current.style.transition = '';
-      sliderRef.current.style.transform = `translateX(-${currentIndex * 100}%)`;
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseup', handleMouseUp);
-    };
-
-    useEffect(() => {
-      if (sliderRef.current) sliderRef.current.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }, [currentIndex]);
-
     const clubSlug = golfClubIdMap[place.name];
-
     return (
       <div className="place-card">
-        <div className="place-image-slider" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd} onMouseDown={handleMouseDown} style={{ cursor: 'grab', touchAction: 'pan-y pinch-y', overflow: 'hidden', position: 'relative', height: '220px' }}>
-          <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }}>
-            <div ref={sliderRef} style={{ display: 'flex', transition: 'transform 0.3s ease-out', height: '100%', willChange: 'transform' }}>
-              {place.images.map((img, idx) => (
-                <img key={idx} src={img} alt={`${place.name} view ${idx + 1}`} style={{ minWidth: '100%', height: '100%', objectFit: 'cover', pointerEvents: 'none', userSelect: 'none' }} />
-              ))}
-            </div>
-            <div style={{ position: 'absolute', bottom: '12px', left: 0, right: 0, display: 'flex', justifyContent: 'center', gap: '8px', zIndex: 15 }}>
-              {place.images.map((_, idx) => (
-                <span key={idx} onClick={(e) => { e.stopPropagation(); goToImage(idx); }} style={{ width: idx === currentIndex ? '20px' : '8px', height: '8px', borderRadius: '4px', background: idx === currentIndex ? '#ED6A02' : 'rgba(255,255,255,0.7)', cursor: 'pointer', transition: 'all 0.2s' }} />
-              ))}
-            </div>
-          </div>
+        <div className="place-image" style={{ height: '220px', overflow: 'hidden' }}>
+          <img src={place.image} alt={place.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div>
         <div className="place-content">
           <h3 className="place-title">{place.name}</h3>
-          <a href={place.mapLink} target="_blank" rel="noopener noreferrer"><div className="place-location"><i className="fas fa-map-marker-alt"></i><span>{place.location}</span></div></a>
+          <a href={place.mapLink} target="_blank" rel="noopener noreferrer">
+            <div className="place-location"><i className="fas fa-map-marker-alt"></i><span>{place.location}</span></div>
+          </a>
           <div style={{ display: 'flex', gap: '1rem', marginBottom: '0.75rem', fontSize: '0.85rem', color: '#2E7D32', fontWeight: 600 }}>
             <span><i className="fas fa-flag" style={{ color: '#ED6A02', marginRight: '0.25rem' }}></i>{place.holes}</span>
             <span><i className="fas fa-ruler" style={{ color: '#ED6A02', marginRight: '0.25rem' }}></i>{place.yards}</span>
@@ -472,7 +410,7 @@ const HomePage: React.FC = () => {
         <div className="package-card-new-overlay"></div>
         <div className="package-card-new-content">
           <h3 className="package-card-new-title">{pkg.name}</h3>
-          <div className="package-card-new-price">{pkg.duration}</div>
+          <div className="package-card-new-price">{pkg.duration} - {pkg.price}</div>
           <p className="package-card-new-desc">{pkg.description}</p>
           <div className="package-card-buttons">
             <Link href={`/golf_package_detail/${packageId}`} className="card-details-btn" onClick={(e) => e.stopPropagation()}><i className="fas fa-info-circle"></i> Details</Link>
@@ -533,6 +471,9 @@ const HomePage: React.FC = () => {
         
         .place-card { background: white; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column; }
         .place-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2); }
+        .place-image { height: 220px; overflow: hidden; }
+        .place-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .place-card:hover .place-image img { transform: scale(1.05); }
         .place-content { padding: 1.5rem; flex: 1; }
         .place-title { font-size: 1.5rem; font-weight: 700; color: #2E7D32; margin-bottom: 0.5rem; }
         .place-location { display: flex; align-items: center; color: #ED6A02; font-size: 0.9rem; margin-bottom: 0.75rem; cursor: pointer; }
@@ -543,13 +484,11 @@ const HomePage: React.FC = () => {
         .section-header h2 { font-size: 2.5rem; font-weight: 700; color: #2E7D32; margin-bottom: 0.5rem; }
         .section-divider { width: 100px; height: 4px; background: #ED6A02; margin: 1rem auto; border-radius: 2px; }
         
-        /* --- NEW: Two rows with second row centered --- */
         .popular-packages-cards {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
           gap: 1.5rem;
-          // max-width: 1200px;
           margin: 0 auto;
         }
         .popular-packages-cards .package-card-new {
@@ -592,8 +531,46 @@ const HomePage: React.FC = () => {
         @media (max-width: 768px) { .videos-grid { grid-template-columns: 1fr; } }
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 0.75rem; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        .carousel-btn-container { position: absolute; bottom: 20%; left: 0; right: 0; display: flex; justify-content: center; gap: 1.2rem; z-index: 30; pointer-events: none; }
-        .carousel-btn-container .category-btn { pointer-events: auto; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        
+        .carousel-btn-container {
+          position: absolute;
+          bottom: 15%;
+          left: 0;
+          right: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 1.5rem;
+          z-index: 30;
+          pointer-events: none;
+          text-align: center;
+          padding: 3rem 1rem;
+        }
+        .carousel-btn-container .slide-text {
+          backdrop-filter: blur(2px);
+          padding: 0.75rem 1.5rem;
+          border-radius: 2rem;
+          color: white;
+          font-weight: 600;
+          font-size: 1.2rem;
+          max-width: 80%;
+          margin: 0 auto;
+          pointer-events: auto;
+          line-height: 1.5;
+        }
+        .carousel-buttons {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1rem;
+          pointer-events: auto;
+        }
+        .carousel-buttons .category-btn {
+          background: linear-gradient(135deg, #511703 0%, #996515 100%);
+          color: white;
+          margin: 0;
+        }
         
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.8); z-index: 2147483647; align-items: center; justify-content: center; padding: 1rem; overflow: hidden; }
         .modal.active { display: flex; }
@@ -621,6 +598,7 @@ const HomePage: React.FC = () => {
           .modal { padding: 0; }
           .modal-content { width: 100%; height: 100%; max-height: 100%; border-radius: 0; padding: 1.5rem 1rem; overflow-y: auto; }
           .modal-title { font-size: 1.5rem; }
+          .carousel-btn-container .slide-text { font-size: 0.9rem; max-width: 95%; }
         }
       `}</style>
 
@@ -635,13 +613,13 @@ const HomePage: React.FC = () => {
             <div className="w-full flex-shrink-0 relative carousel-height"><img src="https://i.imgur.com/BqQTJV4.jpeg" alt="Mist over mountains" className="w-full h-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div></div>
             <div className="w-full flex-shrink-0 relative carousel-height"><img src="https://i.imgur.com/WhnDjDA.jpeg" alt="Mist over mountains" className="w-full h-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div></div>
             <div className="w-full flex-shrink-0 relative carousel-height"><img src="https://i.imgur.com/Ioye5Q6.jpeg" alt="Mist over mountains" className="w-full h-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div></div>
-            {/* <div className="w-full flex-shrink-0 relative carousel-height"><img src="/slider_images/slider_3.png" alt="Mist over mountains" className="w-full h-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div></div> */}
-
-          
           </div>
-          <div className="carousel-btn-container">
-            <Link href="/packages" className="category-btn travel">Travel Packages</Link>
-            <Link href="/packages" className="category-btn golf">Golf Packages</Link>
+          <div className="carousel-btn-container ">
+            <p className="slide-text" key={carouselIndex}>{slideTexts[carouselIndex]}</p>
+            <div className="carousel-buttons">
+              <Link href="/packages" className="category-btn travel">Travel Packages</Link>
+              <Link href="/packages" className="category-btn golf">Golf Packages</Link>
+            </div>
           </div>
           <div className="absolute bottom-5 left-0 right-0 flex justify-center space-x-3 z-10">
             {[...Array(totalSlides)].map((_, idx) => (<button key={idx} className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${idx === carouselIndex ? 'bg-[#ED6A02] w-6' : 'bg-white/70'}`} onClick={() => goToSlide(idx)} />))}
@@ -690,7 +668,7 @@ const HomePage: React.FC = () => {
           </div>
         </div>
 
-        {/* Our Services Section with Package Sliders */}
+        {/* Our Services Section */}
         <div className="section-container" id="our_services">
           <div className="w-full full-width mx-auto">
             <h3 className="text-3xl font-bold text-[#2E7D32] mb-2 text-center mt-5">Our Services</h3>
@@ -704,7 +682,7 @@ const HomePage: React.FC = () => {
               <div ref={travelCarouselRef} className="packages-grid-carousel">
                 {travelPackages.map((pkg, idx) => {
                   const packageId = travelPackageIdMap[pkg.title];
-                  return (<div key={idx} className="package-mini-card"><div className="package-mini-image"><img src={pkg.img} alt={pkg.title} /></div><div className="package-mini-content"><div className="package-mini-title">{pkg.title}</div><div className="package-mini-duration-text">{pkg.duration}</div><div className="package-mini-footer"><Link href={`travel_package_detail/${packageId}`} className="btn-details">Details</Link><button className="btn-book" onClick={() => openBookingModal(pkg.title)}>Book</button></div></div></div>);
+                  return (<div key={idx} className="package-mini-card"><div className="package-mini-image"><img src={pkg.img} alt={pkg.title} /></div><div className="package-mini-content"><div className="package-mini-title">{pkg.title}</div><div className="package-mini-duration-text">{pkg.duration} - {pkg.price}</div><div className="package-mini-footer"><Link href={`travel_package_detail/${packageId}`} className="btn-details">Details</Link><button className="btn-book" onClick={() => openBookingModal(pkg.title)}>Book</button></div></div></div>);
                 })}
               </div>
               <div className="slider-arrow slider-arrow-right" onClick={(e) => { e.stopPropagation(); scrollCarousel(travelCarouselRef, 'right'); }}><i className="fas fa-chevron-right"></i></div>
@@ -715,13 +693,13 @@ const HomePage: React.FC = () => {
               <div ref={golfCarouselRef} className="packages-grid-carousel">
                 {golfPackages.map((pkg, idx) => {
                   const packageId = golfPackageIdMap[pkg.title];
-                  return (<div key={idx} className="package-mini-card"><div className="package-mini-image"><img src={pkg.img} alt={pkg.title} /></div><div className="package-mini-content"><div className="package-mini-title">{pkg.title}</div><div className="package-mini-duration-text">{pkg.duration}</div><div className="package-mini-footer"><Link href={`/golf_package_detail/${packageId}`} className="btn-details">Details</Link><button className="btn-book" onClick={() => openBookingModal(pkg.title)}>Book</button></div></div></div>);
+                  return (<div key={idx} className="package-mini-card"><div className="package-mini-image"><img src={pkg.img} alt={pkg.title} /></div><div className="package-mini-content"><div className="package-mini-title">{pkg.title}</div><div className="package-mini-duration-text">{pkg.duration} - {pkg.price}</div><div className="package-mini-footer"><Link href={`/golf_package_detail/${packageId}`} className="btn-details">Details</Link><button className="btn-book" onClick={() => openBookingModal(pkg.title)}>Book</button></div></div></div>);
                 })}
               </div>
               <div className="slider-arrow slider-arrow-right" onClick={(e) => { e.stopPropagation(); scrollCarousel(golfCarouselRef, 'right'); }}><i className="fas fa-chevron-right"></i></div>
             </div>
           </div>
-          <div className="text-center mt-8">
+          <div className="package-category-buttons">
             <Link href="/packages" className="inline-flex items-center bg-white text-[#2E7D32] px-6 py-2 rounded-full font-bold hover:bg-[#ED6A02] hover:text-white transition shadow-lg">View All Packages</Link>
             <Link href="/contactus" className="inline-flex items-center bg-white text-[#2E7D32] px-6 py-2 rounded-full font-bold hover:bg-[#ED6A02] hover:text-white transition shadow-lg text-red-700 ml-4">Customize Package</Link>
           </div>
@@ -729,11 +707,11 @@ const HomePage: React.FC = () => {
 
         {/* Golf Places in Laos */}
         <div className="max-w-6xl mx-auto px-4 py-12" id="places">
-          <div className="section-header"><h2>Golf Places in Laos</h2><p>Swipe left/right on images to see more views — drag to slide</p><div className="section-divider"></div></div>
+          <div className="section-header"><h2>Golf Places in Laos</h2><p>Discover the best golf courses across the country</p><div className="section-divider"></div></div>
           <div className="places-grid">{golfPlaces.map((place, idx) => (<GolfPlaceCard key={idx} place={place} />))}</div>
         </div>
 
-        {/* Golf Packages Section (two rows, second row centered) */}
+        {/* Popular Golf Packages */}
         <div className="popular-golf-section">
           <div className="w-full py-12 mt-8">
             <div className="full-width mx-auto">
@@ -742,28 +720,26 @@ const HomePage: React.FC = () => {
               <div className="popular-packages-cards">
                 {golfPackagesList.map((pkg, idx) => (<PopularGolfCard key={idx} pkg={pkg} />))}
               </div>
-              <div className="text-center mt-8">
-            <Link href="/packages" className="inline-flex items-center bg-white text-[#2E7D32] px-6 py-2 rounded-full font-bold hover:bg-[#ED6A02] hover:text-white transition shadow-lg">View All Packages</Link>
-            <Link href="/contactus" className="inline-flex items-center bg-white text-[#2E7D32] px-6 py-2 rounded-full font-bold hover:bg-[#ED6A02] hover:text-white transition shadow-lg text-red-700 ml-4">Customize Package</Link>
-          </div>
+             <div className="package-category-buttons">
+                <Link href="/packages" className="inline-flex items-center bg-white text-[#2E7D32] px-6 py-2 rounded-full font-bold hover:bg-[#ED6A02] hover:text-white transition shadow-lg">&nbsp;View All Packages&nbsp;</Link>
+                <Link href="/contactus" className="inline-flex items-center bg-white text-[#2E7D32] px-6 py-2 rounded-full font-bold hover:bg-[#ED6A02] hover:text-white transition shadow-lg text-red-700 ml-4">Customize Package</Link>
+              </div>
             </div>
           </div>
         </div>
 
         <GallerySliderRow />
-        <div className="text-center ">
-            <Link href="/gallery" className="inline-flex items-center bg-white text-[#2E7D32] px-6 py-2 rounded-full font-bold hover:bg-[#ED6A02] hover:text-white transition shadow-lg">View All Gallery</Link>
-            {/* <Link href="/contactus" className="inline-flex items-center bg-white text-[#2E7D32] px-6 py-2 rounded-full font-bold hover:bg-[#ED6A02] hover:text-white transition shadow-lg text-red-700 ml-4">Customize Package</Link> */}
-          </div>
+        <div className="text-center py-2">
+          <Link href="/gallery" className="inline-flex items-center bg-white text-[#2E7D32] px-6 py-2 rounded-full font-bold hover:bg-[#ED6A02] hover:text-white transition shadow-lg">View All Gallery</Link>
+        </div>
         <ContactUs />
       </main>
 
-      {/* Detail Modal */}
+      {/* Modals */}
       <div className={`modal ${detailModalOpen ? 'active' : ''}`} onClick={(e) => { if (e.target === e.currentTarget) closeDetailModal(); }}>
         <div className="modal-content"><span className="modal-close" onClick={closeDetailModal}>&times;</span><div className="modal-icon"><i className="fas fa-mountain"></i></div><h3 className="modal-title">{currentPackage.title}</h3><div className="modal-details"><div className="detail-item"><span className="detail-label">Duration:</span><span>{currentPackage.duration}</span></div><div className="modal-description">{currentPackage.description}</div></div><div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}><button className="modal-btn" onClick={bookFromDetail} style={{ flex: 1 }}>Book Now</button><button className="modal-close-btn" onClick={closeDetailModal} style={{ flex: 1 }}>Close</button></div></div>
       </div>
 
-      {/* Booking Modal */}
       <div className={`modal ${bookingModalOpen ? 'active' : ''}`} onClick={(e) => { if (e.target === e.currentTarget) closeBookingModal(); }}>
         <div className="modal-content"><span className="modal-close sticky" onClick={closeBookingModal}>&times;</span><div className="modal-icon"><i className="fas fa-envelope-open-text"></i></div><h3 className="modal-title">Request a Booking</h3><p className="modal-subtitle">Booking: {bookingPackageName}</p>
           <form onSubmit={handleBookingSubmit}>

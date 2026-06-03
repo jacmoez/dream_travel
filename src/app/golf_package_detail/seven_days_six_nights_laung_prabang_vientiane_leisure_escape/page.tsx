@@ -3,12 +3,13 @@
 import { useState, useEffect } from "react";
 
 export default function VientianeGolfLeisureEscape() {
-  // Slideshow images (Vientiane golf courses & landmarks)
+  // Slideshow images – real golf course photos (Long Vien, Lakeview, SEA Games)
   const images = [
-    "https://golfaurea.com/uploads/laos-golf/441499286-956565899589006-3158131433977066534-n.jpg",
-    "https://www.golfsavers.com/assets/image/luang-prabang-golf-club-green-2.jpg",
-    "https://cdn.golflux.com/wp-content/uploads/2023/02/Luang-Prabang-Golf-Club-1-4.jpg",
-    "https://golftreks.com.au/wp-content/uploads/2025/12/imageedit_2_8073057567.jpg",
+    "https://i.imgur.com/M7rWEZK.jpeg",   // Long Vien Golf Club
+    "https://i.imgur.com/nZqSXz6.jpeg",   // Lakeview Golf Club
+    "https://i.imgur.com/rDMj7bS.jpeg",   // SEA Games Golf Club
+    "https://i.imgur.com/GlDTwZb.jpeg",   // Lakeview (second view)
+    "https://i.imgur.com/xosYclE.jpeg",   // SEA Games (second view)
   ];
 
   const Slideshow = () => {
@@ -28,7 +29,7 @@ export default function VientianeGolfLeisureEscape() {
     return (
       <div className="relative w-full max-w-4xl mx-auto overflow-hidden rounded-lg shadow-lg mt-5 mb-5">
         <div className="relative h-64 md:h-96">
-          <img src={images[currentIndex]} alt={`Travel view ${currentIndex + 1}`} className="w-full h-full object-cover" />
+          <img src={images[currentIndex]} alt={`Golf course view ${currentIndex + 1}`} className="w-full h-full object-cover" />
         </div>
         <button
           onClick={prevSlide}
@@ -172,8 +173,7 @@ export default function VientianeGolfLeisureEscape() {
 
       {/* Footer note */}
       <div className="text-xs text-gray-500 border-t pt-4 mt-4 text-center">
-* All information is subject to change without prior notice. Please confirm details at time of booking.
-
+        * All information is subject to change without prior notice. Please confirm details at time of booking.
       </div>
     </div>
   );

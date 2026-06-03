@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 interface GolfClub {
   name: string;
   location: string;
+  city:string,
   holes: string;
   yards: string;
   description: string;
@@ -16,92 +17,133 @@ interface GolfClub {
 }
 
 const golfClubs: Record<string, GolfClub> = {
-  'luang-prabang-golf-club': {
-    name: 'Luang Prabang Golf Club',
-    location: 'Luang Prabang, Laos',
+  'dansavanh_golf_club': {
+    name: 'Dansavanh Golf Club',
+    city: 'Vientiane Province',
+    location: 'Dansavanh Golf Club, Vientiane Province, Laos',
     holes: '18 Holes',
     yards: '7,200 yards',
     description: 'A scenic riverside course surrounded by mountains, offering a relaxing yet challenging golf experience.',
+    mapLink: 'https://maps.google.com/?q=Dansavanh+Golf+Club+Laos',
+    images: [
+      "https://i.imgur.com/GK6YDQS.jpeg",
+      "https://i.imgur.com/zERBoU8.jpeg",
+      "https://i.imgur.com/yXi9Auv.jpeg",
+      "https://i.imgur.com/l97b1KP.jpeg",
+      "https://i.imgur.com/G2Ao1wE.jpeg"
+    ]
+  },
+  'luang-prabang-golf-club': {
+    name: 'Luang Prabang Golf Club',
+    city: 'Luang Prabang',
+    location: 'Luang Prabang Golf Club, Luang Prabang, Laos',
+    holes: '18 Holes',
+    yards: '7,200 yards',
+    description: 'A highland course set in the historic UNESCO town of Luang Prabang, with stunning mountain views and a tranquil atmosphere.',
     mapLink: 'https://maps.google.com/?q=Luang+Prabang+Golf+Club',
     images: [
-      'https://images.unsplash.com/photo-1592919505780-303950717480',
-      'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa',
-      'https://images.unsplash.com/photo-1505842465776-3d90f616310f',
-      'https://images.unsplash.com/photo-1560272564-c83b66b1ad12'
+      "https://i.imgur.com/meYhsb6.jpeg",
+      "https://i.imgur.com/AZ5Vr3F.jpeg",
+      "https://i.imgur.com/B2fjoxj.jpeg",
+      "https://i.imgur.com/1Rjk8vT.jpeg",
+     
     ]
   },
   'long-vien-golf-club': {
     name: 'Long Vien Golf Club',
-    location: 'Vientiane, Laos',
+    city: 'Vientiane',
+    location: 'Long Vien Golf Club, Vientiane, Laos',
     holes: '18 Holes',
     yards: '6,850 yards',
     description: 'One of the best maintained golf courses in Laos, featuring wide fairways and modern facilities.',
-    mapLink: 'https://maps.google.com/?q=Long+Vien+Golf+Club',
+    mapLink: 'https://maps.google.com/?q=Long+Vien+Golf+Club+Vientiane',
     images: [
-      'https://images.unsplash.com/photo-1551524164-6cf2ac3fcb5b',
-      'https://images.unsplash.com/photo-1521412644187-c49fa049e84d',
-      'https://images.unsplash.com/photo-1599058917765-a780eda07a3e',
-      'https://images.unsplash.com/photo-1603570419884-1b2c6d9c4c52'
+      "https://i.imgur.com/M7rWEZK.jpeg",
+      "https://i.imgur.com/LInxA73.jpeg",
+      "https://i.imgur.com/XOoIy8Z.jpeg",
+      "https://i.imgur.com/pPznpWU.jpeg",
+      "https://i.imgur.com/dMtUbXk.jpeg",
     ]
   },
   'sea-games-golf-club': {
     name: 'SEA Games Golf Club',
-    location: 'Vientiane, Laos',
+    city: 'Vientiane',
+    location: 'SEA Games Golf Club, Vientiane, Laos',
     holes: '27 Holes',
     yards: '7,100 yards',
-    description: 'Built for international tournaments, this course offers a challenging layout with wide greens.',
-    mapLink: 'https://maps.google.com/?q=SEA+Games+Golf+Club+Laos',
+    description: 'Built for international tournaments, this course offers a challenging layout with wide, undulating greens.',
+    mapLink: 'https://maps.google.com/?q=SEA+Games+Golf+Club+Vientiane',
     images: [
-      'https://images.unsplash.com/photo-1517649763962-0c623066013b',
-      'https://images.unsplash.com/photo-1570111838200-3a3f1e8f9c89',
-      'https://images.unsplash.com/photo-1603570419884-1b2c6d9c4c52',
-      'https://images.unsplash.com/photo-1505842465776-3d90f616310f'
-    ]
-  },
-  'dansavanh-golf-country-club': {
-    name: 'Dansavanh Golf & Country Club',
-    location: 'Vientiane Province, Laos',
-    holes: '18 Holes',
-    yards: '7,000 yards',
-    description: 'Located near the Laos–Thailand border, this course offers a peaceful environment with beautiful views.',
-    mapLink: 'https://maps.google.com/?q=Dansavanh+Golf+Club',
-    images: [
-      'https://images.unsplash.com/photo-1592919505780-303950717480',
-      'https://images.unsplash.com/photo-1560272564-c83b66b1ad12',
-      'https://images.unsplash.com/photo-1521412644187-c49fa049e84d',
-      'https://images.unsplash.com/photo-1551524164-6cf2ac3fcb5b'
+      "https://i.imgur.com/rDMj7bS.jpeg",
+      "https://i.imgur.com/xosYclE.jpeg",
+      "https://i.imgur.com/OFl4wo2.jpeg",
+      "https://i.imgur.com/jWfX6zh.jpeg",
     ]
   },
   'lao-country-club': {
     name: 'Lao Country Club',
-    location: 'Vientiane, Laos',
+    city: 'Vientiane',
+    location: 'Lao Country Club, Vientiane, Laos',
     holes: '18 Holes',
     yards: '6,500 yards',
-    description: 'One of the oldest golf courses in Laos, popular with both locals and tourists.',
-    mapLink: 'https://maps.google.com/?q=Lao+Country+Club',
+    description: 'One of the oldest golf courses in Laos, this club is popular with both locals and tourists for its classic layout and friendly vibe.',
+    mapLink: 'https://maps.google.com/?q=Lao+Country+Club+Vientiane',
     images: [
-      'https://images.unsplash.com/photo-1599058917765-a780eda07a3e',
-      'https://images.unsplash.com/photo-1505842465776-3d90f616310f',
-      'https://images.unsplash.com/photo-1570111838200-3a3f1e8f9c89',
-      'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa'
+      "https://i.imgur.com/x4A7hpH.jpeg",
+      "https://i.imgur.com/K6gOupW.jpeg",
+      "https://i.imgur.com/2Hy3Co0.jpeg",
+      "https://i.imgur.com/94IpoFP.jpeg",
+      "https://i.imgur.com/ZEWk4Y9.jpeg"
     ]
   },
   'lakeview-vientiane-golf-club': {
     name: 'Lakeview Vientiane Golf Club',
-    location: 'Vientiane, Laos',
+    city: 'Vientiane',
+    location: 'Lakeview Vientiane Golf Club, Vientiane, Laos',
     holes: '18 Holes',
     yards: '7,300 yards',
-    description: 'A modern course with water hazards and scenic lake views, great for experienced players.',
+    description: 'A modern course with numerous water hazards and scenic lake views, ideal for experienced players seeking a challenge.',
     mapLink: 'https://maps.google.com/?q=Lakeview+Vientiane+Golf+Club',
     images: [
-      'https://images.unsplash.com/photo-1603570419884-1b2c6d9c4c52',
-      'https://images.unsplash.com/photo-1551524164-6cf2ac3fcb5b',
-      'https://images.unsplash.com/photo-1521412644187-c49fa049e84d',
-      'https://images.unsplash.com/photo-1560272564-c83b66b1ad12'
+      "https://i.imgur.com/nZqSXz6.jpeg",
+      "https://i.imgur.com/GlDTwZb.jpeg",
+      "https://i.imgur.com/mYjfy1N.jpeg",
+      "https://i.imgur.com/gjbL5Oc.jpeg",
+      "https://i.imgur.com/yxOOhmp.jpeg",
+    ]
+  },
+  'mekong_golf_club': {
+    name: 'Mekong Golf Club',
+    city: 'Vientiane',
+    location: 'Mekong Golf Club, Vientiane, Laos',
+    holes: '18 Holes',
+    yards: '7,300 yards',
+    description: 'A championship layout along the Mekong River, featuring wide fairways, water hazards, and stunning sunset views.',
+    mapLink: 'https://maps.google.com/?q=Mekong+Golf+Club+Vientiane',
+    images: [
+      "https://i.imgur.com/kVV2Z5z.jpeg",
+      "https://i.imgur.com/z9EKxKj.jpeg",
+      "https://i.imgur.com/ybN2iVO.jpeg",
+      "https://i.imgur.com/CzXtMuo.jpeg"
+    ]
+  },
+  'vang_vieng_golf_club': {  // Fixed typo: was 'vang_vieng_golf_glub'
+    name: 'Vang Vieng Golf Club',
+    city: 'Vang Vieng',
+    location: 'Vang Vieng Golf Club, Vang Vieng, Laos',
+    holes: '18 Holes',
+    yards: '7,300 yards',
+    description: 'A picturesque course set among limestone karsts and rice paddies, offering a unique and scenic golf experience.',
+    mapLink: 'https://maps.google.com/?q=Vang+Vieng+Golf+Club+Laos',
+    images: [
+      "https://i.imgur.com/BIHfV2W.jpeg",
+      "https://i.imgur.com/ogbD8od.jpeg",
+      "https://i.imgur.com/R1QftN1.jpeg",
+      "https://i.imgur.com/80KeW1U.jpeg",
+      "https://i.imgur.com/oTpnEBS.jpeg",
     ]
   }
 };
-
 const defaultClub = golfClubs['luang-prabang-golf-club'];
 
 export default function GolfClubDetailPage() {

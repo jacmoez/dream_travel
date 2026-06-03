@@ -3,12 +3,13 @@
 import { useState, useEffect } from "react";
 
 export default function GolfPackageVientianeTriple() {
-  // Slideshow images (golf courses in Vientiane area)
+  // Slideshow images – real golf course images from the provided sets
   const images = [
-    "https://golfaurea.com/uploads/laos-golf/441499286-956565899589006-3158131433977066534-n.jpg",
-    "https://www.golfsavers.com/assets/image/luang-prabang-golf-club-green-2.jpg",
-    "https://cdn.golflux.com/wp-content/uploads/2023/02/Luang-Prabang-Golf-Club-1-4.jpg",
-    "https://golftreks.com.au/wp-content/uploads/2025/12/imageedit_2_8073057567.jpg",
+    "https://i.imgur.com/nZqSXz6.jpeg",     // Lakeview Golf Club
+    "https://i.imgur.com/rDMj7bS.jpeg",     // SEA Games Golf Club
+    "https://i.imgur.com/x4A7hpH.jpeg",     // Lao Country Club (LCC)
+    "https://i.imgur.com/GlDTwZb.jpeg",     // Lakeview Golf Club (another view)
+    "https://i.imgur.com/xosYclE.jpeg",     // SEA Games Golf Club (another view)
   ];
 
   const Slideshow = () => {
@@ -69,7 +70,7 @@ export default function GolfPackageVientianeTriple() {
           <span className="font-bold">Duration:</span> 5 Days / 4 Nights
         </div>
         <div className="bg-blue-50 p-3 rounded">
-          <span className="font-bold">Courses:</span> Long Thanh Championship Course (LCC), Lake View Golf Club, SEA Games Golf Course
+          <span className="font-bold">Courses:</span> Lao Country Club (LCC), Lake View Golf Club, SEA Games Golf Course
         </div>
       </div>
 
@@ -89,7 +90,7 @@ export default function GolfPackageVientianeTriple() {
             <h4 className="text-lg font-semibold">Day 2: Golf at LCC</h4>
             <ul className="list-disc list-inside ml-4 space-y-1">
               <li>Breakfast at hotel</li>
-              <li>Transfer to Long Thanh Championship Course</li>
+              <li>Transfer to Lao Country Club (LCC)</li>
               <li>18 holes of golf (includes green fee)</li>
               <li>Return to hotel</li>
             </ul>
@@ -123,14 +124,10 @@ export default function GolfPackageVientianeTriple() {
         </div>
       </section>
 
-      {/* Package notes */}
-      {/* <div className="bg-gray-50 p-4 rounded-md mb-4 text-sm text-gray-700">
-        <span className="font-semibold">Package Highlights:</span> Three championship rounds at Vientiane's premier golf destinations. Caddie and shared cart can be arranged upon request at additional cost.
-      </div> */}
-
       {/* Footer note */}
       <div className="text-xs text-gray-500 border-t pt-4 mt-4 text-center">
-* All information is subject to change without prior notice. Please confirm details at time of booking.      </div>
+        * All information is subject to change without prior notice. Please confirm details at time of booking.
+      </div>
     </div>
   );
 }

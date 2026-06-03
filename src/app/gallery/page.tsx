@@ -37,7 +37,7 @@ const GalleryPage: React.FC = () => {
 
 ]
 
-},
+    },
     {
       id: 2,
       category: 'Travel Images',
@@ -175,7 +175,7 @@ const GalleryPage: React.FC = () => {
     {
       id: 3,
       category: 'Golf Images',
-      title: 'Long Vien Golf Club',
+      title: '',
       img: 'https://i.imgur.com/8GLWfNM.jpeg',
       subImages: [
         "https://i.imgur.com/8GLWfNM.jpeg",

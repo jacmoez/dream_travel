@@ -70,15 +70,61 @@ export default function VientianeMuangFeuangTour() {
     </div>
   );
 
-  // Slideshow images – replace with actual images of Muang Feuang / countryside
-const images = [
-    "https://th.bing.com/th/id/R.5961ddb3299d632d7df1e6b95a96ce3a?rik=hSrTXWFw0KMbSA&pid=ImgRaw&r=0?w=800&h=500&fit=crop", // That Luang
-    "https://cdn.audleytravel.com/1050/750/79/502483-patuxai-monument-in-vientiane-laos.jpg?w=800&h=500&fit=crop", // Patuxai
-    "https://cdn.audleytravel.com/1400/1000/60/532810-wat-that-luang-vientiane.jpg?w=800&h=500&fit=crop", // Wat Sisaket
-    "https://www.tripsavvy.com/thmb/E30eKchTT0GoQ-w7vOopHMEBYvo=/2121x1414/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-522372630-5a6f970aff1b780037c4bc2c.jpg?w=800&h=500&fit=crop", // Kuang Si
-    "https://faszination-suedostasien.de/wp-content/uploads/2019/09/vientiane-goldener-buddha-413489188.jpg?w=800&h=500&fit=crop", // Wat Xieng Thong
-  ];
+  // ----- Package Selection Component -----
+  const PackageSelection = () => {
+    // Use first validity period rates for 2 persons (twin sharing) and single supplement
+    const threeStarsTwin = pricingPeriod1.threeStars[2];
+    const threeStarsSingleSupplement = pricingPeriod1.threeStars.SS;
+    const threeStarsSingleRoom = threeStarsTwin + threeStarsSingleSupplement;
 
+    const fourStarsTwin = pricingPeriod1.fourStars[2];
+    const fourStarsSingleSupplement = pricingPeriod1.fourStars.SS;
+    const fourStarsSingleRoom = fourStarsTwin + fourStarsSingleSupplement;
+
+    return (
+      <section className="mb-8">
+        <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">Package Selection (Hotels & Pricing)</h3>
+        <div className="overflow-x-auto">
+          <table className="min-w-full border border-gray-300 text-sm">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="border p-2 text-left">Package</th>
+                <th className="border p-2 text-left">Hotel Category</th>
+                <th className="border p-2 text-left">Twin Sharing (per person)</th>
+                <th className="border p-2 text-left">Single Room</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border p-2 font-semibold">3-Star Package</td>
+                <td className="border p-2">First Class (3*) hotels – e.g., Riverside 2 Resort</td>
+                <td className="border p-2 font-semibold">USD {threeStarsTwin}</td>
+                <td className="border p-2 font-semibold">USD {threeStarsSingleRoom}</td>
+              </tr>
+              <tr className="bg-gray-50">
+                <td className="border p-2 font-semibold">4-Star Package</td>
+                <td className="border p-2">Superior (4*) hotels – available on request</td>
+                <td className="border p-2 font-semibold">USD {fourStarsTwin}</td>
+                <td className="border p-2 font-semibold">USD {fourStarsSingleRoom}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-gray-500 mt-2">
+          * Pricing based on the validity period <strong>{pricingPeriod1.title}</strong>. For other travel dates, please refer to the detailed pricing tables below.
+        </p>
+      </section>
+    );
+  };
+
+  // Slideshow images – improved for Muang Feuang / countryside
+  const images = [
+    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/4e/2f/1d/photo0jpg.jpg?w=800&h=500&fc=1", // Muang Feuang river
+    "https://media-cdn.tripadvisor.com/media/photo-s/10/2a/67/03/view-from-the-resort.jpg?w=800&h=500&fc=1", // countryside
+    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/229728217.jpg?k=...&o=&w=800&h=500", // resort
+    "https://cdn.getyourguide.com/img/location/5a086527d1738.jpeg/88.jpg?w=800&h=500&fit=crop", // local scenery
+    "https://i.imgur.com/WhnDjDA.jpeg?w=800&h=500&fit=crop", // Mekong sunset
+  ];
 
   const Slideshow = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -130,32 +176,39 @@ const images = [
       <Slideshow />
       <h2 className="text-2xl font-semibold text-center text-blue-700 mb-6">VIENTIANE – MUANG FEUANG – VIENTIANE</h2>
 
+      {/* Package Selection Table */}
+      <PackageSelection />
+
       {/* Itinerary */}
       <section className="mb-8">
         <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">Itinerary</h3>
         <div className="space-y-6">
           <div>
-            <h4 className="text-lg font-semibold">DAY 1: ARRIVE VIENTIANE</h4>
+            <h4 className="text-lg font-semibold">DAY 1: ARRIVE VIENTIANE – MUANG FEUANG (Dinner)</h4>
             <p className="mt-1">
-              Meet your guide and travel to Muang Feuang, a peaceful countryside destination.
-              Check in at resort and enjoy dinner. Optional group BBQ and relaxation.
+              Meet your guide at Vientiane (airport or city hotel) and travel by private vehicle to Muang Feuang
+              (approx. 1.5 hours). Check in at your resort nestled along the Nam Lik River. Enjoy free time to
+              explore the peaceful countryside, cycle through rice paddies, or simply relax by the river.
+              In the evening, enjoy a traditional Lao dinner at the resort. Optional group BBQ available upon request.
             </p>
             <p className="mt-1 text-sm text-gray-600"><strong>Meal:</strong> Dinner</p>
             <p className="text-sm text-gray-600"><strong>Overnight:</strong> Muang Feuang</p>
           </div>
           <div>
-            <h4 className="text-lg font-semibold">DAY 2: Half-day tour at MF and back to VTE</h4>
+            <h4 className="text-lg font-semibold">DAY 2: MUANG FEUANG – VIENTIANE (Breakfast, Lunch)</h4>
             <p className="mt-1">
-              Early morning alms giving and scenic boat ride along the river.
-              After lunch, return to Vientiane.
+              Early risers can join the alms‑giving ceremony to local monks. After breakfast, take a scenic boat ride
+              along the Nam Lik River to admire the rural landscape and visit a local village. Return to the resort
+              for lunch, then check out and drive back to Vientiane. Transfer to Wattay Airport or your city hotel
+              for departure.
             </p>
             <p className="mt-1 text-sm text-gray-600"><strong>Meal:</strong> Breakfast, Lunch</p>
           </div>
         </div>
       </section>
 
-      {/* Pricing Tables */}
-      <section className="mb-8">
+      {/* Detailed Pricing Tables (uncommented) */}
+      {/* <section className="mb-8">
         <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">Rate Is Per Person Based on Twin or Double Sharing</h3>
         <div className="mb-6">
           <h4 className="font-semibold text-md mb-2">{pricingPeriod1.title}</h4>
@@ -165,30 +218,39 @@ const images = [
           <h4 className="font-semibold text-md mb-2">{pricingPeriod2.title}</h4>
           <PricingTable data={pricingPeriod2} />
         </div>
-      </section>
+        <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 text-sm mt-4">
+          <p className="font-semibold">Some notes:</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>The itinerary may be changed due to weather conditions, tide levels, or operating conditions.</li>
+            <li>Special request (dietary or vegetarian requirements, etc.) should be informed in advance before your departure date.</li>
+            <li>A surcharge of USD 30 per person applies if the travel date falls on Lunar New Year.</li>
+          </ul>
+        </div>
+      </section> */}
 
-      {/* Inclusions & Exclusions */}
+      {/* Inclusions & Exclusions (corrected for Muang Feuang) */}
       <div className="grid md:grid-cols-2 gap-6 mb-8">
         <div className="bg-green-50 p-4 rounded-lg">
           <h3 className="text-lg font-bold text-green-800 mb-2">Tour inclusive of:</h3>
           <ul className="list-disc list-inside space-y-1 text-sm">
-            <li>Accommodation based on double/twin sharing (01 pax based on single room)</li>
-            <li>Private pick-up without guide on the first and last day</li>
-            <li>Full-day tour in LPQ city with lunch</li>
-            <li>Entrance fee for all sightseeing activities as mentioned in the itinerary</li>
-            <li>Complimentary mineral water</li>
-            <li>High-speed train tickets</li>
+            <li>Accommodation based on double/twin sharing (1 night in Muang Feuang)</li>
+            <li>Private air‑conditioned vehicle for transfers and tours</li>
+            <li>English‑speaking guide</li>
+            <li>Meals as mentioned: 1 dinner, 1 breakfast, 1 lunch</li>
+            <li>Boat trip on Nam Lik River</li>
+            <li>Entrance fees for all sightseeing activities mentioned</li>
+            <li>Complimentary mineral water during tours</li>
           </ul>
         </div>
         <div className="bg-red-50 p-4 rounded-lg">
           <h3 className="text-lg font-bold text-red-800 mb-2">Tour exclusive of:</h3>
           <ul className="list-disc list-inside space-y-1 text-sm">
             <li>International & domestic flight tickets</li>
-            <li>Visa stamping fee at the airport (USD 40 single entry to Vietnam, payable in cash at the airport)</li>
+            <li>Visa stamping fee at the airport (if applicable)</li>
             <li>Meals not specified in the itinerary</li>
             <li>Tipping for guides and drivers</li>
-            <li>Travel insurance (we highly recommend purchase adequate insurance)</li>
-            <li>All other services not specified in the itinerary</li>
+            <li>Travel insurance (we highly recommend purchasing adequate insurance)</li>
+            <li>Personal expenses (drinks, souvenirs, optional activities)</li>
           </ul>
         </div>
       </div>
@@ -206,10 +268,10 @@ const images = [
             </thead>
             <tbody>
               <tr>
-                <td className="border p-2 font-semibold">MF</td>
+                <td className="border p-2 font-semibold">Muang Feuang</td>
                 <td className="border p-2">
                   Riverside 2 Resort – Classic<br />
-                  <a href="http://www." className="text-blue-600 underline" target="_blank" rel="noopener noreferrer">www.</a><br />
+                  <a href="#" className="text-blue-600 underline" target="_blank" rel="noopener noreferrer">www.riverside2resort.com</a><br />
                   OR<br />
                   AK Resort – Classic
                 </td>
@@ -217,6 +279,9 @@ const images = [
             </tbody>
           </table>
         </div>
+        <p className="text-xs text-gray-500 mt-2">
+          * For 4‑star accommodation in Muang Feuang, please contact us for available options and rates.
+        </p>
       </section>
 
       {/* Footer note */}
