@@ -176,7 +176,7 @@ const AboutPage: React.FC = () => {
                 <i className="fas fa-leaf text-[#ED6A02] mr-3"></i> Our Story
               </h2>
               <p className="text-gray-700 mb-4 leading-relaxed text-justify">
-              ABOUT US: Our company is providing international standard for Tour,
+               Our company is providing international standard for Tour,
               and Travel that is committed to providing the best service
               for customers with the slogan 2024 visit Laos Year
               campaign is “A paradise of Lao Cultural, Nature and
