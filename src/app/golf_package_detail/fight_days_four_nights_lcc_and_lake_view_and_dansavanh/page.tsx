@@ -5,11 +5,11 @@ import { useState, useEffect } from "react";
 export default function GolfPackageLCCLakeViewDansavanh() {
   // Slideshow images – real golf course images from your provided sets
   const images = [
-    "https://i.imgur.com/x4A7hpH.jpeg",     // Lao Country Club (LCC)
-    "https://i.imgur.com/nZqSXz6.jpeg",     // Lakeview Golf Club
-    "https://i.imgur.com/GK6YDQS.jpeg",     // Dansavanh Golf Club
+    "https://i.imgur.com/j6PeCdQ.jpeg",     // Lao Country Club (LCC)
+    "https://i.imgur.com/mYjfy1N.jpeg",     // Lakeview Golf Club
+    "https://i.imgur.com/yXi9Auv.jpeg",     // Dansavanh Golf Club
     "https://i.imgur.com/GlDTwZb.jpeg",     // Lakeview (second view)
-    "https://i.imgur.com/zERBoU8.jpeg",     // Dansavanh (second view)
+    "https://i.imgur.com/PBjVT0t.jpeg",     // Dansavanh (second view)
   ];
 
   const Slideshow = () => {

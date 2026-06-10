@@ -5,11 +5,12 @@ import { useState, useEffect } from "react";
 export default function GolfPackageLuangPrabang() {
   // Slideshow images – real Luang Prabang Golf Club photos (5 images total)
   const images = [
-    "https://i.imgur.com/B2fjoxj.jpeg",   // Luang Prabang Golf Club 1
-    "https://i.imgur.com/1Rjk8vT.jpeg",   // Luang Prabang Golf Club 2
-    "https://i.imgur.com/meYhsb6.jpeg",   // Luang Prabang Golf Club 3
-    "https://i.imgur.com/AZ5Vr3F.jpeg",   // Luang Prabang Golf Club 4
-    "https://i.imgur.com/B2fjoxj.jpeg",   // repeat first image to have 5 slides
+
+    "https://i.imgur.com/1Rjk8vT.jpeg",
+    "https://i.imgur.com/meYhsb6.jpeg",
+    "https://i.imgur.com/AZ5Vr3F.jpeg"
+
+
   ];
 
   const Slideshow = () => {

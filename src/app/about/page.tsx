@@ -175,35 +175,36 @@ const AboutPage: React.FC = () => {
               <h2 className="text-3xl font-semibold text-[#2E7D32] mb-4 flex items-center">
                 <i className="fas fa-leaf text-[#ED6A02] mr-3"></i> Our Story
               </h2>
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                Founded in 2010, Dream Destination Travel began with a simple mission: to help travelers experience the authentic beauty of Laos and Southeast Asia.
-              </p>
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                We believe that travel is more than just visiting places—it's about creating stories and transforming perspectives.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                Today, we're proud to offer tours across Laos, Thailand, Vietnam, and Cambodia.
-              </p>
+              <p className="text-gray-700 mb-4 leading-relaxed text-justify">
+              ABOUT US: Our company is providing international standard for Tour,
+              and Travel that is committed to providing the best service
+              for customers with the slogan 2024 visit Laos Year
+              campaign is “A paradise of Lao Cultural, Nature and
+              History." which was established in 2024. And we offer
+              comprehensive employee outsourcing services tailored to
+              the needs of international companies, ensuring seamless
+              integration and operational efficiency.
+              Our services include local & international with lots of
+              experience handling Government Agencies and
+              Companies that are our partners with competitive prices,
+              real time automatic 24 hour systems and negotiable.              </p>
+              
             </div>
             <div className="grid grid-cols-2 gap-4">
               <img 
-                src="https://images.unsplash.com/photo-1528127269322-539801943592" 
+                src="https://i.imgur.com/bhpNAZe.jpeg" 
                 className="rounded-2xl shadow-lg h-48 w-full object-cover" 
                 alt="Travel scenery 1"
               />
-              <img 
-                src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a" 
+              {/* <img 
+                src="https://i.imgur.com/gkXBM9U.jpeg" 
                 className="rounded-2xl shadow-lg h-48 w-full object-cover mt-8" 
                 alt="Travel scenery 2"
-              />
+              /> */}
+             <hr />
               <img 
-                src="https://images.unsplash.com/photo-1583417319070-4a69db38a482" 
-                className="rounded-2xl shadow-lg h-48 w-full object-cover" 
-                alt="Travel scenery 3"
-              />
-              <img 
-                src="https://images.unsplash.com/photo-1528127269322-539801943592" 
-                className="rounded-2xl shadow-lg h-48 w-full object-cover mt-8" 
+                src="https://i.imgur.com/gkXBM9U.jpeg" 
+                className="rounded-2xl shadow-lg h-48 w-full object-cover " 
                 alt="Travel scenery 4"
               />
             </div>

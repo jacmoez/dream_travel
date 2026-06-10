@@ -1,23 +1,27 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
 
 export default function GolfPackageVientianeTriple() {
-  // Slideshow images – real golf course images from the provided sets
   const images = [
-    "https://i.imgur.com/nZqSXz6.jpeg",     // Lakeview Golf Club
-    "https://i.imgur.com/rDMj7bS.jpeg",     // SEA Games Golf Club
-    "https://i.imgur.com/x4A7hpH.jpeg",     // Lao Country Club (LCC)
-    "https://i.imgur.com/GlDTwZb.jpeg",     // Lakeview Golf Club (another view)
-    "https://i.imgur.com/xosYclE.jpeg",     // SEA Games Golf Club (another view)
+    "https://i.imgur.com/2Hy3Co0.jpeg",   // Lao Country Club (LCC)
+    "https://i.imgur.com/d9PqrYs.jpeg",   // Lakeview Golf Club (main)
+    "https://i.imgur.com/APhNiLp.jpeg",   // Lakeview Golf Club (alternate)
+    "https://i.imgur.com/OFl4wo2.jpeg",   // SEA Games Golf Club (main)
+    "https://i.imgur.com/qQR01GL.jpeg",   // SEA Games Golf Club (alternate)
   ];
 
   const Slideshow = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [autoPlay, setAutoPlay] = useState(true);
 
-    const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % images.length);
-    const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+    const nextSlide = () => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    };
+    const prevSlide = () => {
+      setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+    };
     const goToSlide = (index: number) => setCurrentIndex(index);
 
     useEffect(() => {
@@ -29,28 +33,40 @@ export default function GolfPackageVientianeTriple() {
     return (
       <div className="relative w-full max-w-4xl mx-auto overflow-hidden rounded-lg shadow-lg mt-5 mb-5">
         <div className="relative h-64 md:h-96">
-          <img src={images[currentIndex]} alt={`Golf course view ${currentIndex + 1}`} className="w-full h-full object-cover" />
+          <img
+            src={images[currentIndex]}
+            alt={`Golf course view ${currentIndex + 1}`}
+            className="w-full h-full object-cover"
+          />
         </div>
+        {/* Left arrow – high z-index, ensure clickable */}
         <button
           onClick={prevSlide}
-          className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition"
+          className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/60 text-white p-2 rounded-full hover:bg-black/80 transition z-[100] cursor-pointer w-10 h-10 flex items-center justify-center text-xl shadow-lg"
+          style={{ pointerEvents: "auto" }}
           aria-label="Previous slide"
         >
           ❮
         </button>
+        {/* Right arrow */}
         <button
           onClick={nextSlide}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition"
+          className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/60 text-white p-2 rounded-full hover:bg-black/80 transition z-[100] cursor-pointer w-10 h-10 flex items-center justify-center text-xl shadow-lg"
+          style={{ pointerEvents: "auto" }}
           aria-label="Next slide"
         >
           ❯
         </button>
-        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
+        {/* Dots */}
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-2 z-[100]">
           {images.map((_, idx) => (
             <button
               key={idx}
               onClick={() => goToSlide(idx)}
-              className={`w-2 h-2 rounded-full transition ${idx === currentIndex ? "bg-white" : "bg-gray-400"}`}
+              className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                idx === currentIndex ? "bg-white scale-110" : "bg-gray-400 hover:bg-gray-300"
+              } cursor-pointer`}
+              style={{ pointerEvents: "auto" }}
               aria-label={`Go to slide ${idx + 1}`}
             />
           ))}
@@ -61,10 +77,11 @@ export default function GolfPackageVientianeTriple() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8 font-sans">
-      <h1 className="text-3xl font-bold text-center mb-2">5D4N Golf Package – LCC, Lake View &amp; SEA Games Course</h1>
+      <h1 className="text-3xl font-bold text-center mb-2">
+        5D4N Golf Package – LCC, Lake View &amp; SEA Games Course
+      </h1>
       <Slideshow />
 
-      {/* Duration & Courses */}
       <div className="grid md:grid-cols-2 gap-4 mb-6">
         <div className="bg-blue-50 p-3 rounded">
           <span className="font-bold">Duration:</span> 5 Days / 4 Nights
@@ -74,7 +91,6 @@ export default function GolfPackageVientianeTriple() {
         </div>
       </div>
 
-      {/* Itinerary */}
       <section className="mb-8">
         <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">Itinerary</h3>
         <div className="space-y-4">
@@ -124,7 +140,6 @@ export default function GolfPackageVientianeTriple() {
         </div>
       </section>
 
-      {/* Footer note */}
       <div className="text-xs text-gray-500 border-t pt-4 mt-4 text-center">
         * All information is subject to change without prior notice. Please confirm details at time of booking.
       </div>

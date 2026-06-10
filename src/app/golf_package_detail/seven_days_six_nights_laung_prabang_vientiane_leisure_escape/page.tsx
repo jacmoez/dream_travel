@@ -6,10 +6,9 @@ export default function VientianeGolfLeisureEscape() {
   // Slideshow images – real golf course photos (Long Vien, Lakeview, SEA Games)
   const images = [
     "https://i.imgur.com/M7rWEZK.jpeg",   // Long Vien Golf Club
-    "https://i.imgur.com/nZqSXz6.jpeg",   // Lakeview Golf Club
-    "https://i.imgur.com/rDMj7bS.jpeg",   // SEA Games Golf Club
-    "https://i.imgur.com/GlDTwZb.jpeg",   // Lakeview (second view)
-    "https://i.imgur.com/xosYclE.jpeg",   // SEA Games (second view)
+    "https://i.imgur.com/LInxA73.jpeg",   // Lakeview Golf Club
+    "https://i.imgur.com/pPznpWU.jpeg",   // SEA Games Golf Club
+    "https://i.imgur.com/dMtUbXk.jpeg",   
   ];
 
   const Slideshow = () => {

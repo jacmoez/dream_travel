@@ -3,13 +3,12 @@
 import { useState, useEffect } from "react";
 
 export default function GolfPackageLCCLakeView() {
-  // Slideshow images – real images from Lao Country Club & Lakeview Golf Club
   const images = [
-    "https://i.imgur.com/x4A7hpH.jpeg",     // Lao Country Club (LCC)
-    "https://i.imgur.com/nZqSXz6.jpeg",     // Lakeview Golf Club
-    "https://i.imgur.com/K6gOupW.jpeg",     // Lao Country Club (second view)
-    "https://i.imgur.com/GlDTwZb.jpeg",     // Lakeview Golf Club (second view)
-    "https://i.imgur.com/2Hy3Co0.jpeg",     // Lao Country Club (third view)
+    "https://i.imgur.com/94IpoFP.jpeg",     // Lao Country Club (LCC)
+    "https://i.imgur.com/ZEWk4Y9.jpeg",     // Lakeview Golf Club
+    "https://i.imgur.com/LUy4wJR.jpeg",     // Lao Country Club (second view)
+    "https://i.imgur.com/d9PqrYs.jpeg",     // Lakeview Golf Club (second view)
+    "https://i.imgur.com/oCWj2un.jpeg",     // Lao Country Club (third view)
   ];
 
   const Slideshow = () => {
