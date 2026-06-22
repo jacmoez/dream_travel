@@ -60,6 +60,9 @@ const Header: React.FC = () => {
 
             {/* DESKTOP MENU */}
             <nav className="hidden md:flex items-center space-x-2">
+               <Link href="/" className="hover:text-[#ED6A02] transition px-3 py-2 text-base">
+                Home
+              </Link>
               <Link href="/book-now" className="hover:text-[#ED6A02] transition px-3 py-2 text-base">
                 Book Now
               </Link>

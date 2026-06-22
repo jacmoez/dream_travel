@@ -22,12 +22,12 @@ const HomePage: React.FC = () => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const slideTexts = [
-    "Step into a land where time moves slowly and nature shines bright. Ancient temples greet the sunrise, and the Mekong whispers stories of old. From the golden stupa of That Luang to the sleepy riverside villages, every corner invites you to pause and breathe. Welcome to Laos – the jewel of Southeast Asia.",
-    "Luang Prabang awaits with gilded rooftops and cascading waterfalls. Wake up at dawn to the gentle sound of monk alms, then hike to the turquoise pools of Kuang Si Falls. Explore hidden caves along the Mekong, and let the calm of the misty mountains embrace you. This UNESCO town is a living postcard of serenity.",
-    "For the love of golf and adventure – play on greens framed by limestone karsts and tropical forests. Each swing offers a new perspective, each fairway a discovery of Lao beauty. After your round, relax in a luxury resort or explore nearby temples. Tee off in paradise, where golf meets cultural wonder.",
-    "Vang Vieng is more than a postcard – it's a playground for the soul. Drift down the Nam Song River, climb to secret blue lagoons, and watch the sun set behind jagged karst peaks. Whether you're kayaking, rock climbing, or simply lounging with a fresh coconut, adventure and tranquility walk hand in hand here.",
-    "Taste the warmth of Lao hospitality in every bite – from zesty green papaya salad to fragrant laap. Sip rich, dark Lao coffee overlooking the Mekong, or learn to make sticky rice with a local family. Every meal tells a story of tradition, community, and the simple joy of sharing. Your journey will be a feast for all the senses."
-  ];
+  'Trek through misty peaks, breathe fresh alpine air, and discover hidden waterfalls in this serene mountain retreat.',
+  'Paddle across crystal-clear waters, surrounded by lush forests, and enjoy the peaceful silence of nature.',
+  'Wander along ancient woodland paths, listen to birdsong, and feel the earthy scent of pine and moss.',
+  'Watch the golden hour paint the sky, as the sun dips behind jagged peaks in a blaze of color.',
+  'Stroll along windswept cliffs, breathe the salty ocean breeze, and watch waves crash against the shore.'
+];
 
   const travelCarouselRef = useRef<HTMLDivElement>(null);
   const golfCarouselRef = useRef<HTMLDivElement>(null);
@@ -38,6 +38,47 @@ const HomePage: React.FC = () => {
 
   // --- Golf Places Data with SINGLE image ---
   const golfPlaces = [
+    {
+      name: "Long Vien Golf Club",
+      city: "Vientiane",
+      location: "Long Vien Golf Club, Vientiane, Laos",
+      holes: "18 Holes",
+      yards: "6,850 yards",
+      description: "One of the best maintained golf courses in Laos, featuring wide fairways and modern facilities.",
+      mapLink: "https://maps.google.com/?q=Long+Vien+Golf+Club+Vientiane",
+      image: "https://i.imgur.com/M7rWEZK.jpeg"
+    },
+     {
+      name: "Lakeview Vientiane Golf Club",
+      city: "Vientiane",
+      location: "Lakeview Vientiane Golf Club, Vientiane, Laos",
+      holes: "18 Holes",
+      yards: "7,300 yards",
+      description: "A modern course with water hazards and scenic lake views, great for experienced players.",
+      mapLink: "https://maps.google.com/?q=Lakeview+Vientiane+Golf+Club",
+      image: "https://i.imgur.com/nZqSXz6.jpeg"
+    },
+     {
+      name: "SEA Games Golf Club",
+      city: "Vientiane",
+      location: "SEA Games Golf Club, Vientiane, Laos",
+      holes: "27 Holes",
+      yards: "7,100 yards",
+      description: "Built for international tournaments, this course offers a challenging layout with wide, undulating greens.",
+      mapLink: "https://maps.google.com/?q=SEA+Games+Golf+Club+Vientiane",
+      image: "https://i.imgur.com/rDMj7bS.jpeg"
+    },
+    {
+      name: "Lao Country Club",
+      city: "Vientiane",
+      location: "Lao Country Club, Vientiane, Laos",
+      holes: "18 Holes",
+      yards: "6,500 yards",
+      description: "One of the oldest golf courses in Laos, popular with both locals and tourists for its classic charm.",
+      mapLink: "https://maps.google.com/?q=Lao+Country+Club+Vientiane",
+      image: "https://i.imgur.com/x4A7hpH.jpeg"
+    },
+
     {
       name: "Dansavanh Golf Club",
       city: "Vientiane Province",
@@ -59,16 +100,6 @@ const HomePage: React.FC = () => {
       image: "https://i.imgur.com/kVV2Z5z.jpeg"
     },
     {
-      name: "Lao Country Club",
-      city: "Vientiane",
-      location: "Lao Country Club, Vientiane, Laos",
-      holes: "18 Holes",
-      yards: "6,500 yards",
-      description: "One of the oldest golf courses in Laos, popular with both locals and tourists for its classic charm.",
-      mapLink: "https://maps.google.com/?q=Lao+Country+Club+Vientiane",
-      image: "https://i.imgur.com/x4A7hpH.jpeg"
-    },
-    {
       name: "Vang Vieng Golf Club",
       city: "Vang Vieng",
       location: "Vang Vieng Golf Club, Vang Vieng, Laos",
@@ -78,27 +109,8 @@ const HomePage: React.FC = () => {
       mapLink: "https://maps.google.com/?q=Vang+Vieng+Golf+Club+Laos",
       image: "https://i.imgur.com/BIHfV2W.jpeg"
     },
-    {
-      name: "Long Vien Golf Club",
-      city: "Vientiane",
-      location: "Long Vien Golf Club, Vientiane, Laos",
-      holes: "18 Holes",
-      yards: "6,850 yards",
-      description: "One of the best maintained golf courses in Laos, featuring wide fairways and modern facilities.",
-      mapLink: "https://maps.google.com/?q=Long+Vien+Golf+Club+Vientiane",
-      image: "https://i.imgur.com/M7rWEZK.jpeg"
-    },
-    {
-      name: "Lakeview Vientiane Golf Club",
-      city: "Vientiane",
-      location: "Lakeview Vientiane Golf Club, Vientiane, Laos",
-      holes: "18 Holes",
-      yards: "7,300 yards",
-      description: "A modern course with water hazards and scenic lake views, great for experienced players.",
-      mapLink: "https://maps.google.com/?q=Lakeview+Vientiane+Golf+Club",
-      image: "https://i.imgur.com/nZqSXz6.jpeg"
-    },
-    {
+    
+       {
       name: "Luang Prabang Golf Club",
       city: "Luang Prabang",
       location: "Luang Prabang Golf Club, Luang Prabang, Laos",
@@ -108,16 +120,9 @@ const HomePage: React.FC = () => {
       mapLink: "https://maps.google.com/?q=Luang+Prabang+Golf+Club",
       image: "https://i.imgur.com/B2fjoxj.jpeg"
     },
-    {
-      name: "SEA Games Golf Club",
-      city: "Vientiane",
-      location: "SEA Games Golf Club, Vientiane, Laos",
-      holes: "27 Holes",
-      yards: "7,100 yards",
-      description: "Built for international tournaments, this course offers a challenging layout with wide, undulating greens.",
-      mapLink: "https://maps.google.com/?q=SEA+Games+Golf+Club+Vientiane",
-      image: "https://i.imgur.com/rDMj7bS.jpeg"
-    }
+   
+    
+   
   ];
 
   // --- Travel Packages Data (with prices) ---
@@ -604,28 +609,125 @@ const HomePage: React.FC = () => {
 
       <main className="flex-1 flex flex-col w-full m-0 p-0 bg-[#f0f7f0]">
         {/* Hero Carousel */}
-        <div className="relative w-full shadow-xl">
-          <div className="main-carousel-arrow main-carousel-arrow-left" onClick={prevSlide}><i className="fas fa-chevron-left"></i></div>
-          <div className="main-carousel-arrow main-carousel-arrow-right" onClick={nextSlide}><i className="fas fa-chevron-right"></i></div>
-          <div className="flex carousel-slide will-change-transform" style={{ transform: `translateX(-${carouselIndex * 100}%)`, transition: isTransitioning ? 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none' }}>
-            <div className="w-full flex-shrink-0 relative carousel-height"><img src="https://i.imgur.com/GEEiT8Q.jpeg" alt="Mist over mountains" className="w-full h-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div></div>
-            <div className="w-full flex-shrink-0 relative carousel-height"><img src="https://i.imgur.com/HyLr96w.jpeg" alt="Mist over mountains" className="w-full h-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div></div>
-            <div className="w-full flex-shrink-0 relative carousel-height"><img src="https://i.imgur.com/BqQTJV4.jpeg" alt="Mist over mountains" className="w-full h-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div></div>
-            <div className="w-full flex-shrink-0 relative carousel-height"><img src="https://i.imgur.com/WhnDjDA.jpeg" alt="Mist over mountains" className="w-full h-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div></div>
-            <div className="w-full flex-shrink-0 relative carousel-height"><img src="https://i.imgur.com/Ioye5Q6.jpeg" alt="Mist over mountains" className="w-full h-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div></div>
-          </div>
-          <div className="carousel-btn-container ">
-            <p className="slide-text" key={carouselIndex}>{slideTexts[carouselIndex]}</p>
-            <div className="carousel-buttons">
-              <Link href="/packages" className="category-btn travel">Travel Packages</Link>
-              <Link href="/packages" className="category-btn golf">Golf Packages</Link>
-            </div>
-          </div>
-          <div className="absolute bottom-5 left-0 right-0 flex justify-center space-x-3 z-10">
-            {[...Array(totalSlides)].map((_, idx) => (<button key={idx} className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${idx === carouselIndex ? 'bg-[#ED6A02] w-6' : 'bg-white/70'}`} onClick={() => goToSlide(idx)} />))}
-          </div>
-        </div>
+<div className="relative w-full shadow-xl">
+  <div className="main-carousel-arrow main-carousel-arrow-left" onClick={prevSlide}>
+    <i className="fas fa-chevron-left"></i>
+  </div>
+  <div className="main-carousel-arrow main-carousel-arrow-right" onClick={nextSlide}>
+    <i className="fas fa-chevron-right"></i>
+  </div>
 
+  <div
+    className="flex carousel-slide will-change-transform"
+    style={{
+      transform: `translateX(-${carouselIndex * 100}%)`,
+      transition: isTransitioning
+        ? 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+        : 'none',
+    }}
+  >
+    {/* Slide 1 */}
+    <div className="w-full flex-shrink-0 relative carousel-height">
+      <img
+        src="https://i.imgur.com/GEEiT8Q.jpeg"
+        alt="Mist over mountains"
+        className="w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div>
+      {/* Title – top‑right with margin + padding */}
+      <div className="absolute top-4 right-4 z-10">
+        <h2 className="text-sm md:text-base font-semibold text-white drop-shadow-lg bg-black/30 p-2 ml-2 rounded-bl-md">
+          {slideTexts[0]}
+        </h2>
+      </div>
+    </div>
+
+    {/* Slide 2 */}
+    <div className="w-full flex-shrink-0 relative carousel-height">
+      <img
+        src="https://i.imgur.com/HyLr96w.jpeg"
+        alt="Mist over mountains"
+        className="w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div>
+      <div className="absolute top-4 right-4 z-10">
+        <h2 className="text-sm md:text-base font-semibold text-white drop-shadow-lg bg-black/30 p-2 ml-2 rounded-bl-md">
+          {slideTexts[1]}
+        </h2>
+      </div>
+    </div>
+
+    {/* Slide 3 */}
+    <div className="w-full flex-shrink-0 relative carousel-height">
+      <img
+        src="https://i.imgur.com/BqQTJV4.jpeg"
+        alt="Mist over mountains"
+        className="w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div>
+      <div className="absolute top-4 right-4 z-10">
+        <h2 className="text-sm md:text-base font-semibold text-white drop-shadow-lg bg-black/30 p-2 ml-2 rounded-bl-md">
+          {slideTexts[2]}
+        </h2>
+      </div>
+    </div>
+
+    {/* Slide 4 */}
+    <div className="w-full flex-shrink-0 relative carousel-height">
+      <img
+        src="https://i.imgur.com/WhnDjDA.jpeg"
+        alt="Mist over mountains"
+        className="w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div>
+      <div className="absolute top-4 right-4 z-10">
+        <h2 className="text-sm md:text-base font-semibold text-white drop-shadow-lg bg-black/30 p-2 ml-2 rounded-bl-md">
+          {slideTexts[3]}
+        </h2>
+      </div>
+    </div>
+
+    {/* Slide 5 */}
+    <div className="w-full flex-shrink-0 relative carousel-height">
+      <img
+        src="https://i.imgur.com/Ioye5Q6.jpeg"
+        alt="Mist over mountains"
+        className="w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div>
+      <div className="absolute top-4 right-4 z-10">
+        <h2 className="text-sm md:text-base font-semibold text-white drop-shadow-lg bg-black/30 p-2 ml-2 rounded-bl-md">
+          {slideTexts[4]}
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  {/* Buttons container – now only holds the two buttons */}
+  <div className="carousel-btn-container">
+    <div className="carousel-buttons">
+      <Link href="/packages" className="category-btn travel">
+        Travel Packages
+      </Link>
+      <Link href="/packages" className="category-btn golf">
+        Golf Packages
+      </Link>
+    </div>
+  </div>
+
+  {/* Dots indicator – unchanged */}
+  <div className="absolute bottom-5 left-0 right-0 flex justify-center space-x-3 z-10">
+    {[...Array(totalSlides)].map((_, idx) => (
+      <button
+        key={idx}
+        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+          idx === carouselIndex ? 'bg-[#ED6A02] w-6' : 'bg-white/70'
+        }`}
+        onClick={() => goToSlide(idx)}
+      />
+    ))}
+  </div>
+</div>
         {/* YouTube Videos */}
         <div className="video-section">
           <div className="w-full bg-white py-8">
@@ -645,12 +747,12 @@ const HomePage: React.FC = () => {
             <h2 className="text-2xl font-semibold text-[#2E7D32] mb-6 text-center border-b-2 border-[#ED6A02] pb-2 inline-block mx-auto block w-fit px-8">Popular Trips in Laos</h2>
             <div className="popular-trips-grid mt-8">
               {[
-                { href: "/city/champasak", img: "https://i.imgur.com/4QhvN7F.jpeg", title: "Champasak", desc: "Gateway to Wat Phu temple & Mekong riverside charm", mapLink: "https://www.google.com/maps/search/?api=1&query=Champasak+Laos" },
                 { href: "/city/vientiane", img: "https://i.imgur.com/TX7Xt7r.jpeg", title: "Vientiane", desc: "Laid-back capital with golden temples & French cafes", mapLink: "https://www.google.com/maps/search/?api=1&query=Vientiane+Laos" },
+                { href: "/city/vang-vieng", img: "https://i.imgur.com/4AvfdfO.jpeg", title: "Vang Vieng", desc: "Karst mountains, blue lagoons & adventure sports", mapLink: "https://www.google.com/maps/search/?api=1&query=Vang+Vieng+Laos" },
                 { href: "/city/luang-prabang", img: "https://i.imgur.com/J4OGK1a.jpeg", title: "Luang Prabang", desc: "UNESCO town, alms ceremony & turquoise waterfalls", mapLink: "https://www.google.com/maps/search/?api=1&query=Luang+Prabang+Laos" },
+                { href: "/city/champasak", img: "https://i.imgur.com/4QhvN7F.jpeg", title: "Champasak", desc: "Gateway to Wat Phu temple & Mekong riverside charm", mapLink: "https://www.google.com/maps/search/?api=1&query=Champasak+Laos" },
                 { href: "/city/pak-beng", img: "https://i.imgur.com/SJlpWSx.jpeg", title: "Pak Beng", desc: "Riverside stopover on the Mekong slow boat route", mapLink: "https://www.google.com/maps/search/?api=1&query=Pak+Beng+Laos" },
                 { href: "/city/plain-of-jars", img: "https://i.imgur.com/pd2ByH1.jpeg", title: "Plain of Jars", desc: "Megalithic archaeological mystery in Xieng Khouang", mapLink: "https://www.google.com/maps/search/?api=1&query=Plain+of+Jars+Phonsavan+Laos" },
-                { href: "/city/vang-vieng", img: "https://i.imgur.com/4AvfdfO.jpeg", title: "Vang Vieng", desc: "Karst mountains, blue lagoons & adventure sports", mapLink: "https://www.google.com/maps/search/?api=1&query=Vang+Vieng+Laos" }
               ].map((trip) => (
                 <div key={trip.title} className="trip-card">
                   <Link href={trip.href} className="block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition hover:-translate-y-2 h-full">
