@@ -303,7 +303,7 @@ const ContactUs: React.FC = () => {
                 <div className="contact-text">
                   <p className="text-xs sm:text-sm text-gray-500">Phone</p>
                   <p className="text-base sm:text-lg font-semibold text-gray-800 contact-text-lg">
-                    +856 205 825 0515
+                    +856 20 55 609 634
                   </p>
                 </div>
               </div>
@@ -315,7 +315,7 @@ const ContactUs: React.FC = () => {
                 <div className="contact-text" style={{ wordBreak: "break-word" }}>
                   <p className="text-xs sm:text-sm text-gray-500">Email</p>
                   <p className="text-sm sm:text-lg font-semibold text-gray-800 contact-text-lg">
-                    dreamdestination.vtelaos@gmail.com
+                     dreamdestination.laos28@gmail.com
                   </p>
                 </div>
               </div>
@@ -327,7 +327,7 @@ const ContactUs: React.FC = () => {
                 <div className="contact-text">
                   <p className="text-xs sm:text-sm text-gray-500">Head Office</p>
                   <p className="text-base sm:text-lg font-semibold text-gray-800 contact-text-lg">
-                    123 Main Street, Yangon
+                    No.624, Nongbuathong Nuea,Vientiane,Lao 
                   </p>
                   <p className="text-xs sm:text-sm text-gray-500">Laos</p>
                 </div>
@@ -350,7 +350,7 @@ const ContactUs: React.FC = () => {
                   ></i>
                 </a>
                 <a
-                  href="https://facebook.com/dreamdestination"
+                  href="https://www.facebook.com/share/1Sb6Kqto8S/?mibextid=wwXIfr"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-[#1877F2] rounded-full p-2 sm:p-3 shadow-md hover:shadow-lg transition-shadow hover:scale-110 transform duration-200 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12"
@@ -358,7 +358,7 @@ const ContactUs: React.FC = () => {
                   <i className="fab fa-facebook-f text-xl sm:text-2xl text-white"></i>
                 </a>
                 <a
-                  href="https://instagram.com/dreamdestination"
+                  href="https://www.instagram.com/dreamdestinationtraveltour?igsh=aWhjZGo0aHhrb2du&utm_source=qr"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-gradient-to-r from-[#833AB4] via-[#E4405F] to-[#FCAF45] rounded-full p-2 sm:p-3 shadow-md hover:shadow-lg transition-shadow hover:scale-110 transform duration-200 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12"
@@ -366,21 +366,15 @@ const ContactUs: React.FC = () => {
                   <i className="fab fa-instagram text-xl sm:text-2xl text-white"></i>
                 </a>
                 <a
-                  href="https://tiktok.com/@dreamdestination"
+                  href="https://www.tiktok.com/@dream.destination28?_r=1&_t=ZS-97VE8ItpYal"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-black rounded-full p-2 sm:p-3 shadow-md hover:shadow-lg transition-shadow hover:scale-110 transform duration-200 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12"
                 >
                   <i className="fab fa-tiktok text-xl sm:text-2xl text-white"></i>
                 </a>
-                <a
-                  href="https://linkedin.com/company/dreamdestination"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#0A66C2] rounded-full p-2 sm:p-3 shadow-md hover:shadow-lg transition-shadow hover:scale-110 transform duration-200 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12"
-                >
-                  <i className="fab fa-linkedin-in text-xl sm:text-2xl text-white"></i>
-                </a>
+            
+                
               </div>
               <p className="text-xs sm:text-sm text-gray-500 mt-4 sm:mt-6 italic">
                 We typically respond within 24 hours on business days.

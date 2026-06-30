@@ -22,11 +22,11 @@ const HomePage: React.FC = () => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const slideTexts = [
-  'Trek through misty peaks, breathe fresh alpine air, and discover hidden waterfalls in this serene mountain retreat.',
-  'Paddle across crystal-clear waters, surrounded by lush forests, and enjoy the peaceful silence of nature.',
-  'Wander along ancient woodland paths, listen to birdsong, and feel the earthy scent of pine and moss.',
-  'Watch the golden hour paint the sky, as the sun dips behind jagged peaks in a blaze of color.',
-  'Stroll along windswept cliffs, breathe the salty ocean breeze, and watch waves crash against the shore.'
+  'Trek through misty peaks',
+  'Paddle across crystal-clear waters',
+  'Wander along ancient woodland paths',
+  'Watch the golden hour paint the sky',
+  'Stroll along windswept cliffs'
 ];
 
   const travelCarouselRef = useRef<HTMLDivElement>(null);
@@ -633,10 +633,10 @@ const HomePage: React.FC = () => {
         alt="Mist over mountains"
         className="w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div>
+      <div className="absolute inset-0  pointer-events-none"></div>
       {/* Title – top‑right with margin + padding */}
-      <div className="absolute top-4 right-4 z-10">
-        <h2 className="text-sm md:text-base font-semibold text-white drop-shadow-lg bg-black/30 p-2 ml-2 rounded-bl-md">
+      <div className="absolute bottom-4 right-4 z-10">
+        <h2 className="fleur-de-leah-regular text-2xl md:text-2xl font-bold text-orange-300 drop-shadow-lg">
           {slideTexts[0]}
         </h2>
       </div>
@@ -650,8 +650,9 @@ const HomePage: React.FC = () => {
         className="w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div>
-      <div className="absolute top-4 right-4 z-10">
-        <h2 className="text-sm md:text-base font-semibold text-white drop-shadow-lg bg-black/30 p-2 ml-2 rounded-bl-md">
+      <div className="absolute bottom-4 right-4 z-10">
+        <h2 className="fleur-de-leah-regular text-2xl md:text-2xl font-bold text-orange-300 drop-shadow-lg">
+
           {slideTexts[1]}
         </h2>
       </div>
@@ -665,9 +666,10 @@ const HomePage: React.FC = () => {
         className="w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div>
-      <div className="absolute top-4 right-4 z-10">
-        <h2 className="text-sm md:text-base font-semibold text-white drop-shadow-lg bg-black/30 p-2 ml-2 rounded-bl-md">
-          {slideTexts[2]}
+      <div className="absolute bottom-4 right-4 z-10">
+        <h2 className="fleur-de-leah-regular text-2xl md:text-2xl font-bold text-orange-300 drop-shadow-lg">
+
+        {slideTexts[2]}
         </h2>
       </div>
     </div>
@@ -680,8 +682,9 @@ const HomePage: React.FC = () => {
         className="w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div>
-      <div className="absolute top-4 right-4 z-10">
-        <h2 className="text-sm md:text-base font-semibold text-white drop-shadow-lg bg-black/30 p-2 ml-2 rounded-bl-md">
+      <div className="absolute bottom-4 right-4 z-10">
+        <h2 className="fleur-de-leah-regular text-2xl md:text-2xl font-bold text-orange-300 drop-shadow-lg">
+
           {slideTexts[3]}
         </h2>
       </div>
@@ -695,8 +698,9 @@ const HomePage: React.FC = () => {
         className="w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div>
-      <div className="absolute top-4 right-4 z-10">
-        <h2 className="text-sm md:text-base font-semibold text-white drop-shadow-lg bg-black/30 p-2 ml-2 rounded-bl-md">
+      <div className="absolute bottom-4 right-4 z-10">
+        <h2 className="fleur-de-leah-regular text-2xl md:text-2xl font-bold text-orange-300 drop-shadow-lg">
+
           {slideTexts[4]}
         </h2>
       </div>
