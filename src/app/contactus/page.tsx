@@ -339,7 +339,7 @@ const ContactUs: React.FC = () => {
               </h3>
               <div className="flex flex-wrap gap-3 sm:gap-4">
                 <a
-                  href="https://wa.me/8562012345678"
+                  href="https://wa.me/8562055609634"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-white rounded-full p-2 sm:p-3 shadow-md hover:shadow-lg transition-shadow hover:scale-110 transform duration-200 border-2 border-[#2E7D32] flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12"

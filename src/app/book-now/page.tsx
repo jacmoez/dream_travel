@@ -183,7 +183,7 @@ const BookNowPage: React.FC = () => {
               </a>
 
               {/* WhatsApp */}
-              <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/8562055609634" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 rounded-xl border-2 border-gray-200 hover:border-[#25D366] transition group">
                 <div className="w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center text-white text-2xl">
                   <i className="fab fa-whatsapp"></i>
