@@ -170,14 +170,14 @@ const BookNowPage: React.FC = () => {
             {/* Social Contact Buttons */}
             <div className="space-y-4">
               {/* Facebook */}
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.facebook.com/share/1Sb6Kqto8S/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 rounded-xl border-2 border-gray-200 hover:border-[#1877F2] transition group">
                 <div className="w-12 h-12 bg-[#1877F2] rounded-full flex items-center justify-center text-white text-2xl">
                   <i className="fab fa-facebook-f"></i>
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">Facebook</h3>
-                  <p className="text-gray-500 text-sm">@dreamdestination.travel</p>
+                  {/* <p className="text-gray-500 text-sm">@dreamdestination.travel</p> */}
                 </div>
                 <i className="fas fa-arrow-right ml-auto text-gray-400 group-hover:text-[#1877F2]"></i>
               </a>
@@ -196,29 +196,43 @@ const BookNowPage: React.FC = () => {
               </a>
 
               {/* Instagram */}
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.instagram.com/dreamdestinationtraveltour?igsh=aWhjZGo0aHhrb2du&utm_source=qr" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 rounded-xl border-2 border-gray-200 hover:border-[#E4405F] transition group">
                 <div className="w-12 h-12 bg-gradient-to-tr from-[#FCAF45] via-[#E4405F] to-[#833AB4] rounded-full flex items-center justify-center text-white text-2xl">
                   <i className="fab fa-instagram"></i>
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">Instagram</h3>
-                  <p className="text-gray-500 text-sm">@dreamdestination.laos</p>
+                  {/* <p className="text-gray-500 text-sm">@dreamdestination.laos</p> */}
                 </div>
                 <i className="fas fa-arrow-right ml-auto text-gray-400 group-hover:text-[#E4405F]"></i>
               </a>
 
               {/* Telegram */}
-              <a href="https://t.me/dreamdestination" target="_blank" rel="noopener noreferrer"
+              <a href="https://t.me/DDTLAOS" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 rounded-xl border-2 border-gray-200 hover:border-[#0088cc] transition group">
                 <div className="w-12 h-12 bg-[#0088cc] rounded-full flex items-center justify-center text-white text-2xl">
                   <i className="fab fa-telegram-plane"></i>
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">Telegram</h3>
-                  <p className="text-gray-500 text-sm">@dreamdestination</p>
+                  {/* <p className="text-gray-500 text-sm">@dreamdestination</p> */}
                 </div>
                 <i className="fas fa-arrow-right ml-auto text-gray-400 group-hover:text-[#0088cc]"></i>
+              </a>
+
+
+              {/* Phone */}
+              <a href="https://www.tiktok.com/@dream.destination28?_r=1&_t=ZS-97VE8ItpYal"
+                className="flex items-center gap-4 p-4 rounded-xl border-2 border-gray-200 hover:border-[#2E7D32] transition group">
+                <div className="w-12 h-12 bg-[#000000] rounded-full flex items-center justify-center text-white text-2xl">
+                  <i className="fab fa-tiktok text-xl sm:text-2xl text-white"></i>
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg">Tiktok</h3>
+                  {/* <p className="text-gray-500 text-sm">+856 20 55 609 634</p> */}
+                </div>
+                <i className="fas fa-arrow-right ml-auto text-gray-400 group-hover:text-[#2E7D32]"></i>
               </a>
 
               {/* Phone */}
@@ -229,7 +243,7 @@ const BookNowPage: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">Call Us</h3>
-                  <p className="text-gray-500 text-sm">+856 205 825 0515</p>
+                  <p className="text-gray-500 text-sm">+856 20 55 609 634</p>
                 </div>
                 <i className="fas fa-arrow-right ml-auto text-gray-400 group-hover:text-[#2E7D32]"></i>
               </a>

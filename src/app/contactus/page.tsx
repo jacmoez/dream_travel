@@ -373,6 +373,15 @@ const ContactUs: React.FC = () => {
                 >
                   <i className="fab fa-tiktok text-xl sm:text-2xl text-white"></i>
                 </a>
+
+                <a
+                  href="https://t.me/DDTLAOS"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#0088cc] rounded-full p-2 sm:p-3 shadow-md hover:shadow-lg transition-shadow hover:scale-110 transform duration-200 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12"
+                >
+                  <i className="fab fa-telegram-plane text-xl sm:text-2xl text-white"></i>
+                </a>
             
                 
               </div>

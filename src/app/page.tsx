@@ -221,7 +221,7 @@ const HomePage: React.FC = () => {
     "Lao Country Club": "lao-country-club",
     "Lakeview Vientiane Golf Club": "lakeview-vientiane-golf-club",
     "Mekong Golf Club":"mekong_golf_club",
-    "Vang Vieng Golf Club":"vang_vieng_golf_glub"   // typo kept
+    "Vang Vieng Golf Club":"vang_vieng_golf_club"   // typo kept
   };
 
   // --- Popular Golf Packages List (with prices and fixed durations) ---
@@ -399,6 +399,7 @@ const HomePage: React.FC = () => {
             <span><i className="fas fa-ruler" style={{ color: '#ED6A02', marginRight: '0.25rem' }}></i>{place.yards}</span>
           </div>
           <p className="place-description">{place.description}</p>
+          
           <div className="flex gap-2 mt-3">
             <Link href={`/golf/${clubSlug}`} className="bg-[#2E7D32] text-white px-3 py-1 rounded-full text-xs hover:bg-[#ED6A02] transition inline-block text-center">Details</Link>
           </div>
@@ -417,6 +418,7 @@ const HomePage: React.FC = () => {
           <h3 className="package-card-new-title">{pkg.name}</h3>
           <div className="package-card-new-price">{pkg.duration} - {pkg.price}</div>
           <p className="package-card-new-desc">{pkg.description}</p>
+          <p className="package-card-new-desc">MINIUM : 4 ( PERSON )</p>
           <div className="package-card-buttons">
             <Link href={`/golf_package_detail/${packageId}`} className="card-details-btn" onClick={(e) => e.stopPropagation()}><i className="fas fa-info-circle"></i> Details</Link>
             <button className="card-book-btn" onClick={(e) => { e.stopPropagation(); openBookingModal(pkg.name); }}><i className="fas fa-bookmark"></i> Book</button>
@@ -799,7 +801,8 @@ const HomePage: React.FC = () => {
               <div ref={golfCarouselRef} className="packages-grid-carousel">
                 {golfPackages.map((pkg, idx) => {
                   const packageId = golfPackageIdMap[pkg.title];
-                  return (<div key={idx} className="package-mini-card"><div className="package-mini-image"><img src={pkg.img} alt={pkg.title} /></div><div className="package-mini-content"><div className="package-mini-title">{pkg.title}</div><div className="package-mini-duration-text">{pkg.duration} - {pkg.price}</div><div className="package-mini-footer"><Link href={`/golf_package_detail/${packageId}`} className="btn-details">Details</Link><button className="btn-book" onClick={() => openBookingModal(pkg.title)}>Book</button></div></div></div>);
+                  return (<div key={idx} className="package-mini-card"><div className="package-mini-image"><img src={pkg.img} alt={pkg.title} /></div><div className="package-mini-content"><div className="package-mini-title">{pkg.title}</div><div className="package-mini-duration-text">{pkg.duration} - {pkg.price}          <p className="package-card-new-desc">MINIUM : 4 ( PERSON )</p>
+</div><div className="package-mini-footer"><Link href={`/golf_package_detail/${packageId}`} className="btn-details">Details</Link><button className="btn-book" onClick={() => openBookingModal(pkg.title)}>Book</button></div></div></div>);
                 })}
               </div>
               <div className="slider-arrow slider-arrow-right" onClick={(e) => { e.stopPropagation(); scrollCarousel(golfCarouselRef, 'right'); }}><i className="fas fa-chevron-right"></i></div>
