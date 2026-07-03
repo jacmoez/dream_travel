@@ -22,12 +22,12 @@ const HomePage: React.FC = () => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const slideTexts = [
-  'Trek through misty peaks',
-  'Paddle across crystal-clear waters',
-  'Wander along ancient woodland paths',
-  'Watch the golden hour paint the sky',
-  'Stroll along windswept cliffs'
-];
+    'Trek through misty peaks',
+    'Paddle across crystal-clear waters',
+    'Wander along ancient woodland paths',
+    'Watch the golden hour paint the sky',
+    'Stroll along windswept cliffs'
+  ];
 
   const travelCarouselRef = useRef<HTMLDivElement>(null);
   const golfCarouselRef = useRef<HTMLDivElement>(null);
@@ -48,7 +48,7 @@ const HomePage: React.FC = () => {
       mapLink: "https://maps.google.com/?q=Long+Vien+Golf+Club+Vientiane",
       image: "https://i.imgur.com/M7rWEZK.jpeg"
     },
-     {
+    {
       name: "Lakeview Vientiane Golf Club",
       city: "Vientiane",
       location: "Lakeview Vientiane Golf Club, Vientiane, Laos",
@@ -58,7 +58,7 @@ const HomePage: React.FC = () => {
       mapLink: "https://maps.google.com/?q=Lakeview+Vientiane+Golf+Club",
       image: "https://i.imgur.com/nZqSXz6.jpeg"
     },
-     {
+    {
       name: "SEA Games Golf Club",
       city: "Vientiane",
       location: "SEA Games Golf Club, Vientiane, Laos",
@@ -78,7 +78,6 @@ const HomePage: React.FC = () => {
       mapLink: "https://maps.google.com/?q=Lao+Country+Club+Vientiane",
       image: "https://i.imgur.com/x4A7hpH.jpeg"
     },
-
     {
       name: "Dansavanh Golf Club",
       city: "Vientiane Province",
@@ -109,8 +108,7 @@ const HomePage: React.FC = () => {
       mapLink: "https://maps.google.com/?q=Vang+Vieng+Golf+Club+Laos",
       image: "https://i.imgur.com/BIHfV2W.jpeg"
     },
-    
-       {
+    {
       name: "Luang Prabang Golf Club",
       city: "Luang Prabang",
       location: "Luang Prabang Golf Club, Luang Prabang, Laos",
@@ -120,159 +118,144 @@ const HomePage: React.FC = () => {
       mapLink: "https://maps.google.com/?q=Luang+Prabang+Golf+Club",
       image: "https://i.imgur.com/B2fjoxj.jpeg"
     },
-   
-    
-   
   ];
 
   // --- Travel Packages Data (with prices) ---
   const travelPackages = [
-    { title: "3 DAYS 2 NIGHTS VIENTIANE - LUANGPRABANG", duration: "3 DAYS 2 NIGHTS", price: "$939/one person", img: "https://i.imgur.com/4QhvN7F.jpeg" },
-    { title: "4 DAYS 3 NIGHTS VIENTIANE – LUANG PRABANG", duration: "4 DAYS 3 NIGHTS", price: "$1,199/one person", img: "https://i.imgur.com/TX7Xt7r.jpeg" },
-    { title: "2 DAYS 1 NIGHT VTE - VV", duration: "2 DAYS 1 NIGHT", price: "$599/one person", img: "https://i.imgur.com/J4OGK1a.jpeg" },
-    { title: "4 DAYS 3 NIGHTS LPQ-VV-VTE", duration: "4 DAYS 3 NIGHTS", price: "$1,199/one person", img: "https://i.imgur.com/4HTtNcg.jpeg" },
-    { title: "2 DAYS 1 NIGHT VTE - MF - VTE", duration: "2 DAYS 1 NIGHT", price: "$599/one person", img: "https://i.imgur.com/SJlpWSx.jpeg" },
-    { title: "5 DAYS 4 NIGHTS HUX-PK-LPQ", duration: "5 DAYS 4 NIGHTS", price: "$1,499/one person", img: "https://i.imgur.com/V8TST5G.jpeg" },
-    { title: "VTE-VV-LPQ (3D2N)", duration: "3 DAYS 2 NIGHTS", price: "$939/one person", img: "https://i.imgur.com/UZI13Qj.jpeg" },
-    { title: "3 DAYS 2 NIGHTS LUANGPRABANG HERITAGE ESCAPE", duration: "3 DAYS 2 NIGHTS", price: "$939/one person", img: "https://i.imgur.com/pd2ByH1.jpeg" },
-    { title: "VANG VIENG ADVENTURE DAY TRIP – FULL DAY", duration: "FULL DAY", price: "$299/one person", img: "https://i.imgur.com/4AvfdfO.jpeg" },
-    { title: "VIENTIANE CAPITAL DISCOVERY – FULL DAY", duration: "FULL DAY", price: "$299/one person", img: "https://i.imgur.com/B6vdCe4.jpeg" },
-    { title: "LUANG PRABANG & VANG VIENG EXPLORER – 4 DAYS / 3 NIGHTS", duration: "4 DAYS 3 NIGHTS", price: "$1,199/one person", img: "https://i.imgur.com/sG5jnE9.jpeg" },
-    { title: "SOUTHERN LAOS & 4,000 ISLANDS ESCAPE – 4 DAYS / 3 NIGHTS", duration: "4 DAYS 3 NIGHTS", price: "$1,199/one person", img: "https://i.imgur.com/GwVFh0V.jpeg" },
+    { title: "Vientiane- Luang Prabang", duration: "3 DAYS 2 NIGHTS", price: "From USD 1199 / person", img: "https://i.imgur.com/4QhvN7F.jpeg" },
+    { title: "Vientiane - Luang Prabang", duration: "4 DAYS 3 NIGHTS", price: "From USD 1199 / person", img: "https://i.imgur.com/TX7Xt7r.jpeg" },
+    { title: "Vientiane- Vang Vieng ", duration: "2 DAYS 1 NIGHT", price: "From USD 1199 / person", img: "https://i.imgur.com/J4OGK1a.jpeg" },
+    { title: "Luang Prabang-Vang Vieng-Vientiane  ", duration: "4 DAYS 3 NIGHTS", price: "From USD 1199 / person", img: "https://i.imgur.com/4HTtNcg.jpeg" },
+    { title: "Vientiane-Mueng Fueng-Vientiane", duration: "2 DAYS 1 NIGHT", price: "From USD 1199 / person", img: "https://i.imgur.com/SJlpWSx.jpeg" },
+    { title: "Huay Xai-Pakbeng-Luang Prabang", duration: "5 DAYS 4 NIGHTS", price: "From USD 1199 / person", img: "https://i.imgur.com/V8TST5G.jpeg" },
+    { title: "Vientiane-Vang Vieng-Luang Prabang", duration: "3 DAYS 2 NIGHTS", price: "From USD 1199 / person", img: "https://i.imgur.com/UZI13Qj.jpeg" },
+    { title: "Luang Prabang-Heritage Escape", duration: "3 DAYS 2 NIGHTS", price: "From USD 1199 / person", img: "https://i.imgur.com/pd2ByH1.jpeg" },
+    { title: "Vang Vieng Adventrue Day Trip", duration: "FULL DAY", price: "From USD 1199 / person", img: "https://i.imgur.com/4AvfdfO.jpeg" },
+    { title: "Vientiane Capital Discovery", duration: "FULL DAY", price: "From USD 1199 / person", img: "https://i.imgur.com/B6vdCe4.jpeg" },
+    { title: "Luang Prabang-Vang Vieng Explorer", duration: "4 DAYS 3 NIGHTS", price: "From USD 1199 / person", img: "https://i.imgur.com/sG5jnE9.jpeg" },
+    { title: "Soouthern Laos & 4,000 Islands Escape", duration: "4 DAYS 3 NIGHTS", price: "From USD 1199 / person", img: "https://i.imgur.com/GwVFh0V.jpeg" },
   ];
 
   const travelPackageIdMap: Record<string, string> = {
-    "3 DAYS 2 NIGHTS VIENTIANE - LUANGPRABANG": "three_days_two_nights_vte_lpq",
-    "4 DAYS 3 NIGHTS VIENTIANE – LUANG PRABANG": "four_days_three_nights_vte_lpq",
-    "2 DAYS 1 NIGHT VTE - VV": "two_days_one_night_vte_vv",
-    "4 DAYS 3 NIGHTS LPQ-VV-VTE": "four_days_three_nights_lpq_vv_vte",
-    "2 DAYS 1 NIGHT VTE - MF - VTE": "two_days_one_night_vte_mf",
-    "5 DAYS 4 NIGHTS HUX-PK-LPQ": "five_days_four_nights_hux_pk_lpq",
-    "VTE-VV-LPQ (3D2N)": "three_days_two_nights_vte_vv_lpq",
-    "3 DAYS 2 NIGHTS LUANGPRABANG HERITAGE ESCAPE": "three_day_two_nights_luangpraband_heritage_escape",
-    "VANG VIENG ADVENTURE DAY TRIP – FULL DAY": "vang_vieng_adventure_day_trip",
-    "VIENTIANE CAPITAL DISCOVERY – FULL DAY": "vientiane_capital_discovery",
-    "LUANG PRABANG & VANG VIENG EXPLORER – 4 DAYS / 3 NIGHTS": "luang_prabang_vang_vieng_explorer",
-    "SOUTHERN LAOS & 4,000 ISLANDS ESCAPE – 4 DAYS / 3 NIGHTS": "southern_laos_4000_islands_escape",
+    "Vientiane- Luang Prabang": "three_days_two_nights_vte_lpq",
+    "Vientiane - Luang Prabang": "four_days_three_nights_vte_lpq",
+    "Vientiane- Vang Vieng ": "two_days_one_night_vte_vv",
+    "Luang Prabang-Vang Vieng-Vientiane  ": "four_days_three_nights_lpq_vv_vte",
+    "Vientiane-Mueng Fueng-Vientiane": "two_days_one_night_vte_mf",
+    "Huay Xai-Pakbeng-Luang Prabang": "five_days_four_nights_hux_pk_lpq",
+    "Vientiane-Vang Vieng-Luang Prabang": "three_days_two_nights_vte_vv_lpq",
+    "Luang Prabang-Heritage Escape": "three_day_two_nights_luangpraband_heritage_escape",
+    "Vang Vieng Adventrue Day Trip": "vang_vieng_adventure_day_trip",
+    "Vientiane Capital Discovery": "vientiane_capital_discovery",
+    "Luang Prabang-Vang Vieng Explorer": "luang_prabang_vang_vieng_explorer",
+    "Soouthern Laos & 4,000 Islands Escape": "southern_laos_4000_islands_escape",
   };
 
   // --- Golf Packages Carousel Data (with prices) ---
   const golfPackages = [
-  { 
-    title: "4D3N Golf Package – LCC & Lake View", 
-    duration: "4 DAYS / 3 NIGHTS", 
-    price: "$999/one person", 
-    desc: "Enjoy 2 rounds of golf at Luang Prabang Golf Club. Includes green fees, caddie, golf cart, and luxury accommodation.", 
-    img: "https://i.imgur.com/x4A7hpH.jpeg"   // Lao Country Club
-  },
-  { 
-    title: "5D4N Golf Package – LCC, Lake View & SEA Games Course", 
-    duration: "5 DAYS / 4 NIGHTS", 
-    price: "$1,299/one person", 
-    desc: "Premium golf experience with 3 rounds at top courses, luxury resort accommodation, spa treatment.", 
-    img: "https://i.imgur.com/rDMj7bS.jpeg"   // SEA Games Golf Club
-  },
-  { 
-    title: "5D4N Golf Package – LCC, Lake View & Dansavanh", 
-    duration: "5 DAYS / 4 NIGHTS", 
-    price: "$1,299/one person", 
-    desc: "Combine luxury resort stay with 2 rounds of golf. Includes accommodation, breakfast, green fees, and club rental.", 
-    img: "https://i.imgur.com/GK6YDQS.jpeg"   // Dansavanh Golf Club
-  },
-  { 
-    title: "5D4N Golf Package – LCC, Lake View & Vang Vieng", 
-    duration: "5 DAYS / 4 NIGHTS", 
-    price: "$1,299/one person", 
-    desc: "Combine luxury resort stay with 2 rounds of golf. Includes accommodation, breakfast, green fees, and club rental.", 
-    img: "https://i.imgur.com/BIHfV2W.jpeg"   // Vang Vieng Golf Club
-  },
-  { 
-    title: "4D3N Golf Package – Luang Prabang (LPQ)", 
-    duration: "4 DAYS / 3 NIGHTS", 
-    price: "$999/one person", 
-    desc: "Combine luxury resort stay with 2 rounds of golf. Includes accommodation, breakfast, green fees, and club rental.", 
-    img: "https://i.imgur.com/B2fjoxj.jpeg"   // Luang Prabang Golf Club
-  },
-  { 
-    title: "Vientiane Golf & Leisure Escape – 7 Days / 6 Nights", 
-    duration: "7 DAYS / 6 NIGHTS", 
-    price: "$1,699/one person", 
-    desc: "Enjoy 2 rounds of golf at Luang Prabang Golf Club. Includes green fees, caddie, golf cart, and luxury accommodation.", 
-    img: "https://i.imgur.com/nZqSXz6.jpeg"   // Lakeview Vientiane Golf Club
-  },
-];
+    {
+      title: "Lao Country Club & Lake View Golf Club",
+      duration: "4 DAYS / 3 NIGHTS",
+      price: "From USD 999 / person",
+      img: "https://i.imgur.com/x4A7hpH.jpeg"
+    },
+    {
+      title: "Lao Country Club & SEA Games Golf Club",
+      duration: "5 DAYS / 4 NIGHTS",
+      price: "From USD 999 / person",
+      img: "https://i.imgur.com/rDMj7bS.jpeg"
+    },
+    {
+      title: "Lao Country Club , Lake View & Dansavanh Golf Club",
+      duration: "5 DAYS / 4 NIGHTS",
+      price: "From USD 999 / person",
+      img: "https://i.imgur.com/GK6YDQS.jpeg"
+    },
+    {
+      title: "Lao Country Club , Lake View & Vang Vieng Golf Club",
+      duration: "5 DAYS / 4 NIGHTS",
+      price: "From USD 999 / person",
+      img: "https://i.imgur.com/BIHfV2W.jpeg"
+    },
+    {
+      title: "Luang Prabang Golf Club",
+      duration: "4 DAYS / 3 NIGHTS",
+      price: "From USD 999 / person",
+      img: "https://i.imgur.com/B2fjoxj.jpeg"
+    },
+    {
+      title: "Vientiane Golf & Leisure Escape Golf Club",
+      duration: "7 DAYS / 6 NIGHTS",
+      price: "From USD 999 / person",
+      img: "https://i.imgur.com/nZqSXz6.jpeg"
+    },
+  ];
 
   const golfPackageIdMap: Record<string, string> = {
-    "4D3N Golf Package – LCC & Lake View": "four_days_three_nights_lcc_and_lake_view",
-    "5D4N Golf Package – LCC, Lake View & SEA Games Course": "fight_days_four_lcc_and_lake_view_and_sea_game",
-    "5D4N Golf Package – LCC, Lake View & Dansavanh": "fight_days_four_nights_lcc_and_lake_view_and_dansavanh",
-    "5D4N Golf Package – LCC, Lake View & Vang Vieng": "fight_days_four_nights_lcc_and_lake_view_and_vang_vieng",
-    "4D3N Golf Package – Luang Prabang (LPQ)": "four_days_three_nights_laung_prabang",
-    "Vientiane Golf & Leisure Escape – 7 Days / 6 Nights": "seven_days_six_nights_laung_prabang_vientiane_leisure_escape",
+    "Lao Country Club & Lake View Golf Club": "four_days_three_nights_lcc_and_lake_view",
+    "Lao Country Club & SEA Games Golf Club": "fight_days_four_lcc_and_lake_view_and_sea_game",
+    "Lao Country Club , Lake View & Dansavanh Golf Club": "fight_days_four_nights_lcc_and_lake_view_and_dansavanh",
+    "Lao Country Club , Lake View & Vang Vieng Golf Club": "fight_days_four_nights_lcc_and_lake_view_and_vang_vieng",
+    "Luang Prabang Golf Club": "four_days_three_nights_laung_prabang",
+    "Vientiane Golf & Leisure Escape Golf Club": "seven_days_six_nights_laung_prabang_vientiane_leisure_escape",
   };
 
   // --- Golf Club ID Map (typo left unchanged as requested) ---
   const golfClubIdMap: Record<string, string> = {
-    "Dansavanh Golf Club":"dansavanh_golf_club",
+    "Dansavanh Golf Club": "dansavanh_golf_club",
     "Luang Prabang Golf Club": "luang-prabang-golf-club",
     "Long Vien Golf Club": "long-vien-golf-club",
     "SEA Games Golf Club": "sea-games-golf-club",
     "Country Club": "dansavanh-golf-country-club",
     "Lao Country Club": "lao-country-club",
     "Lakeview Vientiane Golf Club": "lakeview-vientiane-golf-club",
-    "Mekong Golf Club":"mekong_golf_club",
-    "Vang Vieng Golf Club":"vang_vieng_golf_club"   // typo kept
+    "Mekong Golf Club": "mekong_golf_club",
+    "Vang Vieng Golf Club": "vang_vieng_golf_club"
   };
 
   // --- Popular Golf Packages List (with prices and fixed durations) ---
   const golfPackagesList = [
     {
-      name: "4D3N Golf Package – LCC & Lake View",
+      name: "Lao Country Club & Lake View Golf Club",
       slug: "four_days_three_nights_lcc_and_lake_view",
       image: "https://i.imgur.com/HSCY4hR.jpeg",
       duration: "4 Days / 3 Nights",
-      price: "$999/one person",
-      description: "2 rounds at Long Vien & Lakeview courses. Includes luxury hotel, transfers, and temple tour."
+      price: "From USD 999 / person",
     },
     {
-      name: "5D4N Golf Package – LCC, Lake View & SEA Games Course",
+      name: "Lao Country Club & SEA Games Golf Club",
       slug: "fight_days_four_lcc_and_lake_view_and_sea_game",
       image: "https://i.imgur.com/Y7b37MJ.jpeg",
       duration: "5 Days / 4 Nights",
-      price: "$1,299/one person",
-      description: "1 round at Luang Prabang Golf Club + UNESCO city tour & Kuang Si Falls. Riverside hotel."
+      price: "From USD 999 / person",
     },
     {
-      name: "5D4N Golf Package – LCC, Lake View & Dansavanh",
+      name: "Lao Country Club , Lake View & Dansavanh Golf Club",
       slug: "fight_days_four_nights_lcc_and_lake_view_and_dansavanh",
       image: "https://i.imgur.com/7s5pMGL.jpeg",
       duration: "5 Days / 4 Nights",
-      price: "$1,299/one person",
-      description: "3 rounds at Vang Vieng Golf Resort + hot air balloon, kayaking, and cave exploration."
+      price: "From USD 999 / person",
     },
     {
-      name: "5D4N Golf Package – LCC, Lake View & Vang Vieng",
+      name: "Lao Country Club , Lake View & Vang Vieng Golf Club",
       slug: "fight_days_four_nights_lcc_and_lake_view_and_vang_vieng",
       image: "https://i.imgur.com/nvwDjla.jpeg",
       duration: "5 Days / 4 Nights",
-      price: "$1,299/one person",
-      description: "4 rounds + Vat Phou temple tour, Bolaven Plateau coffee visit. Luxury Mekong resort."
+      price: "From USD 999 / person",
     },
     {
-      name: "4D3N Golf Package – Luang Prabang (LPQ)",
+      name: "Luang Prabang Golf Club",
       slug: "four_days_three_nights_laung_prabang",
       image: "https://i.imgur.com/qK8XEKt.jpeg",
       duration: "4 Days / 3 Nights",
-      price: "$999/one person",
-      description: "2 rounds at Long Vien & Lakeview courses. Includes luxury hotel, transfers, and temple tour."
+      price: "From USD 999 / person",
     },
     {
-      name: "Vientiane Golf & Leisure Escape – 7 Days / 6 Nights",
+      name: "Vientiane Golf & Leisure Escape Golf Club",
       slug: "seven_days_six_nights_laung_prabang_vientiane_leisure_escape",
       image: "https://i.imgur.com/4tIIfCr.jpeg",
       duration: "7 Days / 6 Nights",
-      price: "$1,699/one person",
-      description: "2 rounds at Long Vien & Lakeview courses. Includes luxury hotel, transfers, and temple tour."
+      price: "From USD 999 / person",
     }
   ];
 
@@ -337,7 +320,7 @@ const HomePage: React.FC = () => {
   const [bookingTravellers, setBookingTravellers] = useState('');
   const [bookingMessage, setBookingMessage] = useState('');
   const [isBookingSubmitting, setIsBookingSubmitting] = useState(false);
-  
+
   const handleBookingSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsBookingSubmitting(true);
@@ -399,7 +382,6 @@ const HomePage: React.FC = () => {
             <span><i className="fas fa-ruler" style={{ color: '#ED6A02', marginRight: '0.25rem' }}></i>{place.yards}</span>
           </div>
           <p className="place-description">{place.description}</p>
-          
           <div className="flex gap-2 mt-3">
             <Link href={`/golf/${clubSlug}`} className="bg-[#2E7D32] text-white px-3 py-1 rounded-full text-xs hover:bg-[#ED6A02] transition inline-block text-center">Details</Link>
           </div>
@@ -414,11 +396,10 @@ const HomePage: React.FC = () => {
       <div className="package-card-new" style={{ cursor: 'pointer' }}>
         <div className="package-card-new-image"><img src={pkg.image} alt={pkg.name} /></div>
         <div className="package-card-new-overlay"></div>
-        <div className="package-card-new-content">
+        <div className="package-card-new-content text-center">
           <h3 className="package-card-new-title">{pkg.name}</h3>
-          <div className="package-card-new-price">{pkg.duration} - {pkg.price}</div>
-          <p className="package-card-new-desc">{pkg.description}</p>
-          <p className="package-card-new-desc">MINIUM : 4 ( PERSON )</p>
+          <div className="package-card-new-price text-center">{pkg.duration} <br></br> {pkg.price}</div>
+          <p className="package-card-new-desc  text-center">MINIMUM PLAYER : 4</p>
           <div className="package-card-buttons">
             <Link href={`/golf_package_detail/${packageId}`} className="card-details-btn" onClick={(e) => e.stopPropagation()}><i className="fas fa-info-circle"></i> Details</Link>
             <button className="card-book-btn" onClick={(e) => { e.stopPropagation(); openBookingModal(pkg.name); }}><i className="fas fa-bookmark"></i> Book</button>
@@ -451,20 +432,83 @@ const HomePage: React.FC = () => {
         .category-btn:hover { background: linear-gradient(135deg, #ed5002 0%, #D4AF37 100%); transform: scale(1.05); color: white; }
         
         .packages-slider-section { position: relative; margin: 2rem 0; }
-        .packages-grid-carousel { display: flex; gap: 1.5rem; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; padding: 0.5rem 0.25rem 1rem 0.25rem; }
+        .packages-grid-carousel {
+          display: flex;
+          gap: 1.5rem;
+          overflow-x: auto;
+          scroll-behavior: smooth;
+          scrollbar-width: none;
+          padding: 0.5rem 0.25rem 1rem 0.25rem;
+          align-items: stretch; /* ensures all cards stretch to the same height */
+        }
         .packages-grid-carousel::-webkit-scrollbar { display: none; }
-        .package-mini-card { flex: 0 0 auto; width: 280px; background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); transition: all 0.3s ease; }
-        .package-mini-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2); }
+        .package-mini-card {
+          flex: 0 0 auto;
+          width: 280px;
+          background: white;
+          border-radius: 1rem;
+          overflow: hidden;
+          box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+          transition: all 0.3s ease;
+          display: flex;
+          flex-direction: column;
+          /* height: 100%; removed – stretch from parent handles it */
+        }
+        .package-mini-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+        }
         .package-mini-image { height: 160px; overflow: hidden; }
         .package-mini-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
         .package-mini-card:hover .package-mini-image img { transform: scale(1.1); }
-        .package-mini-content { padding: 1rem; }
+        .package-mini-content {
+          padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          flex: 1; /* pushes the footer down */
+          text-align: center;
+        }
         .package-mini-title { font-weight: bold; font-size: 1.1rem; color: #2E7D32; margin-bottom: 0.25rem; }
-        .package-mini-duration-text { font-size: 0.8rem; color: #ED6A02; font-weight: 600; margin-bottom: 0.5rem; display: block; }
-        .package-mini-footer { display: flex; gap: 0.5rem; justify-content: space-between; align-items: center; }
-        .package-mini-footer .btn-details { background-color: #ED6A02; color: white; padding: 0.3rem 1rem; border-radius: 9999px; font-size: 0.8rem; cursor: pointer; border: none; transition: background 0.3s; text-decoration: none; display: inline-block; }
+        .package-mini-duration-text {
+          font-size: 0.8rem;
+          color: #ED6A02;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+          display: block;
+          flex: 0 0 auto; /* prevents stretching */
+        }
+        .package-mini-footer {
+          margin-top: auto; /* pushes the footer to the bottom */
+          display: flex;
+          gap: 0.5rem;
+          justify-content: space-between;
+          align-items: center;
+          padding-top: 0.5rem;
+          border-top: 1px solid #e5e7eb;
+        }
+        .package-mini-footer .btn-details {
+          background-color: #ED6A02;
+          color: white;
+          padding: 0.3rem 1rem;
+          border-radius: 9999px;
+          font-size: 0.8rem;
+          cursor: pointer;
+          border: none;
+          transition: background 0.3s;
+          text-decoration: none;
+          display: inline-block;
+        }
         .package-mini-footer .btn-details:hover { background-color: #2E7D32; }
-        .package-mini-footer .btn-book { background-color: #2E7D32; color: white; padding: 0.3rem 1rem; border-radius: 9999px; font-size: 0.8rem; cursor: pointer; border: none; transition: background 0.3s; }
+        .package-mini-footer .btn-book {
+          background-color: #2E7D32;
+          color: white;
+          padding: 0.3rem 1rem;
+          border-radius: 9999px;
+          font-size: 0.8rem;
+          cursor: pointer;
+          border: none;
+          transition: background 0.3s;
+        }
         .package-mini-footer .btn-book:hover { background-color: #ED6A02; }
         
         .slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 20; box-shadow: 0 4px 8px rgba(0,0,0,0.2); color: #2E7D32; font-size: 1.2rem; transition: all 0.2s; border: 1px solid #2E7D32; pointer-events: auto; }
@@ -611,129 +655,125 @@ const HomePage: React.FC = () => {
 
       <main className="flex-1 flex flex-col w-full m-0 p-0 bg-[#f0f7f0]">
         {/* Hero Carousel */}
-<div className="relative w-full shadow-xl">
-  <div className="main-carousel-arrow main-carousel-arrow-left" onClick={prevSlide}>
-    <i className="fas fa-chevron-left"></i>
-  </div>
-  <div className="main-carousel-arrow main-carousel-arrow-right" onClick={nextSlide}>
-    <i className="fas fa-chevron-right"></i>
-  </div>
+        <div className="relative w-full shadow-xl">
+          <div className="main-carousel-arrow main-carousel-arrow-left" onClick={prevSlide}>
+            <i className="fas fa-chevron-left"></i>
+          </div>
+          <div className="main-carousel-arrow main-carousel-arrow-right" onClick={nextSlide}>
+            <i className="fas fa-chevron-right"></i>
+          </div>
 
-  <div
-    className="flex carousel-slide will-change-transform"
-    style={{
-      transform: `translateX(-${carouselIndex * 100}%)`,
-      transition: isTransitioning
-        ? 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-        : 'none',
-    }}
-  >
-    {/* Slide 1 */}
-    <div className="w-full flex-shrink-0 relative carousel-height">
-      <img
-        src="https://i.imgur.com/GEEiT8Q.jpeg"
-        alt="Mist over mountains"
-        className="w-full h-full object-cover"
-      />
-      <div className="absolute inset-0  pointer-events-none"></div>
-      {/* Title – top‑right with margin + padding */}
-      <div className="absolute bottom-4 right-4 z-10">
-        <h2 className="fleur-de-leah-regular text-2xl md:text-2xl font-bold text-orange-300 drop-shadow-lg">
-          {slideTexts[0]}
-        </h2>
-      </div>
-    </div>
+          <div
+            className="flex carousel-slide will-change-transform"
+            style={{
+              transform: `translateX(-${carouselIndex * 100}%)`,
+              transition: isTransitioning
+                ? 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                : 'none',
+            }}
+          >
+            {/* Slide 1 */}
+            <div className="w-full flex-shrink-0 relative carousel-height">
+              <img
+                src="https://i.imgur.com/yrqYzbX.jpeg"
+                alt="Mist over mountains"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0  pointer-events-none"></div>
+              <div className="absolute bottom-4 right-4 z-10">
+                <h2 className="fleur-de-leah-regular text-2xl md:text-2xl font-bold text-orange-300 drop-shadow-lg">
+                  {slideTexts[0]}
+                </h2>
+              </div>
+            </div>
 
-    {/* Slide 2 */}
-    <div className="w-full flex-shrink-0 relative carousel-height">
-      <img
-        src="https://i.imgur.com/HyLr96w.jpeg"
-        alt="Mist over mountains"
-        className="w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div>
-      <div className="absolute bottom-4 right-4 z-10">
-        <h2 className="fleur-de-leah-regular text-2xl md:text-2xl font-bold text-orange-300 drop-shadow-lg">
+            {/* Slide 2 */}
+            <div className="w-full flex-shrink-0 relative carousel-height">
+              <img
+                src="https://i.imgur.com/HyLr96w.jpeg"
+                alt="Mist over mountains"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div>
+              <div className="absolute bottom-4 right-4 z-10">
+                <h2 className="fleur-de-leah-regular text-2xl md:text-2xl font-bold text-orange-300 drop-shadow-lg">
+                  {slideTexts[1]}
+                </h2>
+              </div>
+            </div>
 
-          {slideTexts[1]}
-        </h2>
-      </div>
-    </div>
+            {/* Slide 3 */}
+            <div className="w-full flex-shrink-0 relative carousel-height">
+              <img
+                src="https://i.imgur.com/BqQTJV4.jpeg"
+                alt="Mist over mountains"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div>
+              <div className="absolute bottom-4 right-4 z-10">
+                <h2 className="fleur-de-leah-regular text-2xl md:text-2xl font-bold text-orange-300 drop-shadow-lg">
+                  {slideTexts[2]}
+                </h2>
+              </div>
+            </div>
 
-    {/* Slide 3 */}
-    <div className="w-full flex-shrink-0 relative carousel-height">
-      <img
-        src="https://i.imgur.com/BqQTJV4.jpeg"
-        alt="Mist over mountains"
-        className="w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div>
-      <div className="absolute bottom-4 right-4 z-10">
-        <h2 className="fleur-de-leah-regular text-2xl md:text-2xl font-bold text-orange-300 drop-shadow-lg">
+            {/* Slide 4 */}
+            <div className="w-full flex-shrink-0 relative carousel-height">
+              <img
+                src="https://i.imgur.com/WhnDjDA.jpeg"
+                alt="Mist over mountains"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div>
+              <div className="absolute bottom-4 right-4 z-10">
+                <h2 className="fleur-de-leah-regular text-2xl md:text-2xl font-bold text-orange-300 drop-shadow-lg">
+                  {slideTexts[3]}
+                </h2>
+              </div>
+            </div>
 
-        {slideTexts[2]}
-        </h2>
-      </div>
-    </div>
+            {/* Slide 5 */}
+            <div className="w-full flex-shrink-0 relative carousel-height">
+              <img
+                src="https://i.imgur.com/Ioye5Q6.jpeg"
+                alt="Mist over mountains"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div>
+              <div className="absolute bottom-4 right-4 z-10">
+                <h2 className="fleur-de-leah-regular text-2xl md:text-2xl font-bold text-orange-300 drop-shadow-lg">
+                  {slideTexts[4]}
+                </h2>
+              </div>
+            </div>
+          </div>
 
-    {/* Slide 4 */}
-    <div className="w-full flex-shrink-0 relative carousel-height">
-      <img
-        src="https://i.imgur.com/WhnDjDA.jpeg"
-        alt="Mist over mountains"
-        className="w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div>
-      <div className="absolute bottom-4 right-4 z-10">
-        <h2 className="fleur-de-leah-regular text-2xl md:text-2xl font-bold text-orange-300 drop-shadow-lg">
+          {/* Buttons container */}
+          <div className="carousel-btn-container">
+            <div className="carousel-buttons">
+              <Link href="/packages" className="category-btn travel">
+                Travel Packages
+              </Link>
+              <Link href="/packages" className="category-btn golf">
+                Golf Packages
+              </Link>
+            </div>
+          </div>
 
-          {slideTexts[3]}
-        </h2>
-      </div>
-    </div>
+          {/* Dots indicator */}
+          <div className="absolute bottom-5 left-0 right-0 flex justify-center space-x-3 z-10">
+            {[...Array(totalSlides)].map((_, idx) => (
+              <button
+                key={idx}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  idx === carouselIndex ? 'bg-[#ED6A02] w-6' : 'bg-white/70'
+                }`}
+                onClick={() => goToSlide(idx)}
+              />
+            ))}
+          </div>
+        </div>
 
-    {/* Slide 5 */}
-    <div className="w-full flex-shrink-0 relative carousel-height">
-      <img
-        src="https://i.imgur.com/Ioye5Q6.jpeg"
-        alt="Mist over mountains"
-        className="w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div>
-      <div className="absolute bottom-4 right-4 z-10">
-        <h2 className="fleur-de-leah-regular text-2xl md:text-2xl font-bold text-orange-300 drop-shadow-lg">
-
-          {slideTexts[4]}
-        </h2>
-      </div>
-    </div>
-  </div>
-
-  {/* Buttons container – now only holds the two buttons */}
-  <div className="carousel-btn-container">
-    <div className="carousel-buttons">
-      <Link href="/packages" className="category-btn travel">
-        Travel Packages
-      </Link>
-      <Link href="/packages" className="category-btn golf">
-        Golf Packages
-      </Link>
-    </div>
-  </div>
-
-  {/* Dots indicator – unchanged */}
-  <div className="absolute bottom-5 left-0 right-0 flex justify-center space-x-3 z-10">
-    {[...Array(totalSlides)].map((_, idx) => (
-      <button
-        key={idx}
-        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-          idx === carouselIndex ? 'bg-[#ED6A02] w-6' : 'bg-white/70'
-        }`}
-        onClick={() => goToSlide(idx)}
-      />
-    ))}
-  </div>
-</div>
         {/* YouTube Videos */}
         <div className="video-section">
           <div className="w-full bg-white py-8">
@@ -790,19 +830,34 @@ const HomePage: React.FC = () => {
               <div ref={travelCarouselRef} className="packages-grid-carousel">
                 {travelPackages.map((pkg, idx) => {
                   const packageId = travelPackageIdMap[pkg.title];
-                  return (<div key={idx} className="package-mini-card"><div className="package-mini-image"><img src={pkg.img} alt={pkg.title} /></div><div className="package-mini-content"><div className="package-mini-title">{pkg.title}</div><div className="package-mini-duration-text">{pkg.duration} - {pkg.price}</div><div className="package-mini-footer"><Link href={`travel_package_detail/${packageId}`} className="btn-details">Details</Link><button className="btn-book" onClick={() => openBookingModal(pkg.title)}>Book</button></div></div></div>);
+                  return (<div key={idx} className="package-mini-card">
+                    <div className="package-mini-image">
+                      <img src={pkg.img} alt={pkg.title} /></div>
+                      <div className="package-mini-content text-center">
+                        <div className="package-mini-title">{pkg.title}</div>
+                        <div className="package-mini-duration-text">{pkg.duration} <br></br> {pkg.price}</div>
+                        <div className="package-mini-footer">
+                          <Link href={`travel_package_detail/${packageId}`} className="btn-details">Details</Link>
+                          <button className="btn-book" onClick={() => openBookingModal(pkg.title)}>Book</button>
+                          </div></div></div>);
                 })}
               </div>
               <div className="slider-arrow slider-arrow-right" onClick={(e) => { e.stopPropagation(); scrollCarousel(travelCarouselRef, 'right'); }}><i className="fas fa-chevron-right"></i></div>
             </div>
 
+            {/*GolfPackagesSlider  */}
             <div className="packages-slider-section" style={{ display: activeCategory === 'golf' ? 'block' : 'none' }}>
               <div className="slider-arrow slider-arrow-left" onClick={(e) => { e.stopPropagation(); scrollCarousel(golfCarouselRef, 'left'); }}><i className="fas fa-chevron-left"></i></div>
               <div ref={golfCarouselRef} className="packages-grid-carousel">
                 {golfPackages.map((pkg, idx) => {
                   const packageId = golfPackageIdMap[pkg.title];
-                  return (<div key={idx} className="package-mini-card"><div className="package-mini-image"><img src={pkg.img} alt={pkg.title} /></div><div className="package-mini-content"><div className="package-mini-title">{pkg.title}</div><div className="package-mini-duration-text">{pkg.duration} - {pkg.price}          <p className="package-card-new-desc">MINIUM : 4 ( PERSON )</p>
-</div><div className="package-mini-footer"><Link href={`/golf_package_detail/${packageId}`} className="btn-details">Details</Link><button className="btn-book" onClick={() => openBookingModal(pkg.title)}>Book</button></div></div></div>);
+                  return (<div key={idx} className="package-mini-card">
+                    <div className="package-mini-image"><img src={pkg.img} alt={pkg.title} /></div>
+                    <div className="package-mini-content text-center">
+                      <div className="package-mini-title my-3">{pkg.title}</div>
+                    <div className="package-mini-duration-text text-bold">{pkg.duration} <br></br> {pkg.price}          
+                  <p className="package-card-new-desc text-center my-3">MINIMUM PLAYER : 4</p>
+              </div><div className="package-mini-footer"><Link href={`/golf_package_detail/${packageId}`} className="btn-details">Details</Link><button className="btn-book" onClick={() => openBookingModal(pkg.title)}>Book</button></div></div></div>);
                 })}
               </div>
               <div className="slider-arrow slider-arrow-right" onClick={(e) => { e.stopPropagation(); scrollCarousel(golfCarouselRef, 'right'); }}><i className="fas fa-chevron-right"></i></div>
@@ -829,7 +884,7 @@ const HomePage: React.FC = () => {
               <div className="popular-packages-cards">
                 {golfPackagesList.map((pkg, idx) => (<PopularGolfCard key={idx} pkg={pkg} />))}
               </div>
-             <div className="package-category-buttons">
+              <div className="package-category-buttons">
                 <Link href="/packages" className="inline-flex items-center bg-white text-[#2E7D32] px-6 py-2 rounded-full font-bold hover:bg-[#ED6A02] hover:text-white transition shadow-lg">&nbsp;View All Packages&nbsp;</Link>
                 <Link href="/contactus" className="inline-flex items-center bg-white text-[#2E7D32] px-6 py-2 rounded-full font-bold hover:bg-[#ED6A02] hover:text-white transition shadow-lg text-red-700 ml-4">Customize Package</Link>
               </div>

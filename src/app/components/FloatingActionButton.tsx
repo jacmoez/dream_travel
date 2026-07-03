@@ -17,7 +17,7 @@ const FloatingActionButton: React.FC = () => {
   };
 
   const copyEmailToClipboard = async () => {
-    const email = 'dreamdestination@gmail.com';
+    const email = 'dreamdestination.laos28@gmail.com';
     try {
       await navigator.clipboard.writeText(email);
       setToastVisible(true);
@@ -185,7 +185,7 @@ const FloatingActionButton: React.FC = () => {
         }
         .copy-row span {
           flex: 1;
-          font-size: 0.9rem;
+          font-size: 0.8rem;
           font-weight: 500;
           color: #1e293b;
           word-break: break-all;
@@ -283,7 +283,7 @@ const FloatingActionButton: React.FC = () => {
             <div className="popup-copy">
               <div className="copy-row">
                 <i className="fas fa-envelope"></i>
-                <span id="emailText">dreamdestination@gmail.com</span>
+                <span id="emailText">dreamdestination.laos28@gmail.com</span>
                 <button className="copy-btn" onClick={copyEmailToClipboard}>
                   Copy
                 </button>
