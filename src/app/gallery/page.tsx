@@ -592,12 +592,12 @@ const GalleryPage: React.FC = () => {
           <div className="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-emerald-400 opacity-20 rounded-full blur-2xl"></div>
           <h3 className="text-3xl md:text-4xl font-serif mb-4 relative z-10">Ready to Start Your Journey?</h3>
           <p className="mb-8 text-emerald-100 max-w-xl mx-auto relative z-10">Book your consultation today and let us craft a personalized itinerary just for you.</p>
-          <button
+          {/* <button
             onClick={() => openBookingModal()}
             className="inline-block bg-[#ED6A02] text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-orange-600 hover:shadow-xl transition-all transform hover:-translate-y-1 relative z-10 cursor-pointer"
           >
             Book Now
-          </button>
+          </button> */}
         </div>
       </main>
 
