@@ -122,14 +122,14 @@ const HomePage: React.FC = () => {
 
   // --- Travel Packages Data (with prices) ---
   const travelPackages = [
-    { title: "Vientiane- Luang Prabang", duration: "3 DAYS 2 NIGHTS", price: "From USD 1199 / person", img: "https://i.imgur.com/4QhvN7F.jpeg" },
-    { title: "Vientiane - Luang Prabang", duration: "4 DAYS 3 NIGHTS", price: "From USD 1199 / person", img: "https://i.imgur.com/TX7Xt7r.jpeg" },
-    { title: "Vientiane- Vang Vieng ", duration: "2 DAYS 1 NIGHT", price: "From USD 1199 / person", img: "https://i.imgur.com/J4OGK1a.jpeg" },
-    { title: "Luang Prabang-Vang Vieng-Vientiane  ", duration: "4 DAYS 3 NIGHTS", price: "From USD 1199 / person", img: "https://i.imgur.com/4HTtNcg.jpeg" },
-    { title: "Vientiane-Mueng Fueng-Vientiane", duration: "2 DAYS 1 NIGHT", price: "From USD 1199 / person", img: "https://i.imgur.com/SJlpWSx.jpeg" },
-    { title: "Huay Xai-Pakbeng-Luang Prabang", duration: "5 DAYS 4 NIGHTS", price: "From USD 1199 / person", img: "https://i.imgur.com/V8TST5G.jpeg" },
-    { title: "Vientiane-Vang Vieng-Luang Prabang", duration: "3 DAYS 2 NIGHTS", price: "From USD 1199 / person", img: "https://i.imgur.com/UZI13Qj.jpeg" },
-    { title: "Luang Prabang-Heritage Escape", duration: "3 DAYS 2 NIGHTS", price: "From USD 1199 / person", img: "https://i.imgur.com/pd2ByH1.jpeg" },
+    { title: "Vientiane- Luang Prabang", duration: "3 DAYS 2 NIGHTS", price: "From USD 336 / person", img: "https://i.imgur.com/4QhvN7F.jpeg" },
+    { title: "Vientiane - Luang Prabang", duration: "4 DAYS 3 NIGHTS", price: "From USD 486 / person", img: "https://i.imgur.com/TX7Xt7r.jpeg" },
+    { title: "Vientiane- Vang Vieng ", duration: "2 DAYS 1 NIGHT", price: "From USD 463 / person", img: "https://i.imgur.com/J4OGK1a.jpeg" },
+    { title: "Luang Prabang-Vang Vieng-Vientiane  ", duration: "4 DAYS 3 NIGHTS", price: "From USD 554 / person", img: "https://i.imgur.com/4HTtNcg.jpeg" },
+    { title: "Vientiane-Mueng Fueng-Vientiane", duration: "2 DAYS 1 NIGHT", price: "From USD 240 / person", img: "https://i.imgur.com/SJlpWSx.jpeg" },
+    { title: "Huay Xai-Pakbeng-Luang Prabang", duration: "5 DAYS 4 NIGHTS", price: "From USD 1334 / person", img: "https://i.imgur.com/V8TST5G.jpeg" },
+    { title: "Vientiane-Vang Vieng-Luang Prabang", duration: "3 DAYS 2 NIGHTS", price: "From USD 336 / person", img: "https://i.imgur.com/UZI13Qj.jpeg" },
+    { title: "Luang Prabang-Heritage Escape", duration: "3 DAYS 2 NIGHTS", price: "From USD 240 / person", img: "https://i.imgur.com/pd2ByH1.jpeg" },
     { title: "Vang Vieng Adventrue Day Trip", duration: "FULL DAY", price: "From USD 1199 / person", img: "https://i.imgur.com/4AvfdfO.jpeg" },
     { title: "Vientiane Capital Discovery", duration: "FULL DAY", price: "From USD 1199 / person", img: "https://i.imgur.com/B6vdCe4.jpeg" },
     { title: "Luang Prabang-Vang Vieng Explorer", duration: "4 DAYS 3 NIGHTS", price: "From USD 1199 / person", img: "https://i.imgur.com/sG5jnE9.jpeg" },
@@ -836,6 +836,7 @@ const HomePage: React.FC = () => {
                       <div className="package-mini-content text-center">
                         <div className="package-mini-title">{pkg.title}</div>
                         <div className="package-mini-duration-text">{pkg.duration} <br></br> {pkg.price}</div>
+                        <div className="ackage-mini-duration-text text-[#ED6A02] ">MINIUM : 2 PERSON</div>
                         <div className="package-mini-footer">
                           <Link href={`travel_package_detail/${packageId}`} className="btn-details">Details</Link>
                           <button className="btn-book" onClick={() => openBookingModal(pkg.title)}>Book</button>
