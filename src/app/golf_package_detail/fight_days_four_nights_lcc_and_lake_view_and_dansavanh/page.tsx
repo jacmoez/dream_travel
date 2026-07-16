@@ -65,6 +65,7 @@ export default function GolfPackageLCCLakeViewDansavanh() {
         5D4N Golf Package – LCC, Lake View &amp; Dansavanh
       </h1>
       <Slideshow />
+      <p className="package-card-new-desc text-center my-3 text-red-700">minium player : 4</p>
 
       {/* Duration & Courses */}
       <div className="grid md:grid-cols-2 gap-4 mb-6">

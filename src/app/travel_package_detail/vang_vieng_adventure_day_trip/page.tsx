@@ -5,11 +5,13 @@ import { useState, useEffect } from "react";
 export default function VangViengAdventureDayTrip() {
   // Improved slideshow images for Vang Vieng
   const images = [
-    "https://cdn.pixabay.com/photo/2018/07/31/22/43/vang-vieng-3577176_1280.jpg?w=800&h=500&fit=crop", // karst mountains
-    "https://www.agoda.com/wp-content/uploads/2024/03/Featured-image-Nam-Song-River-in-Vang-Vieng-Laos.jpg?w=800&h=500&fit=crop", // Nam Song River
-    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/0d/1c/36/blue-lagoon-1.jpg?w=800&h=500&fc=1", // Blue Lagoon
-    "https://media-cdn.tripadvisor.com/media/photo-s/0f/99/fa/a4/angel-cave.jpg?w=800&h=500&fc=1", // Angel Cave
-    "https://i.pinimg.com/originals/f9/45/a0/f945a05e558a46483f9bfa6dcd794312.jpg?w=800&h=500&fit=crop", // Kayaking
+  "https://i.imgur.com/MkfSakl.jpeg",
+  "https://i.imgur.com/B6vdCe4.jpeg",
+  "https://i.imgur.com/oCAOEjp.jpeg",
+  "https://i.imgur.com/PodUv1U.jpeg",
+  "https://i.imgur.com/HqX4UWX.jpeg",
+  "https://i.imgur.com/qpvI54M.jpeg"
+
   ];
 
   const Slideshow = () => {
@@ -100,6 +102,7 @@ export default function VangViengAdventureDayTrip() {
       <h1 className="text-3xl font-bold text-center mb-2">Vang Vieng Adventure Day Trip</h1>
       <h2 className="text-xl text-center text-gray-600 mb-2">Full Day</h2>
       <Slideshow />
+      <div className="ackage-mini-duration-text text-red-700 text-center my-3">minium : 2 person</div>
 
       {/* Short Description */}
       <div className="bg-gray-50 p-4 rounded-lg mb-6 text-center italic">
@@ -128,7 +131,7 @@ export default function VangViengAdventureDayTrip() {
       </section>
 
       {/* Package Selection Table */}
-      <PackageSelection />
+      {/* <PackageSelection /> */}
 
       {/* Detailed Itinerary */}
       <section className="mb-8">

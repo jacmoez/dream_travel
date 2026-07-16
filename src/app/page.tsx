@@ -130,10 +130,10 @@ const HomePage: React.FC = () => {
     { title: "Huay Xai-Pakbeng-Luang Prabang", duration: "5 DAYS 4 NIGHTS", price: "From USD 1334 / person", img: "https://i.imgur.com/V8TST5G.jpeg" },
     { title: "Vientiane-Vang Vieng-Luang Prabang", duration: "3 DAYS 2 NIGHTS", price: "From USD 336 / person", img: "https://i.imgur.com/UZI13Qj.jpeg" },
     { title: "Luang Prabang-Heritage Escape", duration: "3 DAYS 2 NIGHTS", price: "From USD 240 / person", img: "https://i.imgur.com/pd2ByH1.jpeg" },
-    { title: "Vang Vieng Adventrue Day Trip", duration: "FULL DAY", price: "From USD 1199 / person", img: "https://i.imgur.com/4AvfdfO.jpeg" },
-    { title: "Vientiane Capital Discovery", duration: "FULL DAY", price: "From USD 1199 / person", img: "https://i.imgur.com/B6vdCe4.jpeg" },
-    { title: "Luang Prabang-Vang Vieng Explorer", duration: "4 DAYS 3 NIGHTS", price: "From USD 1199 / person", img: "https://i.imgur.com/sG5jnE9.jpeg" },
-    { title: "Soouthern Laos & 4,000 Islands Escape", duration: "4 DAYS 3 NIGHTS", price: "From USD 1199 / person", img: "https://i.imgur.com/GwVFh0V.jpeg" },
+    { title: "Vang Vieng Adventrue Day Trip", duration: "FULL DAY", price: "From USD 95 / person", img: "https://i.imgur.com/4AvfdfO.jpeg" },
+    { title: "Vientiane Capital Discovery", duration: "FULL DAY", price: "From USD 95 / person", img: "https://i.imgur.com/B6vdCe4.jpeg" },
+    { title: "Luang Prabang-Vang Vieng Explorer", duration: "4 DAYS 3 NIGHTS", price: "From USD 390 / person", img: "https://i.imgur.com/sG5jnE9.jpeg" },
+    { title: "Soouthern Laos & 4,000 Islands Escape", duration: "4 DAYS 3 NIGHTS", price: "From USD 350 / person", img: "https://i.imgur.com/7IjbO0Z.jpeg" },
   ];
 
   const travelPackageIdMap: Record<string, string> = {
@@ -399,7 +399,7 @@ const HomePage: React.FC = () => {
         <div className="package-card-new-content text-center">
           <h3 className="package-card-new-title">{pkg.name}</h3>
           <div className="package-card-new-price text-center">{pkg.duration} <br></br> {pkg.price}</div>
-          <p className="package-card-new-desc  text-center">MINIMUM PLAYER : 4</p>
+          <p className="package-card-new-desc  text-center ">minium player : 4</p>
           <div className="package-card-buttons">
             <Link href={`/golf_package_detail/${packageId}`} className="card-details-btn" onClick={(e) => e.stopPropagation()}><i className="fas fa-info-circle"></i> Details</Link>
             <button className="card-book-btn" onClick={(e) => { e.stopPropagation(); openBookingModal(pkg.name); }}><i className="fas fa-bookmark"></i> Book</button>
@@ -836,7 +836,7 @@ const HomePage: React.FC = () => {
                       <div className="package-mini-content text-center">
                         <div className="package-mini-title">{pkg.title}</div>
                         <div className="package-mini-duration-text">{pkg.duration} <br></br> {pkg.price}</div>
-                        <div className="ackage-mini-duration-text text-[#ED6A02] ">MINIUM : 2 PERSON</div>
+                        <div className="ackage-mini-duration-text text-red-700 ">minium : 2 person</div>
                         <div className="package-mini-footer">
                           <Link href={`travel_package_detail/${packageId}`} className="btn-details">Details</Link>
                           <button className="btn-book" onClick={() => openBookingModal(pkg.title)}>Book</button>
@@ -857,7 +857,7 @@ const HomePage: React.FC = () => {
                     <div className="package-mini-content text-center">
                       <div className="package-mini-title my-3">{pkg.title}</div>
                     <div className="package-mini-duration-text text-bold">{pkg.duration} <br></br> {pkg.price}          
-                  <p className="package-card-new-desc text-center my-3">MINIMUM PLAYER : 4</p>
+                  <p className="package-card-new-desc text-center my-3 text-red-700">minium player : 4</p>
               </div><div className="package-mini-footer"><Link href={`/golf_package_detail/${packageId}`} className="btn-details">Details</Link><button className="btn-book" onClick={() => openBookingModal(pkg.title)}>Book</button></div></div></div>);
                 })}
               </div>

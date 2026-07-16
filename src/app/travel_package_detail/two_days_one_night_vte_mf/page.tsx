@@ -119,11 +119,11 @@ export default function VientianeMuangFeuangTour() {
 
   // Slideshow images – improved for Muang Feuang / countryside
   const images = [
-    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/4e/2f/1d/photo0jpg.jpg?w=800&h=500&fc=1", // Muang Feuang river
-    "https://media-cdn.tripadvisor.com/media/photo-s/10/2a/67/03/view-from-the-resort.jpg?w=800&h=500&fc=1", // countryside
-    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/229728217.jpg?k=...&o=&w=800&h=500", // resort
-    "https://cdn.getyourguide.com/img/location/5a086527d1738.jpeg/88.jpg?w=800&h=500&fit=crop", // local scenery
-    "https://i.imgur.com/WhnDjDA.jpeg?w=800&h=500&fit=crop", // Mekong sunset
+    "https://i.imgur.com/x5qaByk.jpeg", 
+    "https://i.imgur.com/Yf9qVtG.jpeg", 
+    "https://i.imgur.com/TX7Xt7r.jpeg", 
+    "https://i.imgur.com/x5qaByk.jpeg", 
+    "https://i.imgur.com/Yf9qVtG.jpeg",
   ];
 
   const Slideshow = () => {
@@ -177,7 +177,8 @@ export default function VientianeMuangFeuangTour() {
       <h2 className="text-2xl font-semibold text-center text-blue-700 mb-6">VIENTIANE – MUANG FEUANG – VIENTIANE</h2>
 
       {/* Package Selection Table */}
-      <PackageSelection />
+      {/* <PackageSelection /> */}
+      <div className="ackage-mini-duration-text text-red-700 text-center my-3">minium : 2 person</div>
 
       {/* Itinerary */}
       <section className="mb-8">

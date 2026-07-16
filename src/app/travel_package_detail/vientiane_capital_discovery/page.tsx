@@ -5,11 +5,13 @@ import { useState, useEffect } from "react";
 export default function VientianeCapitalDiscovery() {
   // Slideshow images – real Vientiane landmarks
   const images = [
-    "https://upload.wikimedia.org/wikipedia/commons/0/0f/Pha_That_Luang%2C_Vientiane_%282%29.jpg?w=800&h=500&fit=crop", // Pha That Luang
-    "https://upload.wikimedia.org/wikipedia/commons/1/14/Patuxai_Monument_Vientiane.jpg?w=800&h=500&fit=crop", // Patuxai
-    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/1b/1b/ee/buddha-park.jpg?w=800&h=500&fc=1", // Buddha Park
-    "https://cdn.getyourguide.com/img/location/5a086527d1738.jpeg/88.jpg?w=800&h=500&fit=crop", // Wat Sisaket
-    "https://www.tripsavvy.com/thmb/E30eKchTT0GoQ-w7vOopHMEBYvo=/2121x1414/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-522372630-5a6f970aff1b780037c4bc2c.jpg?w=800&h=500&fit=crop", // Mekong sunset
+    "https://i.imgur.com/TX7Xt7r.jpeg",
+    "https://i.imgur.com/RzxbuvD.jpeg",
+    "https://i.imgur.com/MExGgeh.jpeg",
+    "https://i.imgur.com/x5qaByk.jpeg",
+    "https://i.imgur.com/Yf9qVtG.jpeg"
+
+
   ];
 
   const Slideshow = () => {
@@ -100,6 +102,7 @@ export default function VientianeCapitalDiscovery() {
       <h1 className="text-3xl font-bold text-center mb-2">Vientiane Capital Discovery</h1>
       <h2 className="text-xl text-center text-gray-600 mb-2">Full Day</h2>
       <Slideshow />
+          <div className="ackage-mini-duration-text text-red-700 text-center my-3">minium : 2 person</div>
 
       {/* Short Description */}
       <div className="bg-gray-50 p-4 rounded-lg mb-6 text-center italic">
@@ -129,7 +132,7 @@ export default function VientianeCapitalDiscovery() {
       </section>
 
       {/* Package Selection Table */}
-      <PackageSelection />
+      {/* <PackageSelection /> */}
 
       {/* Detailed Itinerary */}
       <section className="mb-8">

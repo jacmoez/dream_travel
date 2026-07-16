@@ -119,12 +119,12 @@ export default function VteVvLpqTour() {
   };
 
   // Slideshow images – improved for Vientiane, Vang Vieng, Luang Prabang
-  const images = [
-    "https://cdn.pixabay.com/photo/2018/07/31/22/43/vang-vieng-3577176_1280.jpg?w=800&h=500&fit=crop", // Vang Vieng karsts
-    "https://www.agoda.com/wp-content/uploads/2024/03/Featured-image-Nam-Song-River-in-Vang-Vieng-Laos.jpg?w=800&h=500&fit=crop", // Nam Song River
-    "https://images.travelandleisureasia.com/wp-content/uploads/sites/6/2025/04/14173201/Vang-Vieng-1.jpg?w=800&h=500&fit=crop", // Hot air balloon
-    "https://cdn.getyourguide.com/img/location/5a086527d1738.jpeg/88.jpg?w=800&h=500&fit=crop", // Blue Lagoon
-    "https://a.cdn-hotels.com/gdcs/production65/d368/02537589-5c16-4e2c-ada7-9a6a53286b57.jpg?w=800&h=500&fit=crop", // Luang Prabang temples
+   const images = [
+    "https://i.imgur.com/J4OGK1a.jpeg",
+    "https://i.imgur.com/WMgocZ8.jpeg",
+    "https://i.imgur.com/TX7Xt7r.jpeg", 
+    "https://i.imgur.com/RzxbuvD.jpeg",  
+    "https://i.imgur.com/B6vdCe4.jpeg",
   ];
 
   const Slideshow = () => {
@@ -184,7 +184,8 @@ export default function VteVvLpqTour() {
         <p className="text-center text-gray-600 text-lg mb-8">Private Van: (1hr 30 minutes drive)</p>
 
         {/* Package Selection Table */}
-        <PackageSelection />
+        {/* <PackageSelection /> */}
+      <div className="ackage-mini-duration-text text-red-700 text-center my-3">minium : 2 person</div>
 
         {/* Itinerary */}
         <section className="mb-8">

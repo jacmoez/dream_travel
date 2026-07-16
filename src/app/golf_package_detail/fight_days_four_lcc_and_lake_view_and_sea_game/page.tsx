@@ -81,6 +81,7 @@ export default function GolfPackageVientianeTriple() {
         5D4N Golf Package – LCC, Lake View &amp; SEA Games Course
       </h1>
       <Slideshow />
+       <p className="package-card-new-desc text-center my-3 text-red-700">minium player : 4</p>
 
       <div className="grid md:grid-cols-2 gap-4 mb-6">
         <div className="bg-blue-50 p-3 rounded">

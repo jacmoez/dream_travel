@@ -64,6 +64,7 @@ export default function VientianeGolfLeisureEscape() {
       
       {/* Slideshow */}
       <Slideshow />
+                  <p className="package-card-new-desc text-center my-3 text-red-700">minium player : 4</p>
 
       {/* Overview */}
       <div className="bg-gray-50 p-4 rounded-lg mb-6 italic text-gray-700">

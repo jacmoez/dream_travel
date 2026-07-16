@@ -4,11 +4,14 @@ import { useState, useEffect } from "react";
 
 export default function LuangPrabangVangViengExplorer() {
   const images = [
-    "https://a.cdn-hotels.com/gdcs/production193/d674/35ae1968-d1d4-43cd-8637-42639f664e8a.jpg?impolicy=fcrop&w=1600&h=1066&q=medium?w=800&h=500&fit=crop",
-    "https://www.agoda.com/wp-content/uploads/2024/03/Featured-image-Nam-Song-River-in-Vang-Vieng-Laos.jpg?w=800&h=500&fit=crop",
-    "https://images.travelandleisureasia.com/wp-content/uploads/sites/6/2025/04/14173201/Vang-Vieng-1.jpg?w=800&h=500&fit=crop",
-    "https://i.pinimg.com/originals/f9/45/a0/f945a05e558a46483f9bfa6dcd794312.jpg?w=800&h=500&fit=crop",
-    "https://cdn.getyourguide.com/img/location/5a086527d1738.jpeg/88.jpg?w=800&h=500&fit=crop",
+    "https://i.imgur.com/4HTtNcg.jpeg",
+    "https://i.imgur.com/ZQdmvVd.jpeg",
+    "https://i.imgur.com/CqBAdf4.jpeg",
+    "https://i.imgur.com/B6vdCe4.jpeg",
+    "https://i.imgur.com/oCAOEjp.jpeg"
+
+
+
   ];
 
   // ----- New Package Selection Component -----
@@ -107,6 +110,7 @@ export default function LuangPrabangVangViengExplorer() {
       <h1 className="text-3xl font-bold text-center mb-2">Luang Prabang & Vang Vieng Explorer</h1>
       <h2 className="text-xl text-center text-gray-600 mb-2">4 Days / 3 Nights</h2>
       <Slideshow />
+      <div className="ackage-mini-duration-text text-red-700 text-center my-3">minium : 2 person</div>
 
       <div className="bg-gray-50 p-4 rounded-lg mb-6 text-center italic">
         Combine culture and adventure with this multi-destination journey across Laos’ most iconic destinations.
@@ -132,7 +136,7 @@ export default function LuangPrabangVangViengExplorer() {
       </section>
 
       {/* New Package Selection Table */}
-      <PackageSelection />
+      {/* <PackageSelection /> */}
 
       <section className="mb-8">
         <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">Itinerary</h3>

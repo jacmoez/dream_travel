@@ -5,11 +5,13 @@ import { useState, useEffect } from "react";
 export default function LuangPrabangHeritageEscape() {
   // Slideshow images – real Luang Prabang (temples, Kuang Si, Mekong)
   const images = [
-    "https://images.squarespace-cdn.com/content/v1/5cfef7b3b94fd40001c2a02c/1560567596424-FM0G65U9FT8QVSU2M66A/Luang-Prabang-temple-roof-2.jpg?format=2500w?w=800&h=500&fit=crop", // Wat Xieng Thong
-    "https://www.planetware.com/wpimages/2022/07/laos-luang-prabang-top-attractions-kuang-si-waterfall-swimming.jpg?w=800&h=500&fit=crop", // Kuang Si Falls
-    "https://www.laos-travel-guide.com/images/pak-ou-caves-buddhas-2.jpg?w=800&h=500&fit=crop", // Pak Ou Caves
-    "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/6f/6c/92.jpg?w=800&h=500&fit=crop", // Mekong sunset
-    "https://www.thepoortraveller.com/wp-content/uploads/2019/05/Luang-Prabang-Night-Market-1.jpg?w=800&h=500&fit=crop", // Night market
+  "https://i.imgur.com/J4OGK1a.jpeg",
+  "https://i.imgur.com/WMgocZ8.jpeg",
+  "https://i.imgur.com/4HTtNcg.jpeg",
+  "https://i.imgur.com/ZQdmvVd.jpeg",
+  "https://i.imgur.com/CqBAdf4.jpeg"
+
+
   ];
 
   // ----- Package Selection Component -----
@@ -108,6 +110,7 @@ export default function LuangPrabangHeritageEscape() {
       <h1 className="text-3xl font-bold text-center mb-2">Luang Prabang Heritage Escape</h1>
       <h2 className="text-xl text-center text-gray-600 mb-2">3 Days / 2 Nights</h2>
       <Slideshow />
+      <div className="ackage-mini-duration-text text-red-700 text-center my-3">minium : 2 person</div>
 
       {/* Short Description */}
       <div className="bg-gray-50 p-4 rounded-lg mb-6 text-center italic">
@@ -138,7 +141,7 @@ export default function LuangPrabangHeritageEscape() {
       </section>
 
       {/* New Package Selection Table */}
-      <PackageSelection />
+      {/* <PackageSelection /> */}
 
       {/* Detailed Itinerary */}
       <section className="mb-8">

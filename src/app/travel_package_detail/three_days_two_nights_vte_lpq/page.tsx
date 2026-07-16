@@ -119,11 +119,11 @@ export default function VientianeLuangPrabang3DaysTour() {
 
   // Slideshow images – real Luang Prabang
   const images = [
-    "https://faszination-suedostasien.de/wp-content/uploads/2019/09/vientiane-goldener-buddha-413489188.jpg?w=800&h=500&fit=crop", // Kuang Si
-    "https://topmekongcruises.com/uploads/vientiane_4.jpg?w=800&h=500&fit=crop", // Pak Ou
-    "https://cdn.pixabay.com/photo/2016/07/21/12/01/laos-1532354_1280.jpg?w=800&h=500&fit=crop", // Mount Phousi
-    "https://cdn.audleytravel.com/1050/750/79/502464-wat-that-luang-vientiane-laos.jpg?w=800&h=500&fit=crop", // Alms giving
-    "https://a.cdn-hotels.com/gdcs/production65/d368/02537589-5c16-4e2c-ada7-9a6a53286b57.jpg?w=800&h=500&fit=crop", // Wat Xieng Thong
+    "https://i.imgur.com/RzxbuvD.jpeg", 
+    "https://i.imgur.com/MExGgeh.jpeg", 
+    "https://i.imgur.com/WMgocZ8.jpeg", 
+    "https://i.imgur.com/4HTtNcg.jpeg", 
+    "https://i.imgur.com/CqBAdf4.jpeg", 
   ];
 
   const Slideshow = () => {
@@ -177,7 +177,8 @@ export default function VientianeLuangPrabang3DaysTour() {
       <h2 className="text-2xl font-semibold text-center text-blue-700 mb-6">VIENTIANE – LUANG PRABANG</h2>
 
       {/* New Package Selection Table */}
-      <PackageSelection />
+      {/* <PackageSelection /> */}
+      <div className="ackage-mini-duration-text text-red-700 text-center my-3">minium : 2 person</div>
 
       {/* Itinerary */}
       <section className="mb-8">

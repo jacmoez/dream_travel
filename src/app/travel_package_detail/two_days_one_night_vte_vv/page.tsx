@@ -102,11 +102,11 @@ export default function VientianeVangViengTour() {
 
   // Improved slideshow images for Vientiane and Vang Vieng
   const images = [
-    "https://cdn.pixabay.com/photo/2018/07/31/22/43/vang-vieng-3577176_1280.jpg?w=800&h=500&fit=crop", // Vang Vieng karsts
-    "https://www.agoda.com/wp-content/uploads/2024/03/Featured-image-Nam-Song-River-in-Vang-Vieng-Laos.jpg?w=800&h=500&fit=crop", // Nam Song River
-    "https://images.travelandleisureasia.com/wp-content/uploads/sites/6/2025/04/14173201/Vang-Vieng-1.jpg?w=800&h=500&fit=crop", // Hot air balloon
-    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/0d/1c/36/blue-lagoon-1.jpg?w=800&h=500&fc=1", // Blue Lagoon
-    "https://cdn.getyourguide.com/img/location/5a086527d1738.jpeg/88.jpg?w=800&h=500&fit=crop", // Tham Chang Cave
+    "https://i.imgur.com/TX7Xt7r.jpeg", 
+    "https://i.imgur.com/RzxbuvD.jpeg", 
+    "https://i.imgur.com/MExGgeh.jpeg", 
+    "https://i.imgur.com/MkfSakl.jpeg", 
+    "https://i.imgur.com/B6vdCe4.jpeg",
   ];
 
   const Slideshow = () => {
@@ -160,7 +160,8 @@ export default function VientianeVangViengTour() {
       <h2 className="text-2xl font-semibold text-center text-blue-700 mb-6">VIENTIANE – VANG VIENG</h2>
 
       {/* Package Selection Table */}
-      <PackageSelection />
+      {/* <PackageSelection /> */}
+      <div className="ackage-mini-duration-text text-red-700 text-center">minium : 2 person</div>
 
       {/* Itinerary */}
       <section className="mb-8">

@@ -64,6 +64,7 @@ export default function GolfPackageLuangPrabang() {
     <div className="max-w-5xl mx-auto px-4 py-8 font-sans">
       <h1 className="text-3xl font-bold text-center mb-2">4D3N Golf Package – Luang Prabang (LPQ)</h1>
       <Slideshow />
+      <p className="package-card-new-desc text-center my-3 text-red-700">minium player : 4</p>
 
       {/* Duration & Course Info */}
       <div className="grid md:grid-cols-2 gap-4 mb-6">

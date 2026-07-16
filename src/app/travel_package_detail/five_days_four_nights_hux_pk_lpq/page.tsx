@@ -7,11 +7,11 @@ import { useState, useEffect } from "react";
 export default function HuayxaiPakbengLuangPrabangTour() {
   // Slideshow images updated to reflect Mekong, Pakbeng, Pak Ou Caves, Luang Prabang
  const images = [
-    "https://th.bing.com/th/id/R.5961ddb3299d632d7df1e6b95a96ce3a?rik=hSrTXWFw0KMbSA&pid=ImgRaw&r=0?w=800&h=500&fit=crop", // That Luang
-    "https://cdn.audleytravel.com/1050/750/79/502483-patuxai-monument-in-vientiane-laos.jpg?w=800&h=500&fit=crop", // Patuxai
-    "https://cdn.audleytravel.com/1400/1000/60/532810-wat-that-luang-vientiane.jpg?w=800&h=500&fit=crop", // Wat Sisaket
-    "https://www.tripsavvy.com/thmb/E30eKchTT0GoQ-w7vOopHMEBYvo=/2121x1414/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-522372630-5a6f970aff1b780037c4bc2c.jpg?w=800&h=500&fit=crop", // Kuang Si
-    "https://faszination-suedostasien.de/wp-content/uploads/2019/09/vientiane-goldener-buddha-413489188.jpg?w=800&h=500&fit=crop", // Wat Xieng Thong
+    "https://i.imgur.com/J4OGK1a.jpeg", 
+    "https://i.imgur.com/WMgocZ8.jpeg", 
+    "https://i.imgur.com/CqBAdf4.jpeg", 
+    "https://i.imgur.com/ZQdmvVd.jpeg",
+    "https://i.imgur.com/4HTtNcg.jpeg", 
   ];
 
   // Package selection component
@@ -30,7 +30,7 @@ export default function HuayxaiPakbengLuangPrabangTour() {
                 <th className="border p-2 text-left">Single Room</th>
               </tr>
             </thead>
-            <tbody>
+            {/* <tbody>
               <tr>
                 <td className="border p-2 font-semibold">Package A</td>
                 <td className="border p-2">
@@ -57,7 +57,7 @@ export default function HuayxaiPakbengLuangPrabangTour() {
                 <td className="border p-2 font-semibold">USD 1,334</td>
                 <td className="border p-2 font-semibold">USD 1,721</td>
               </tr>
-            </tbody>
+            </tbody> */}
           </table>
         </div>
         <div className="text-xs text-gray-500 mt-2">
@@ -130,7 +130,9 @@ export default function HuayxaiPakbengLuangPrabangTour() {
       </h2>
 
       {/* New Package Selection Table */}
-      <Packages />
+      {/* <Packages /> */}
+      <div className="ackage-mini-duration-text text-red-700 text-center">minium : 2 person</div>
+
 
       {/* Itinerary */}
       <section className="mb-8">

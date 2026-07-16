@@ -5,11 +5,13 @@ import { useState, useEffect } from "react";
 export default function SouthernLaos4000IslandsEscape() {
   // Slideshow images – real Southern Laos (4,000 Islands, waterfalls, Mekong)
   const images = [
-    "https://www.visithalongbay.com/wp-content/uploads/2020/08/khone-phapheng-falls-laos-4.jpg?w=800&h=500&fit=crop", // Khone Phapheng Falls
-    "https://www.roughguides.com/wp-content/uploads/2019/11/AdobeStock_237613184-1024x683.jpeg?w=800&h=500&fit=crop", // 4,000 Islands
-    "https://www.responsibletravel.com/imagesClient/laos-4000-islands-2.jpg?w=800&h=500&fit=crop", // Don Khone
-    "https://www.thepoortraveller.com/wp-content/uploads/2019/01/Irrawaddy-Dolphins-Laos-1.jpg?w=800&h=500&fit=crop", // Mekong dolphins
-    "https://www.laos-travel-guide.com/images/tad-lo-waterfall-laos-2.jpg?w=800&h=500&fit=crop", // Tad Lo Waterfall
+    "https://i.imgur.com/7IjbO0Z.jpeg",
+    "https://i.imgur.com/a7NPjtC.jpeg",
+    "https://i.imgur.com/3uDIXa2.jpeg",
+    "https://i.imgur.com/F98T1GN.jpeg",
+    "https://i.imgur.com/vWCDN6K.jpeg"
+
+
   ];
 
   // ----- Package Selection Component -----
@@ -108,6 +110,7 @@ export default function SouthernLaos4000IslandsEscape() {
       <h1 className="text-3xl font-bold text-center mb-2">Southern Laos & 4,000 Islands Escape</h1>
       <h2 className="text-xl text-center text-gray-600 mb-2">4 Days / 3 Nights</h2>
       <Slideshow />
+      <div className="ackage-mini-duration-text text-red-700 text-center my-3">minium : 2 person</div>
 
       {/* Short Description */}
       <div className="bg-gray-50 p-4 rounded-lg mb-6 text-center italic">
@@ -137,7 +140,7 @@ export default function SouthernLaos4000IslandsEscape() {
       </section>
 
       {/* New Package Selection Table */}
-      <PackageSelection />
+      {/* <PackageSelection /> */}
 
       {/* Detailed Itinerary */}
       <section className="mb-8">
