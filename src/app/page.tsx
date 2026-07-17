@@ -154,50 +154,50 @@ const HomePage: React.FC = () => {
   // --- Golf Packages Carousel Data (with prices) ---
   const golfPackages = [
     {
-      title: "Lao Country Club & Lake View Golf Club",
-      duration: "4 DAYS / 3 NIGHTS",
-      price: "From USD 999 / person",
-      img: "https://i.imgur.com/x4A7hpH.jpeg"
+      title: "Standard 2 Rounds in Vientiane",
+      duration: "4 Days / 3 Nights  ( 2 Rounds )",
+      price: "From USD 380/person ",
+      img: "https://i.imgur.com/K6gOupW.jpeg"
     },
     {
-      title: "Lao Country Club & SEA Games Golf Club",
-      duration: "5 DAYS / 4 NIGHTS",
-      price: "From USD 999 / person",
+      title: "Premium 2 Rounds in Vientiane",
+      duration: "4 Days / 3 Nights  ( 2 Rounds ) ",
+      price: "From USD 450/person",
       img: "https://i.imgur.com/rDMj7bS.jpeg"
     },
     {
-      title: "Lao Country Club , Lake View & Dansavanh Golf Club",
-      duration: "5 DAYS / 4 NIGHTS",
-      price: "From USD 999 / person",
-      img: "https://i.imgur.com/GK6YDQS.jpeg"
+      title: "Premium 3 Rounds in Vientiane",
+      duration: "5 Days / 4 Nights  ( 3 Rounds )",
+      price: "From USD 600/person", 
+      img: "https://i.imgur.com/mYjfy1N.jpeg"
     },
     {
-      title: "Lao Country Club , Lake View & Vang Vieng Golf Club",
-      duration: "5 DAYS / 4 NIGHTS",
-      price: "From USD 999 / person",
-      img: "https://i.imgur.com/BIHfV2W.jpeg"
+      title: "Vientiane & MountainsView 3 Rounds in Vientiane",
+      duration: "5 Days / 4 Nights  ( 3 Rounds )",
+      price: "From USD 600/person ",
+      img: "https://i.imgur.com/d9PqrYs.jpeg"
     },
     {
-      title: "Luang Prabang Golf Club",
-      duration: "4 DAYS / 3 NIGHTS",
-      price: "From USD 999 / person",
+      title: "Four Fairways 4 Rounds in Vientiane",
+      duration: "6 Days / 5 Nights  ( 4 Rounds ) ",
+      price: "From USD 750/person",
+      img: "https://i.imgur.com/oCWj2un.jpeg"
+    },
+    {
+      title: "Luang Prabang Golf & Culture Tour",
+      duration: "4 Days / 3 Nights",
+      price: "From USD 310/person",
       img: "https://i.imgur.com/B2fjoxj.jpeg"
-    },
-    {
-      title: "Vientiane Golf & Leisure Escape Golf Club",
-      duration: "7 DAYS / 6 NIGHTS",
-      price: "From USD 999 / person",
-      img: "https://i.imgur.com/nZqSXz6.jpeg"
     },
   ];
 
   const golfPackageIdMap: Record<string, string> = {
-    "Lao Country Club & Lake View Golf Club": "four_days_three_nights_lcc_and_lake_view",
-    "Lao Country Club & SEA Games Golf Club": "fight_days_four_lcc_and_lake_view_and_sea_game",
-    "Lao Country Club , Lake View & Dansavanh Golf Club": "fight_days_four_nights_lcc_and_lake_view_and_dansavanh",
-    "Lao Country Club , Lake View & Vang Vieng Golf Club": "fight_days_four_nights_lcc_and_lake_view_and_vang_vieng",
-    "Luang Prabang Golf Club": "four_days_three_nights_laung_prabang",
-    "Vientiane Golf & Leisure Escape Golf Club": "seven_days_six_nights_laung_prabang_vientiane_leisure_escape",
+    "Standard 2 Rounds in Vientiane": "standard_two_rounds_in_vientiane",
+    "Premium 2 Rounds in Vientiane": "premium_two_rounds_in_vientiane",
+    "Premium 3 Rounds in Vientiane": "premium_three_rounds_in_vientiane",
+    "Vientiane & MountainsView 3 Rounds in Vientiane": "vientiane_mountainsview_three_rounds_in_vientiane",
+    "Four Fairways 4 Rounds in Vientiane": "four_fairways_four_rounds_in_vientiane",
+    "Luang Prabang Golf & Culture Tour": "luang_prabang_golf_culture_tour",
   };
 
   // --- Golf Club ID Map (typo left unchanged as requested) ---
@@ -213,49 +213,49 @@ const HomePage: React.FC = () => {
     "Vang Vieng Golf Club": "vang_vieng_golf_club"
   };
 
-  // --- Popular Golf Packages List (with prices and fixed durations) ---
+  // --- Popular Golf Packages List (UPDATED to match the actual golf packages) ---
   const golfPackagesList = [
     {
-      name: "Lao Country Club & Lake View Golf Club",
-      slug: "four_days_three_nights_lcc_and_lake_view",
-      image: "https://i.imgur.com/HSCY4hR.jpeg",
+      name: "Standard 2 Rounds in Vientiane",
+      slug: "standard_two_rounds_in_vientiane",
+      image: "https://i.imgur.com/K6gOupW.jpeg",
+      duration: "4 Days / 3 Nights (2 Rounds)",
+      price: "From USD 380/person",
+    },
+    {
+      name: "Premium 2 Rounds in Vientiane",
+      slug: "premium_two_rounds_in_vientiane",
+      image: "https://i.imgur.com/rDMj7bS.jpeg",
+      duration: "4 Days / 3 Nights (2 Rounds)",
+      price: "From USD 450/person",
+    },
+    {
+      name: "Premium 3 Rounds in Vientiane",
+      slug: "premium_three_rounds_in_vientiane",
+      image: "https://i.imgur.com/mYjfy1N.jpeg",
+      duration: "5 Days / 4 Nights (3 Rounds)",
+      price: "From USD 600/person",
+    },
+    {
+      name: "Vientiane & MountainsView 3 Rounds in Vientiane",
+      slug: "vientiane_mountainsview_three_rounds_in_vientiane",
+      image: "https://i.imgur.com/d9PqrYs.jpeg",
+      duration: "5 Days / 4 Nights (3 Rounds)",
+      price: "From USD 600/person",
+    },
+    {
+      name: "Four Fairways 4 Rounds in Vientiane",
+      slug: "four_fairways_four_rounds_in_vientiane",
+      image: "https://i.imgur.com/oCWj2un.jpeg",
+      duration: "6 Days / 5 Nights (4 Rounds)",
+      price: "From USD 750/person",
+    },
+    {
+      name: "Luang Prabang Golf & Culture Tour",
+      slug: "luang_prabang_golf_culture_tour",
+      image: "https://i.imgur.com/B2fjoxj.jpeg",
       duration: "4 Days / 3 Nights",
-      price: "From USD 999 / person",
-    },
-    {
-      name: "Lao Country Club & SEA Games Golf Club",
-      slug: "fight_days_four_lcc_and_lake_view_and_sea_game",
-      image: "https://i.imgur.com/Y7b37MJ.jpeg",
-      duration: "5 Days / 4 Nights",
-      price: "From USD 999 / person",
-    },
-    {
-      name: "Lao Country Club , Lake View & Dansavanh Golf Club",
-      slug: "fight_days_four_nights_lcc_and_lake_view_and_dansavanh",
-      image: "https://i.imgur.com/7s5pMGL.jpeg",
-      duration: "5 Days / 4 Nights",
-      price: "From USD 999 / person",
-    },
-    {
-      name: "Lao Country Club , Lake View & Vang Vieng Golf Club",
-      slug: "fight_days_four_nights_lcc_and_lake_view_and_vang_vieng",
-      image: "https://i.imgur.com/nvwDjla.jpeg",
-      duration: "5 Days / 4 Nights",
-      price: "From USD 999 / person",
-    },
-    {
-      name: "Luang Prabang Golf Club",
-      slug: "four_days_three_nights_laung_prabang",
-      image: "https://i.imgur.com/qK8XEKt.jpeg",
-      duration: "4 Days / 3 Nights",
-      price: "From USD 999 / person",
-    },
-    {
-      name: "Vientiane Golf & Leisure Escape Golf Club",
-      slug: "seven_days_six_nights_laung_prabang_vientiane_leisure_escape",
-      image: "https://i.imgur.com/4tIIfCr.jpeg",
-      duration: "7 Days / 6 Nights",
-      price: "From USD 999 / person",
+      price: "From USD 310/person",
     }
   ];
 
@@ -439,7 +439,7 @@ const HomePage: React.FC = () => {
           scroll-behavior: smooth;
           scrollbar-width: none;
           padding: 0.5rem 0.25rem 1rem 0.25rem;
-          align-items: stretch; /* ensures all cards stretch to the same height */
+          align-items: stretch;
         }
         .packages-grid-carousel::-webkit-scrollbar { display: none; }
         .package-mini-card {
@@ -452,7 +452,6 @@ const HomePage: React.FC = () => {
           transition: all 0.3s ease;
           display: flex;
           flex-direction: column;
-          /* height: 100%; removed – stretch from parent handles it */
         }
         .package-mini-card:hover {
           transform: translateY(-8px);
@@ -465,7 +464,7 @@ const HomePage: React.FC = () => {
           padding: 1rem;
           display: flex;
           flex-direction: column;
-          flex: 1; /* pushes the footer down */
+          flex: 1;
           text-align: center;
         }
         .package-mini-title { font-weight: bold; font-size: 1.1rem; color: #2E7D32; margin-bottom: 0.25rem; }
@@ -475,10 +474,10 @@ const HomePage: React.FC = () => {
           font-weight: 600;
           margin-bottom: 0.5rem;
           display: block;
-          flex: 0 0 auto; /* prevents stretching */
+          flex: 0 0 auto;
         }
         .package-mini-footer {
-          margin-top: auto; /* pushes the footer to the bottom */
+          margin-top: auto;
           display: flex;
           gap: 0.5rem;
           justify-content: space-between;

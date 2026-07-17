@@ -1,16 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, SetStateAction } from "react";
 
-export default function GolfPackageLuangPrabang() {
-  // Slideshow images – real Luang Prabang Golf Club photos (5 images total)
+export default function GolfPackagePremium3Rounds() {
+  // Slideshow images – keep as provided (they show LCC, Lake View, Vang Vieng – images remain unchanged)
   const images = [
-
-    "https://i.imgur.com/1Rjk8vT.jpeg",
-    "https://i.imgur.com/meYhsb6.jpeg",
-    "https://i.imgur.com/AZ5Vr3F.jpeg"
-
-
+    "https://i.imgur.com/qQR01GL.jpeg",     // Lao Country Club (LCC)
+    "https://i.imgur.com/APhNiLp.jpeg",     // Lakeview Golf Club
+    "https://i.imgur.com/yxOOhmp.jpeg",     // Vang Vieng Golf Club
+    "https://i.imgur.com/ogbD8od.jpeg",     // Lakeview (second view)
+    "https://i.imgur.com/Hx2LS4q.jpeg",     // Vang Vieng (second view)
   ];
 
   const Slideshow = () => {
@@ -19,7 +18,7 @@ export default function GolfPackageLuangPrabang() {
 
     const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % images.length);
     const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-    const goToSlide = (index: number) => setCurrentIndex(index);
+    const goToSlide = (index: SetStateAction<number>) => setCurrentIndex(index);
 
     useEffect(() => {
       if (!autoPlay) return;
@@ -30,7 +29,7 @@ export default function GolfPackageLuangPrabang() {
     return (
       <div className="relative w-full max-w-4xl mx-auto overflow-hidden rounded-lg shadow-lg mt-5 mb-5">
         <div className="relative h-64 md:h-96">
-          <img src={images[currentIndex]} alt={`Luang Prabang Golf Club view ${currentIndex + 1}`} className="w-full h-full object-cover" />
+          <img src={images[currentIndex]} alt={`Golf course view ${currentIndex + 1}`} className="w-full h-full object-cover" />
         </div>
         <button
           onClick={prevSlide}
@@ -62,62 +61,86 @@ export default function GolfPackageLuangPrabang() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8 font-sans">
-      <h1 className="text-3xl font-bold text-center mb-2">4D3N Golf Package – Luang Prabang (LPQ)</h1>
+      <h1 className="text-3xl font-bold text-center mb-2">
+        Premium 3 Rounds in Vientiane
+      </h1>
       <Slideshow />
-      <p className="package-card-new-desc text-center my-3 text-red-700">minium player : 4</p>
 
-      {/* Duration & Course Info */}
+      <p className="text-center text-2xl font-semibold text-blue-700 my-2">
+        From USD 600/person
+      </p>
+
+      <p className="package-card-new-desc text-center my-3 text-red-700 font-medium">
+        minimum player - 4
+      </p>
+
       <div className="grid md:grid-cols-2 gap-4 mb-6">
         <div className="bg-blue-50 p-3 rounded">
-          <span className="font-bold">Duration:</span> 4 Days / 3 Nights
+          <span className="font-bold">Duration:</span> 5 Days / 4 Nights (3 Rounds)
         </div>
         <div className="bg-blue-50 p-3 rounded">
-          <span className="font-bold">Golf Course:</span> Luang Prabang Golf Club (18 holes, scenic mountain views)
+          <span className="font-bold">Golf Course:</span> Lakeview Club, Sea Game Club, Long Vien Club
         </div>
       </div>
 
-      {/* Itinerary */}
       <section className="mb-8">
-        <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">Itinerary</h3>
+        <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">
+          Itinerary
+        </h3>
         <div className="space-y-4">
           <div>
-            <h4 className="text-lg font-semibold">Day 1: Arrival – Luang Prabang</h4>
+            <h4 className="text-lg font-semibold">
+              Day 1: Arrival – Wattay International Airport (Vientiane)
+            </h4>
             <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>Airport pickup &amp; hotel check-in</li>
-              <li>Free leisure time to relax or explore nearby areas</li>
+              <li>Airport pickup</li>
+              <li>Hotel check-in</li>
             </ul>
           </div>
           <div>
-            <h4 className="text-lg font-semibold">Day 2: Golf in Luang Prabang</h4>
+            <h4 className="text-lg font-semibold">
+              Day 2: Golf in Lakeview Club
+            </h4>
             <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>Transfer to Luang Prabang Golf Club</li>
+              <li>Transfer to Lakeview Golf Club</li>
               <li>18 holes of golf (green fee included)</li>
               <li>Return transfer to hotel</li>
             </ul>
           </div>
           <div>
-            <h4 className="text-lg font-semibold">Day 3: Leisure or Optional Golf</h4>
+            <h4 className="text-lg font-semibold">
+              Day 3: Golf in Sea Games Club
+            </h4>
             <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>Free day for personal leisure</li>
-              <li>Optional: Second round of golf at Luang Prabang Golf Club (additional fee)</li>
-              <li>Optional: Half-day UNESCO city tour – visit temples, royal palace, and traditional heritage sites (extra charge)</li>
+              <li>Transfer to Sea Games Golf Club</li>
+              <li>18 holes of golf (green fee included)</li>
+              <li>Return transfer to hotel</li>
             </ul>
           </div>
           <div>
-            <h4 className="text-lg font-semibold">Day 4: Departure</h4>
+            <h4 className="text-lg font-semibold">
+              Day 4: Golf in Long Vien Club
+            </h4>
             <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>Transfer to Luang Prabang International Airport (LPQ)</li>
+              <li>Transfer to Long Vien Golf Club</li>
+              <li>18 holes of golf (green fee included)</li>
+              <li>Return transfer to hotel</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-lg font-semibold">Day 5: Departure</h4>
+            <ul className="list-disc list-inside ml-4 space-y-1">
+              <li>Transfer to Wattay International Airport (Vientiane)</li>
             </ul>
           </div>
         </div>
       </section>
 
-      {/* Optional activities note */}
-      <div className="bg-gray-50 p-4 rounded-md mb-4 text-sm text-gray-700">
-        <span className="font-semibold"> Note:</span> Optional second golf round and UNESCO city tour on Day 3 can be arranged upon request. Please contact us for pricing and availability.
+      <div className="bg-gray-100 p-4 rounded-lg mb-4">
+        <p className="font-semibold">Exclusions:</p>
+        <p>meals, flight ticket, insurance</p>
       </div>
 
-      {/* Footer note */}
       <div className="text-xs text-gray-500 border-t pt-4 mt-4 text-center">
         * All information is subject to change without prior notice. Please confirm details at time of booking.
       </div>

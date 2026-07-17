@@ -9,63 +9,64 @@ interface Package {
   type: 'golf' | 'travel';
   image: string;
   duration: string;
+  price: string;
   description: string;
 }
 
 const GolfTravelPackages: React.FC = () => {
-  // ---------- GOLF PACKAGES (UPDATED) ----------
+  // ---------- GOLF PACKAGES (same as HomePage) ----------
   const golfPackagesRaw = [
     {
-      title: "4D3N Golf Package – LCC & Lake View",
-      duration: "4 DAYS / 3 NIGHTS",
-      price: "$999/one person",
-      desc: "Enjoy 2 rounds of golf at Luang Prabang Golf Club. Includes green fees, caddie, golf cart, and luxury accommodation.",
-      img: "https://i.imgur.com/x4A7hpH.jpeg"
+      title: "Standard 2 Rounds in Vientiane",
+      duration: "4 Days / 3 Nights  ( 2 Rounds )",
+      price: "From USD 380/person",
+      desc: "Two rounds at Lao Country Club (walking club) and Long Vien Club. Includes green fees and transfers.",
+      img: "https://i.imgur.com/K6gOupW.jpeg"
     },
     {
-      title: "5D4N Golf Package – LCC, Lake View & SEA Games Course",
-      duration: "5 DAYS / 4 NIGHTS",
-      price: "$1,299/one person",
-      desc: "Premium golf experience with 3 rounds at top courses, luxury resort accommodation, spa treatment.",
+      title: "Premium 2 Rounds in Vientiane",
+      duration: "4 Days / 3 Nights  ( 2 Rounds )",
+      price: "From USD 450/person",
+      desc: "Play at Lakeview Club and Long Vien Club. Includes green fees and private transfers.",
       img: "https://i.imgur.com/rDMj7bS.jpeg"
     },
     {
-      title: "5D4N Golf Package – LCC, Lake View & Dansavanh",
-      duration: "5 DAYS / 4 NIGHTS",
-      price: "$1,299/one person",
-      desc: "Combine luxury resort stay with 2 rounds of golf. Includes accommodation, breakfast, green fees, and club rental.",
-      img: "https://i.imgur.com/GK6YDQS.jpeg"
+      title: "Premium 3 Rounds in Vientiane",
+      duration: "5 Days / 4 Nights  ( 3 Rounds )",
+      price: "From USD 600/person",
+      desc: "Three rounds across Lakeview, Sea Games, and Long Vien clubs. Comprehensive golf experience.",
+      img: "https://i.imgur.com/mYjfy1N.jpeg"
     },
     {
-      title: "5D4N Golf Package – LCC, Lake View & Vang Vieng",
-      duration: "5 DAYS / 4 NIGHTS",
-      price: "$1,299/one person",
-      desc: "Combine luxury resort stay with 2 rounds of golf. Includes accommodation, breakfast, green fees, and club rental.",
-      img: "https://i.imgur.com/BIHfV2W.jpeg"
+      title: "Vientiane & MountainsView 3 Rounds in Vientiane",
+      duration: "5 Days / 4 Nights  ( 3 Rounds )",
+      price: "From USD 600/person",
+      desc: "Play Lakeview, Vang Vieng (Lao Asia Club), and Long Vien. Mountain views and top courses.",
+      img: "https://i.imgur.com/d9PqrYs.jpeg"
     },
     {
-      title: "4D3N Golf Package – Luang Prabang (LPQ)",
-      duration: "4 DAYS / 3 NIGHTS",
-      price: "$999/one person",
-      desc: "Combine luxury resort stay with 2 rounds of golf. Includes accommodation, breakfast, green fees, and club rental.",
+      title: "Four Fairways 4 Rounds in Vientiane",
+      duration: "6 Days / 5 Nights  ( 4 Rounds )",
+      price: "From USD 750/person",
+      desc: "Four rounds: Lakeview, Vang Vieng, Sea Games, and Long Vien. The ultimate golf marathon.",
+      img: "https://i.imgur.com/oCWj2un.jpeg"
+    },
+    {
+      title: "Luang Prabang Golf & Culture Tour",
+      duration: "4 Days / 3 Nights",
+      price: "From USD 310/person",
+      desc: "One round at Luang Prabang Golf Club plus a UNESCO heritage city tour. Culture meets fairways.",
       img: "https://i.imgur.com/B2fjoxj.jpeg"
-    },
-    {
-      title: "Vientiane Golf & Leisure Escape – 7 Days / 6 Nights",
-      duration: "7 DAYS / 6 NIGHTS",
-      price: "$1,699/one person",
-      desc: "Enjoy 2 rounds of golf at Luang Prabang Golf Club. Includes green fees, caddie, golf cart, and luxury accommodation.",
-      img: "https://i.imgur.com/nZqSXz6.jpeg"
     }
   ];
 
   const golfPackageIdMap: Record<string, string> = {
-    "4D3N Golf Package – LCC & Lake View": "four_days_three_nights_lcc_and_lake_view",
-    "5D4N Golf Package – LCC, Lake View & SEA Games Course": "fight_days_four_lcc_and_lake_view_and_sea_game",
-    "5D4N Golf Package – LCC, Lake View & Dansavanh": "fight_days_four_nights_lcc_and_lake_view_and_dansavanh",
-    "5D4N Golf Package – LCC, Lake View & Vang Vieng": "fight_days_four_nights_lcc_and_lake_view_and_vang_vieng",
-    "4D3N Golf Package – Luang Prabang (LPQ)": "four_days_three_nights_laung_prabang",
-    "Vientiane Golf & Leisure Escape – 7 Days / 6 Nights": "seven_days_six_nights_laung_prabang_vientiane_leisure_escape",
+    "Standard 2 Rounds in Vientiane": "standard_two_rounds_in_vientiane",
+    "Premium 2 Rounds in Vientiane": "premium_two_rounds_in_vientiane",
+    "Premium 3 Rounds in Vientiane": "premium_three_rounds_in_vientiane",
+    "Vientiane & MountainsView 3 Rounds in Vientiane": "vientiane_mountainsview_three_rounds_in_vientiane",
+    "Four Fairways 4 Rounds in Vientiane": "four_fairways_four_rounds_in_vientiane",
+    "Luang Prabang Golf & Culture Tour": "luang_prabang_golf_culture_tour",
   };
 
   const golfPackagesList: Package[] = golfPackagesRaw.map(pkg => ({
@@ -74,29 +75,99 @@ const GolfTravelPackages: React.FC = () => {
     type: 'golf',
     image: pkg.img,
     duration: pkg.duration,
+    price: pkg.price,
     description: pkg.desc
   }));
 
-  // ---------- TRAVEL PACKAGES (unchanged) ----------
-  const travelPackagesList: Package[] = [
-    { name: '3 DAYS 2 NIGHTS VIENTIANE - LUANGPRABANG', slug: 'three_days_two_nights_vte_lpq', type: 'travel', image: 'https://i.imgur.com/4QhvN7F.jpeg', duration: '3 DAYS 2 NIGHTS', description: 'Immerse yourself in the spiritual heart of Laos. This heritage-focused journey takes you through Luang Prabang\'s gilded temples, the sacred alms-giving ritual at dawn, and the breathtaking Kuang Si Falls.' },
-    { name: '4 DAYS 3 NIGHTS VIENTIANE – LUANG PRABANG', slug: 'four_days_three_nights_vte_lpq', type: 'travel', image: 'https://i.imgur.com/TX7Xt7r.jpeg', duration: '4 DAYS 3 NIGHTS', description: 'For thrill-seekers and nature lovers, Vang Vieng is Laos\'s adventure capital. Towering karst mountains, crystal-blue lagoons, and vast cave systems set the stage for kayaking, zip-lining, hot air ballooning, and rock climbing.' },
-    { name: '2 DAYS 1 NIGHT VTE - VV', slug: 'two_days_one_night_vte_vv', type: 'travel', image: 'https://i.imgur.com/J4OGK1a.jpeg', duration: '2 DAYS 1 NIGHT', description: 'A quick escape to Vang Vieng: explore the limestone karsts, Blue Lagoon, and Angel Cave. Optional kayaking or zip-lining.' },
-    { name: '4 DAYS 3 NIGHTS LPQ-VV-VTE', slug: 'four_days_three_nights_lpq_vv_vte', type: 'travel', image: 'https://i.imgur.com/4HTtNcg.jpeg', duration: '4 DAYS 3 NIGHTS', description: 'Combine Luang Prabang’s UNESCO charm, Vang Vieng’s adventure, and Vientiane’s capital sights in one seamless journey.' },
-    { name: '2 DAYS 1 NIGHT VTE - MF - VTE', slug: 'two_days_one_night_vte_mf', type: 'travel', image: 'https://i.imgur.com/SJlpWSx.jpeg', duration: '2 DAYS 1 NIGHT', description: 'Peaceful countryside retreat to Muang Feuang. Alms giving, scenic boat ride, and relaxation.' },
-    { name: '5 DAYS 4 NIGHTS HUX-PK-LPQ', slug: 'five_days_four_nights_hux_pk_lpq', type: 'travel', image: 'https://i.imgur.com/V8TST5G.jpeg', duration: '5 DAYS 4 NIGHTS', description: 'Mekong River cruise from Huay Xai to Pakbeng and Luang Prabang. Visit ethnic villages and Pak Ou Caves.' },
-    { name: 'VTE-VV-LPQ (3D2N)', slug: 'three_days_two_nights_vte_vv_lpq', type: 'travel', image: 'https://i.imgur.com/UZI13Qj.jpeg', duration: '3 DAYS 2 NIGHTS', description: 'Efficient loop: Vientiane → Vang Vieng → Luang Prabang by private van and train. Includes Kuang Si Waterfall and temple tours.' },
-    { name: '3 DAYS 2 NIGHTS LUANGPRABANG HERITAGE ESCAPE', slug: 'three_day_two_nights_luangpraband_heritage_escape', type: 'travel', image: 'https://i.imgur.com/pd2ByH1.jpeg', duration: '3 DAYS 2 NIGHTS', description: 'UNESCO old town, Kuang Si Falls, Pak Ou Caves, and the famous alms-giving ceremony – all in a short heritage break.' },
-    { name: 'VANG VIENG ADVENTURE DAY TRIP – FULL DAY', slug: 'vang_vieng_adventure_day_trip', type: 'travel', image: 'https://i.imgur.com/4AvfdfO.jpeg', duration: 'FULL DAY', description: 'A perfect day trip from Vientiane to Vang Vieng: Blue Lagoon, Angel Cave, and stunning limestone views.' },
-    { name: 'VIENTIANE CAPITAL DISCOVERY – FULL DAY', slug: 'vientiane_capital_discovery', type: 'travel', image: 'https://i.imgur.com/B6vdCe4.jpeg', duration: 'FULL DAY', description: 'Explore Pha That Luang, Patuxai, Buddha Park, and the Mekong riverside in a single day.' },
-    { name: 'LUANG PRABANG & VANG VIENG EXPLORER – 4 DAYS / 3 NIGHTS', slug: 'luang_prabang_vang_vieng_explorer', type: 'travel', image: 'https://i.imgur.com/sG5jnE9.jpeg', duration: '4 DAYS 3 NIGHTS', description: 'Combine culture and adventure with high-speed train travel between Vientiane, Vang Vieng, and Luang Prabang.' },
-    { name: 'SOUTHERN LAOS & 4,000 ISLANDS ESCAPE – 4 DAYS / 3 NIGHTS', slug: 'southern_laos_4000_islands_escape', type: 'travel', image: 'https://i.imgur.com/GwVFh0V.jpeg', duration: '4 DAYS 3 NIGHTS', description: 'Discover the Bolaven Plateau, Khone Phapheng Falls, and the tranquil 4,000 Islands in southern Laos.' }
+  // ---------- TRAVEL PACKAGES (same as HomePage) ----------
+  const travelPackagesRaw = [
+    { title: "Vientiane- Luang Prabang", duration: "3 DAYS 2 NIGHTS", price: "From USD 336 / person", desc: "Heritage-focused journey through Luang Prabang's temples and Kuang Si Falls.", img: "https://i.imgur.com/4QhvN7F.jpeg" },
+    { title: "Vientiane - Luang Prabang", duration: "4 DAYS 3 NIGHTS", price: "From USD 486 / person", desc: "Extended stay with more time to explore Luang Prabang's UNESCO sites.", img: "https://i.imgur.com/TX7Xt7r.jpeg" },
+    { title: "Vientiane- Vang Vieng ", duration: "2 DAYS 1 NIGHT", price: "From USD 463 / person", desc: "Quick escape to Vang Vieng's karst mountains and blue lagoons.", img: "https://i.imgur.com/J4OGK1a.jpeg" },
+    { title: "Luang Prabang-Vang Vieng-Vientiane  ", duration: "4 DAYS 3 NIGHTS", price: "From USD 554 / person", desc: "Combine UNESCO charm, adventure, and capital sights in one trip.", img: "https://i.imgur.com/4HTtNcg.jpeg" },
+    { title: "Vientiane-Mueng Fueng-Vientiane", duration: "2 DAYS 1 NIGHT", price: "From USD 240 / person", desc: "Peaceful countryside retreat with alms giving and scenic boat ride.", img: "https://i.imgur.com/SJlpWSx.jpeg" },
+    { title: "Huay Xai-Pakbeng-Luang Prabang", duration: "5 DAYS 4 NIGHTS", price: "From USD 1334 / person", desc: "Mekong River cruise from Huay Xai to Luang Prabang, visiting ethnic villages.", img: "https://i.imgur.com/V8TST5G.jpeg" },
+    { title: "Vientiane-Vang Vieng-Luang Prabang", duration: "3 DAYS 2 NIGHTS", price: "From USD 336 / person", desc: "Efficient loop: Vientiane → Vang Vieng → Luang Prabang by van and train.", img: "https://i.imgur.com/UZI13Qj.jpeg" },
+    { title: "Luang Prabang-Heritage Escape", duration: "3 DAYS 2 NIGHTS", price: "From USD 240 / person", desc: "UNESCO old town, Kuang Si Falls, Pak Ou Caves, and alms-giving ceremony.", img: "https://i.imgur.com/pd2ByH1.jpeg" },
+    { title: "Vang Vieng Adventrue Day Trip", duration: "FULL DAY", price: "From USD 95 / person", desc: "Day trip from Vientiane to Vang Vieng: Blue Lagoon, Angel Cave, and limestone views.", img: "https://i.imgur.com/4AvfdfO.jpeg" },
+    { title: "Vientiane Capital Discovery", duration: "FULL DAY", price: "From USD 95 / person", desc: "Explore Pha That Luang, Patuxai, Buddha Park, and Mekong riverside.", img: "https://i.imgur.com/B6vdCe4.jpeg" },
+    { title: "Luang Prabang-Vang Vieng Explorer", duration: "4 DAYS 3 NIGHTS", price: "From USD 390 / person", desc: "Culture and adventure with high-speed train travel between Vientiane, VV, and LPQ.", img: "https://i.imgur.com/sG5jnE9.jpeg" },
+    { title: "Soouthern Laos & 4,000 Islands Escape", duration: "4 DAYS 3 NIGHTS", price: "From USD 350 / person", desc: "Bolaven Plateau, Khone Phapheng Falls, and tranquil 4,000 Islands.", img: "https://i.imgur.com/7IjbO0Z.jpeg" },
   ];
 
-  const allPackages: Record<'golf' | 'travel', Package[]> = {
-    golf: golfPackagesList,
-    travel: travelPackagesList
+  const travelPackageIdMap: Record<string, string> = {
+    "Vientiane- Luang Prabang": "three_days_two_nights_vte_lpq",
+    "Vientiane - Luang Prabang": "four_days_three_nights_vte_lpq",
+    "Vientiane- Vang Vieng ": "two_days_one_night_vte_vv",
+    "Luang Prabang-Vang Vieng-Vientiane  ": "four_days_three_nights_lpq_vv_vte",
+    "Vientiane-Mueng Fueng-Vientiane": "two_days_one_night_vte_mf",
+    "Huay Xai-Pakbeng-Luang Prabang": "five_days_four_nights_hux_pk_lpq",
+    "Vientiane-Vang Vieng-Luang Prabang": "three_days_two_nights_vte_vv_lpq",
+    "Luang Prabang-Heritage Escape": "three_day_two_nights_luangpraband_heritage_escape",
+    "Vang Vieng Adventrue Day Trip": "vang_vieng_adventure_day_trip",
+    "Vientiane Capital Discovery": "vientiane_capital_discovery",
+    "Luang Prabang-Vang Vieng Explorer": "luang_prabang_vang_vieng_explorer",
+    "Soouthern Laos & 4,000 Islands Escape": "southern_laos_4000_islands_escape",
   };
+
+  const travelPackagesList: Package[] = travelPackagesRaw.map(pkg => ({
+    name: pkg.title,
+    slug: travelPackageIdMap[pkg.title],
+    type: 'travel',
+    image: pkg.img,
+    duration: pkg.duration,
+    price: pkg.price,
+    description: pkg.desc
+  }));
+
+  // ---------- Popular Golf Packages (same as HomePage) ----------
+  const popularGolfPackages = [
+    {
+      name: "Standard 2 Rounds in Vientiane",
+      slug: "standard_two_rounds_in_vientiane",
+      image: "https://i.imgur.com/K6gOupW.jpeg",
+      duration: "4 Days / 3 Nights (2 Rounds)",
+      price: "From USD 380/person",
+    },
+    {
+      name: "Premium 2 Rounds in Vientiane",
+      slug: "premium_two_rounds_in_vientiane",
+      image: "https://i.imgur.com/rDMj7bS.jpeg",
+      duration: "4 Days / 3 Nights (2 Rounds)",
+      price: "From USD 450/person",
+    },
+    {
+      name: "Premium 3 Rounds in Vientiane",
+      slug: "premium_three_rounds_in_vientiane",
+      image: "https://i.imgur.com/mYjfy1N.jpeg",
+      duration: "5 Days / 4 Nights (3 Rounds)",
+      price: "From USD 600/person",
+    },
+    {
+      name: "Vientiane & MountainsView 3 Rounds in Vientiane",
+      slug: "vientiane_mountainsview_three_rounds_in_vientiane",
+      image: "https://i.imgur.com/d9PqrYs.jpeg",
+      duration: "5 Days / 4 Nights (3 Rounds)",
+      price: "From USD 600/person",
+    },
+    {
+      name: "Four Fairways 4 Rounds in Vientiane",
+      slug: "four_fairways_four_rounds_in_vientiane",
+      image: "https://i.imgur.com/oCWj2un.jpeg",
+      duration: "6 Days / 5 Nights (4 Rounds)",
+      price: "From USD 750/person",
+    },
+    {
+      name: "Luang Prabang Golf & Culture Tour",
+      slug: "luang_prabang_golf_culture_tour",
+      image: "https://i.imgur.com/B2fjoxj.jpeg",
+      duration: "4 Days / 3 Nights",
+      price: "From USD 310/person",
+    }
+  ];
+
+  const popularGolfIdMap: Record<string, string> = {};
+  popularGolfPackages.forEach(pkg => { popularGolfIdMap[pkg.name] = pkg.slug; });
 
   // ---------- Next.js hooks ----------
   const searchParams = useSearchParams();
@@ -111,7 +182,6 @@ const GolfTravelPackages: React.FC = () => {
   const [currentCategory, setCurrentCategory] = useState<'golf' | 'travel'>('golf');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [bookingPackage, setBookingPackage] = useState('');
-  const [isFading, setIsFading] = useState(false);
   const [sliderStyle, setSliderStyle] = useState({ transform: 'translateX(0)', width: '0px' });
 
   const [bookingFirstName, setBookingFirstName] = useState('');
@@ -127,15 +197,6 @@ const GolfTravelPackages: React.FC = () => {
   const btnGolfRef = useRef<HTMLButtonElement>(null);
   const btnTravelRef = useRef<HTMLButtonElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
-  const revealElementsRef = useRef<HTMLElement[]>([]);
-  const observerRef = useRef<IntersectionObserver | null>(null);
-
-  const addToRevealRef = useCallback((el: HTMLElement | null) => {
-    if (el && !revealElementsRef.current.includes(el)) {
-      revealElementsRef.current.push(el);
-      if (observerRef.current) observerRef.current.observe(el);
-    }
-  }, []);
 
   const updateSliderPosition = useCallback(() => {
     if (btnGolfRef.current && btnTravelRef.current && sliderRef.current) {
@@ -152,11 +213,6 @@ const GolfTravelPackages: React.FC = () => {
       }
     }
   }, [currentCategory]);
-
-  const renderCards = useCallback((category: 'golf' | 'travel') => {
-    setIsFading(true);
-    setTimeout(() => setIsFading(false), 300);
-  }, []);
 
   const switchCategory = useCallback((cat: 'golf' | 'travel') => {
     if (cat === currentCategory) return;
@@ -227,36 +283,14 @@ const GolfTravelPackages: React.FC = () => {
     const urlCategory = getCategoryFromUrl();
     if (urlCategory !== currentCategory) {
       setCurrentCategory(urlCategory);
-      renderCards(urlCategory);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [getCategoryFromUrl, renderCards]);
+  }, [getCategoryFromUrl, currentCategory]);
 
   useEffect(() => {
     updateSliderPosition();
     window.addEventListener('resize', updateSliderPosition);
     return () => window.removeEventListener('resize', updateSliderPosition);
   }, [updateSliderPosition]);
-
-  useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observerRef.current?.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    revealElementsRef.current.forEach((el) => {
-      if (el) observerRef.current?.observe(el);
-    });
-    return () => {
-      if (observerRef.current) observerRef.current.disconnect();
-    };
-  }, []);
 
   const todayDate = new Date().toISOString().split('T')[0];
 
@@ -267,6 +301,8 @@ const GolfTravelPackages: React.FC = () => {
       return `/golf_package_detail/${pkg.slug}`;
     }
   };
+
+  const allPackages = currentCategory === 'golf' ? golfPackagesList : travelPackagesList;
 
   // ---------- Render ----------
   return (
@@ -296,73 +332,7 @@ const GolfTravelPackages: React.FC = () => {
           line-height: 1.5;
         }
         body, body * { font-family: inherit; }
-        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
         
-        /* Unified card styles for both Golf and Travel cards */
-        .golf-card, .travel-card {
-          background: var(--card);
-          border-radius: 1.5rem;
-          overflow: hidden;
-          box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
-          transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
-          display: flex;
-          flex-direction: column;
-          min-height: 500px;
-          height: 100%;
-        }
-        .golf-card:hover, .travel-card:hover { 
-          transform: translateY(-10px); 
-          box-shadow: 0 20px 50px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.06); 
-        }
-        
-        .golf-card .card-img-wrap, .travel-card .card-img-wrap { 
-          position: relative; 
-          overflow: hidden; 
-          flex-shrink: 0;
-        }
-        .golf-card .card-img-wrap img, .travel-card .card-img-wrap img { 
-          transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); 
-          width: 100%; 
-          height: 280px;
-          object-fit: cover; 
-        }
-        .golf-card:hover .card-img-wrap img, .travel-card:hover .card-img-wrap img { 
-          transform: scale(1.08); 
-        }
-        
-        .golf-card .card-img-wrap::after {
-          content: '';
-          position: absolute; bottom: 0; left: 0; right: 0; height: 50%;
-          background: linear-gradient(to top, rgba(27,67,50,0.5), transparent);
-          pointer-events: none;
-        }
-        .travel-card .card-img-wrap::after {
-          content: '';
-          position: absolute; bottom: 0; left: 0; right: 0; height: 50%;
-          background: linear-gradient(to top, rgba(120,80,40,0.5), transparent);
-          pointer-events: none;
-        }
-        
-        .btn-primary, .btn-accent, .modal-btn, .cat-toggle-btn { font-family: inherit; }
-        .btn-primary {
-          background: var(--emerald-deep); color: white; padding: 12px 20px; border-radius: 12px;
-          font-weight: 600; font-size: 0.9rem; border: none; cursor: pointer; transition: all 0.3s ease;
-          display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-          text-decoration: none; width: 100%;
-        }
-        .btn-primary:hover { background: var(--emerald-mid); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(27,67,50,0.3); }
-        .btn-accent {
-          background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white;
-          padding: 12px 20px; border-radius: 12px; font-weight: 600; font-size: 0.9rem;
-          border: none; cursor: pointer; transition: all 0.3s ease;
-          display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-          text-decoration: none; width: 100%;
-        }
-        .btn-accent:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(200,96,42,0.35); }
-        .divider-ornament { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 1rem auto 0; }
-        .divider-ornament span { display: block; height: 2px; width: 40px; background: var(--border); border-radius: 2px; }
-        .divider-ornament i { color: var(--gold); font-size: 0.55rem; }
         .cat-toggle {
           display: inline-flex; background: white; border-radius: 20px; padding: 6px;
           box-shadow: 0 2px 12px rgba(0,0,0,0.06), 0 0 0 1px var(--border); position: relative;
@@ -382,17 +352,139 @@ const GolfTravelPackages: React.FC = () => {
         }
         .cat-slider.golf { background: linear-gradient(135deg, var(--emerald-deep), var(--emerald-light)); box-shadow: 0 4px 16px rgba(27,67,50,0.35); }
         .cat-slider.travel { background: linear-gradient(135deg, var(--accent), var(--accent-light)); box-shadow: 0 4px 16px rgba(200,96,42,0.35); }
-        .pkg-grid { transition: opacity 0.3s ease, transform 0.3s ease; }
-        .pkg-grid.fading { opacity: 0; transform: translateY(12px); }
-        .card-appear { animation: cardIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; opacity: 0; }
-        @keyframes cardIn { from { opacity: 0; transform: translateY(20px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
-        html { scroll-behavior: smooth; }
-        @media (max-width: 640px) {
-          .golf-card .card-img-wrap img, .travel-card .card-img-wrap img { height: 220px; }
-          .golf-card, .travel-card { min-height: 440px; }
-          .cat-toggle-btn { padding: 10px 18px; font-size: 0.8rem; }
-          .pkg-grid { gap: 1.5rem; }
+        
+        /* Grid layout – no arrows, no horizontal scroll */
+        .packages-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+          gap: 1.5rem;
+          margin: 2rem 0;
         }
+        .package-card {
+          background: white;
+          border-radius: 1rem;
+          overflow: hidden;
+          box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+          transition: all 0.3s ease;
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+        .package-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+        }
+        .package-card-image { height: 180px; overflow: hidden; }
+        .package-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .package-card:hover .package-card-image img { transform: scale(1.05); }
+        .package-card-content {
+          padding: 1rem 1rem 1.25rem;
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          text-align: center;
+        }
+        .package-card-title { font-weight: bold; font-size: 1.1rem; color: #2E7D32; margin-bottom: 0.25rem; }
+        .package-card-duration { font-size: 0.85rem; color: #ED6A02; font-weight: 600; margin-bottom: 0.3rem; }
+        .package-card-price { font-size: 0.9rem; font-weight: 700; color: #1b4332; margin-bottom: 0.5rem; }
+        .package-card-min-players { font-size: 0.75rem; color: #b91c1c; font-weight: 500; margin-bottom: 0.75rem; }
+        .package-card-footer {
+          margin-top: auto;
+          display: flex;
+          gap: 0.5rem;
+          justify-content: center;
+        }
+        .package-card-footer .btn-details {
+          background-color: #ED6A02;
+          color: white;
+          padding: 0.4rem 1.2rem;
+          border-radius: 9999px;
+          font-size: 0.8rem;
+          cursor: pointer;
+          border: none;
+          transition: background 0.3s;
+          text-decoration: none;
+          display: inline-block;
+        }
+        .package-card-footer .btn-details:hover { background-color: #2E7D32; }
+        .package-card-footer .btn-book {
+          background-color: #2E7D32;
+          color: white;
+          padding: 0.4rem 1.2rem;
+          border-radius: 9999px;
+          font-size: 0.8rem;
+          cursor: pointer;
+          border: none;
+          transition: background 0.3s;
+        }
+        .package-card-footer .btn-book:hover { background-color: #ED6A02; }
+        
+        .popular-packages-cards {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1.5rem;
+          margin: 0 auto;
+        }
+        .popular-packages-cards .package-card-new {
+          flex: 0 0 auto;
+          width: 280px;
+          height: 380px;
+        }
+        @media (max-width: 1024px) { .popular-packages-cards .package-card-new { width: calc(50% - 1rem); } }
+        @media (max-width: 640px) { .popular-packages-cards .package-card-new { width: 100%; } }
+        
+        .package-card-new {
+          background: linear-gradient(135deg, #2E7D32 0%, #1a4f1e 100%);
+          border-radius: 1.5rem;
+          overflow: hidden;
+          box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+          transition: all 0.5s ease;
+          position: relative;
+          height: 380px;
+          cursor: pointer;
+        }
+        .package-card-new:hover { transform: translateY(-15px) rotate(2deg); box-shadow: 0 30px 35px -10px rgba(0,0,0,0.3); }
+        .package-card-new-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+        .package-card-new-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .package-card-new:hover .package-card-new-image img { transform: scale(1.2); }
+        .package-card-new-overlay {
+          position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+          background: linear-gradient(to top, rgba(46, 125, 50, 0.92) 0%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0.3) 100%);
+          z-index: 2;
+        }
+        .package-card-new-content {
+          position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; z-index: 3; color: white;
+        }
+        .package-card-new-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.3rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.6); }
+        .package-card-new-price {
+          font-size: 0.9rem; font-weight: 600; color: #FFD700; margin-bottom: 0.5rem;
+          display: inline-block; background: rgba(0,0,0,0.55); padding: 0.2rem 0.8rem; border-radius: 9999px;
+        }
+        .package-card-new-desc { font-size: 0.85rem; line-height: 1.4; margin-bottom: 0.8rem; opacity: 0.95; }
+        .package-card-buttons { display: flex; gap: 0.75rem; margin-top: 0.25rem; }
+        .card-details-btn, .card-book-btn {
+          flex: 1; padding: 0.5rem 0.8rem; border-radius: 2rem; font-weight: 600; font-size: 0.8rem;
+          text-align: center; cursor: pointer; transition: all 0.25s ease; border: none;
+          background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); color: white;
+          border: 1px solid rgba(255,255,255,0.5); text-decoration: none;
+        }
+        .card-details-btn { background: rgba(237,106,2,0.85); border-color: #ffb347; }
+        .card-book-btn { background: rgba(46,125,50,0.9); border-color: #8bc34a; }
+        .card-details-btn:hover, .card-book-btn:hover { transform: scale(1.02); }
+        .card-details-btn:hover { background: #ED6A02; }
+        .card-book-btn:hover { background: #2E7D32; }
+        
+        .package-category-buttons {
+          display: flex; justify-content: center; gap: 1rem; margin: 2rem 0; flex-wrap: wrap;
+        }
+        .category-btn {
+          padding: 0.6rem 1.8rem; border-radius: 9999px; font-weight: bold; font-size: 1rem;
+          cursor: pointer; transition: all 0.3s ease; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+          background: linear-gradient(135deg, #511703 0%, #996515 100%); color: white;
+          white-space: nowrap; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
+        }
+        .category-btn:hover { background: linear-gradient(135deg, #ed5002 0%, #D4AF37 100%); transform: scale(1.05); color: white; }
         
         .modal {
           display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -431,6 +523,7 @@ const GolfTravelPackages: React.FC = () => {
       `}</style>
 
       <main className="flex-1 flex flex-col w-full">
+        {/* Hero */}
         <section className="relative overflow-hidden bg-gradient-to-br from-[#1b4332] via-[#2d6a4f] to-[#1b4332] py-16 md:py-20">
           <div className="relative z-10 max-w-4xl mx-auto px-5 text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5 tracking-tight">
@@ -442,16 +535,17 @@ const GolfTravelPackages: React.FC = () => {
           </div>
         </section>
 
+        {/* Category Toggle + Grid */}
         <section className="py-14 md:py-20 relative" id="packages">
           <div className="max-w-6xl mx-auto px-5">
-            <div className="text-center mb-10 reveal" ref={addToRevealRef}>
+            <div className="text-center mb-10">
               <span className="text-xs font-semibold tracking-[0.15em] uppercase text-[var(--accent)]">Choose Your Experience</span>
               <h2 className="text-3xl md:text-4xl font-bold text-[var(--emerald-deep)] mt-2 mb-1">Our Packages</h2>
               <p className="text-[var(--muted)] max-w-lg mx-auto text-sm leading-relaxed">Two paths, one unforgettable destination</p>
               <div className="divider-ornament mt-4"></div>
             </div>
 
-            <div className="flex justify-center mb-10 reveal" ref={addToRevealRef}>
+            <div className="flex justify-center mb-10">
               <div className="cat-toggle">
                 <div ref={sliderRef} className={`cat-slider ${currentCategory}`} style={sliderStyle}></div>
                 <button
@@ -471,37 +565,80 @@ const GolfTravelPackages: React.FC = () => {
               </div>
             </div>
 
-            <div className={`pkg-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 ${isFading ? 'fading' : ''}`}>
-              {allPackages[currentCategory].map((pkg, idx) => (
-                <div
-                  key={`${currentCategory}-${idx}`}
-                  className={`${currentCategory === 'travel' ? 'travel-card' : 'golf-card'} card-appear`}
-                  style={{ animationDelay: `${idx * 0.1}s` }}
-                >
-                  <div className="card-img-wrap">
+            {/* Grid – all cards shown, no arrows */}
+            <div className="packages-grid">
+              {allPackages.map((pkg, idx) => (
+                <div key={`${currentCategory}-${idx}`} className="package-card">
+                  <div className="package-card-image">
                     <img src={pkg.image} alt={pkg.name} loading="lazy" />
                   </div>
-                  <div className="p-5 flex flex-col flex-1">
-                    <h3 className="font-semibold text-lg text-[var(--emerald-deep)] leading-snug mb-2 line-clamp-2">{pkg.name}</h3>
-                    <p className="text-[var(--muted)] text-sm leading-relaxed mb-4 line-clamp-3">{pkg.description}</p>
-                    <div className="mt-auto">
-                      <div className="flex gap-3">
-                        <button onClick={() => openBookingModal(pkg.name)} className="btn-primary flex-1">
-                          <i className="fas fa-calendar-check text-xs"></i> Book
-                        </button>
-                        <Link href={getDetailLink(pkg)} className="btn-accent flex-1">
-                          <i className="fas fa-eye text-xs"></i> Details
-                        </Link>
-                      </div>
+                  <div className="package-card-content">
+                    <div className="package-card-title">{pkg.name}</div>
+                    <div className="package-card-duration">{pkg.duration}</div>
+                    <div className="package-card-price">{pkg.price}</div>
+                    <div className="package-card-min-players">minium player : {pkg.type === 'golf' ? '4' : '2'}</div>
+                    <div className="package-card-footer">
+                      <Link href={getDetailLink(pkg)} className="btn-details">Details</Link>
+                      <button className="btn-book" onClick={() => openBookingModal(pkg.name)}>Book</button>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
+
+            {/* <div className="package-category-buttons">
+              <Link href="/packages" className="inline-flex items-center bg-white text-[#2E7D32] px-6 py-2 rounded-full font-bold hover:bg-[#ED6A02] hover:text-white transition shadow-lg">
+                View All Packages
+              </Link>
+              <Link href="/contactus" className="inline-flex items-center bg-white text-[#2E7D32] px-6 py-2 rounded-full font-bold hover:bg-[#ED6A02] hover:text-white transition shadow-lg text-red-700 ml-4">
+                Customize Package
+              </Link>
+            </div> */}
           </div>
         </section>
+
+        {/* Popular Golf Packages */}
+        {/* <section className="py-12 bg-[#f0f7f0]">
+          <div className="max-w-6xl mx-auto px-5">
+            <h2 className="text-3xl font-bold mb-4 text-center text-[#2E7D32]">Popular Golf Packages</h2>
+            <p className="text-center mb-8 max-w-2xl mx-auto">Premium golf experiences across Laos – Book your perfect golf getaway</p>
+            <div className="popular-packages-cards">
+              {popularGolfPackages.map((pkg, idx) => {
+                const packageId = popularGolfIdMap[pkg.name];
+                return (
+                  <div key={idx} className="package-card-new" style={{ cursor: 'pointer' }}>
+                    <div className="package-card-new-image"><img src={pkg.image} alt={pkg.name} /></div>
+                    <div className="package-card-new-overlay"></div>
+                    <div className="package-card-new-content text-center">
+                      <h3 className="package-card-new-title">{pkg.name}</h3>
+                      <div className="package-card-new-price text-center">{pkg.duration} <br /> {pkg.price}</div>
+                      <p className="package-card-new-desc text-center">minium player : 4</p>
+                      <div className="package-card-buttons">
+                        <Link href={`/golf_package_detail/${packageId}`} className="card-details-btn" onClick={(e) => e.stopPropagation()}>
+                          <i className="fas fa-info-circle"></i> Details
+                        </Link>
+                        <button className="card-book-btn" onClick={(e) => { e.stopPropagation(); openBookingModal(pkg.name); }}>
+                          <i className="fas fa-bookmark"></i> Book
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="package-category-buttons">
+              <Link href="/packages" className="inline-flex items-center bg-white text-[#2E7D32] px-6 py-2 rounded-full font-bold hover:bg-[#ED6A02] hover:text-white transition shadow-lg">
+                &nbsp;View All Packages&nbsp;
+              </Link>
+              <Link href="/contactus" className="inline-flex items-center bg-white text-[#2E7D32] px-6 py-2 rounded-full font-bold hover:bg-[#ED6A02] hover:text-white transition shadow-lg text-red-700 ml-4">
+                Customize Package
+              </Link>
+            </div>
+          </div>
+        </section> */}
       </main>
 
+      {/* Booking Modal */}
       <div className={`modal ${isModalOpen ? 'active' : ''}`} onClick={(e) => e.target === e.currentTarget && closeBookingModal()}>
         <div className="modal-content">
           <span className="modal-close" onClick={closeBookingModal}>&times;</span>

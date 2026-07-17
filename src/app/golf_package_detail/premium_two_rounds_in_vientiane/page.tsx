@@ -1,15 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, SetStateAction } from "react";
 
-export default function GolfPackageLCCLakeViewVangVieng() {
-  // Slideshow images – real golf course images from your provided sets
+export default function GolfPackagePremiumVientiane() {
+  // Slideshow images – keep as provided
   const images = [
-    "https://i.imgur.com/qQR01GL.jpeg",     // Lao Country Club (LCC)
-    "https://i.imgur.com/APhNiLp.jpeg",     // Lakeview Golf Club
-    "https://i.imgur.com/yxOOhmp.jpeg",     // Vang Vieng Golf Club
-    "https://i.imgur.com/ogbD8od.jpeg",     // Lakeview (second view)
-    "https://i.imgur.com/Hx2LS4q.jpeg",     // Vang Vieng (second view)
+    "https://i.imgur.com/nZqSXz6.jpeg",
+    "https://i.imgur.com/GlDTwZb.jpeg",
+    "https://i.imgur.com/mYjfy1N.jpeg",
+    "https://i.imgur.com/M7rWEZK.jpeg",
+    "https://i.imgur.com/LInxA73.jpeg",
   ];
 
   const Slideshow = () => {
@@ -18,7 +18,7 @@ export default function GolfPackageLCCLakeViewVangVieng() {
 
     const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % images.length);
     const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-    const goToSlide = (index: number) => setCurrentIndex(index);
+    const goToSlide = (index: SetStateAction<number>) => setCurrentIndex(index);
 
     useEffect(() => {
       if (!autoPlay) return;
@@ -62,69 +62,75 @@ export default function GolfPackageLCCLakeViewVangVieng() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-8 font-sans">
       <h1 className="text-3xl font-bold text-center mb-2">
-        5D4N Golf Package – LCC, Lake View &amp; Vang Vieng
+        Premium 2 Rounds in Vientiane
       </h1>
       <Slideshow />
-      <p className="package-card-new-desc text-center my-3 text-red-700">minium player : 4</p>
 
-      {/* Duration & Courses */}
+      <p className="text-center text-2xl font-semibold text-blue-700 my-2">
+        From USD 450/person
+      </p>
+
+      <p className="package-card-new-desc text-center my-3 text-red-700 font-medium">
+        minimum player - 4
+      </p>
+
       <div className="grid md:grid-cols-2 gap-4 mb-6">
         <div className="bg-blue-50 p-3 rounded">
-          <span className="font-bold">Duration:</span> 5 Days / 4 Nights
+          <span className="font-bold">Duration:</span> 4 Days / 3 Nights (2 Rounds)
         </div>
         <div className="bg-blue-50 p-3 rounded">
-          <span className="font-bold">Courses:</span> Lao Country Club (LCC), Lake View Golf Club, Vang Vieng Golf Course
+          <span className="font-bold">Golf Course:</span> Lakeview Club, Long Vien Club
         </div>
       </div>
 
-      {/* Itinerary */}
       <section className="mb-8">
-        <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">Itinerary</h3>
+        <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">
+          Itinerary
+        </h3>
         <div className="space-y-4">
           <div>
-            <h4 className="text-lg font-semibold">Day 1: Arrival</h4>
+            <h4 className="text-lg font-semibold">
+              Day 1: Arrival – Wattay International Airport (Vientiane)
+            </h4>
             <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>Airport pickup &amp; hotel check-in</li>
+              <li>Airport pickup</li>
+              <li>Hotel check-in</li>
             </ul>
           </div>
           <div>
-            <h4 className="text-lg font-semibold">Day 2: Golf at LCC</h4>
+            <h4 className="text-lg font-semibold">
+              Day 2: Golf in Lakeview Club
+            </h4>
             <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>Breakfast at hotel</li>
-              <li>Transfer to Lao Country Club (LCC)</li>
-              <li>18 holes of golf</li>
-              <li>Return to hotel</li>
+              <li>Transfer to Lakeview Golf Club</li>
+              <li>18 holes of golf (green fee included)</li>
+              <li>Return transfer to hotel</li>
             </ul>
           </div>
           <div>
-            <h4 className="text-lg font-semibold">Day 3: Golf at Lake View</h4>
+            <h4 className="text-lg font-semibold">
+              Day 3: Golf in Long Vien Club
+            </h4>
             <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>Breakfast at hotel</li>
-              <li>Transfer to Lake View Golf Club</li>
-              <li>18 holes of golf</li>
-              <li>Return to hotel</li>
+              <li>Transfer to Long Vien Golf Club</li>
+              <li>18 holes of golf (green fee included)</li>
+              <li>Return transfer to hotel</li>
             </ul>
           </div>
           <div>
-            <h4 className="text-lg font-semibold">Day 4: Golf in Vang Vieng</h4>
+            <h4 className="text-lg font-semibold">Day 4: Departure</h4>
             <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>Breakfast at hotel</li>
-              <li>Transfer to Vang Vieng Golf Course</li>
-              <li>Scenic mountain-view golfing experience</li>
-              <li>Return to hotel</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-lg font-semibold">Day 5: Departure</h4>
-            <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>Breakfast at hotel</li>
-              <li>Airport transfer</li>
+              <li>Transfer to Wattay International Airport (Vientiane)</li>
             </ul>
           </div>
         </div>
       </section>
 
-      {/* Footer note */}
+      <div className="bg-gray-100 p-4 rounded-lg mb-4">
+        <p className="font-semibold">Exclusions:</p>
+        <p>meals, flight ticket, insurance</p>
+      </div>
+
       <div className="text-xs text-gray-500 border-t pt-4 mt-4 text-center">
         * All information is subject to change without prior notice. Please confirm details at time of booking.
       </div>
