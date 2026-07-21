@@ -576,7 +576,7 @@ const GolfTravelPackages: React.FC = () => {
                     <div className="package-card-title">{pkg.name}</div>
                     <div className="package-card-duration">{pkg.duration}</div>
                     <div className="package-card-price">{pkg.price}</div>
-                    <div className="package-card-min-players">minium player : {pkg.type === 'golf' ? '4' : '2'}</div>
+                    <div className="package-card-min-players">minium {pkg.type === 'golf' ? 'player : 4' : ' : 2'}</div>
                     <div className="package-card-footer">
                       <Link href={getDetailLink(pkg)} className="btn-details">Details</Link>
                       <button className="btn-book" onClick={() => openBookingModal(pkg.name)}>Book</button>
