@@ -87,61 +87,67 @@ export default function GolfPackageFourFairways() {
         <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">
           Itinerary
         </h3>
-        <div className="space-y-4">
+        <div className="space-y-6">
           <div>
             <h4 className="text-lg font-semibold">
               Day 1: Arrival – Wattay International Airport (Vientiane)
             </h4>
-            <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>Airport pickup</li>
-              <li>Hotel check-in</li>
-            </ul>
+            <p className="mt-1">
+              Upon arrival at Wattay International Airport, you will be greeted by our local representative and transferred to your hotel. After check‑in, the remainder of the day is free for you to relax or begin exploring the charming capital city of Laos.
+            </p>
+            <p className="mt-1 text-sm text-gray-600"><strong>Overnight:</strong> Vientiane</p>
           </div>
+
           <div>
             <h4 className="text-lg font-semibold">
               Day 2: Golf in Lakeview Club
             </h4>
-            <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>Transfer to Lakeview Golf Club</li>
-              <li>18 holes of golf (green fee included)</li>
-              <li>Return transfer to hotel</li>
-            </ul>
+            <p className="mt-1">
+              Start your day with breakfast at the hotel before a short transfer to the Lakeview Golf Club. This scenic course offers a challenging 18‑hole round amidst beautiful lakeside views. Green fees are included. After your game, you will be driven back to your hotel.
+            </p>
+            <p className="mt-1 text-sm text-gray-600"><strong>Meal:</strong> Breakfast</p>
+            <p className="text-sm text-gray-600"><strong>Overnight:</strong> Vientiane</p>
           </div>
+
           <div>
             <h4 className="text-lg font-semibold">
               Day 3: Golf in Vang Vieng Lao Asia Club
             </h4>
-            <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>Transfer to Vang Vieng Golf Club</li>
-              <li>18 holes of golf (green fee included)</li>
-              <li>Return transfer to hotel</li>
-            </ul>
+            <p className="mt-1">
+              After breakfast, depart for Vang Vieng Golf Club, located in the picturesque countryside. Enjoy an 18‑hole round on this well‑maintained course, surrounded by limestone karst landscapes. Green fees are included. Return transfer to your hotel in Vientiane is provided in the afternoon.
+            </p>
+            <p className="mt-1 text-sm text-gray-600"><strong>Meal:</strong> Breakfast</p>
+            <p className="text-sm text-gray-600"><strong>Overnight:</strong> Vientiane</p>
           </div>
+
           <div>
             <h4 className="text-lg font-semibold">
               Day 4: Golf in Sea Games Golf Club
             </h4>
-            <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>Transfer to Sea Games Golf Club</li>
-              <li>18 holes of golf (green fee included)</li>
-              <li>Return transfer to hotel</li>
-            </ul>
+            <p className="mt-1">
+              Today you will be transferred to Sea Games Golf Club, a premier golfing destination that hosted the 2009 SEA Games. The 18‑hole course is known for its lush fairways and strategic bunkers. Green fees are included. After play, you will be taken back to your hotel.
+            </p>
+            <p className="mt-1 text-sm text-gray-600"><strong>Meal:</strong> Breakfast</p>
+            <p className="text-sm text-gray-600"><strong>Overnight:</strong> Vientiane</p>
           </div>
+
           <div>
             <h4 className="text-lg font-semibold">
               Day 5: Golf in Long Vien Club
             </h4>
-            <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>Transfer to Long Vien Golf Club</li>
-              <li>18 holes of golf (green fee included)</li>
-              <li>Return transfer to hotel</li>
-            </ul>
+            <p className="mt-1">
+              Your final round takes you to Long Vien Golf Club, a hidden gem offering a unique and enjoyable 18‑hole experience. The course features rolling terrain and water hazards that test your skills. Green fees are included. Return to your hotel after golf.
+            </p>
+            <p className="mt-1 text-sm text-gray-600"><strong>Meal:</strong> Breakfast</p>
+            <p className="text-sm text-gray-600"><strong>Overnight:</strong> Vientiane</p>
           </div>
+
           <div>
             <h4 className="text-lg font-semibold">Day 6: Departure</h4>
-            <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>Transfer to Wattay International Airport (Vientiane)</li>
-            </ul>
+            <p className="mt-1">
+              Enjoy a leisurely breakfast before checking out of your hotel. At the appropriate time, you will be transferred to Wattay International Airport for your departure flight.
+            </p>
+            <p className="mt-1 text-sm text-gray-600"><strong>Meal:</strong> Breakfast</p>
           </div>
         </div>
       </section>

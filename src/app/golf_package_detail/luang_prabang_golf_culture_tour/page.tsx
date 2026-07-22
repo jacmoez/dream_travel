@@ -87,42 +87,45 @@ export default function LuangPrabangGolfCultureTour() {
         <h3 className="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-4">
           Itinerary
         </h3>
-        <div className="space-y-4">
+        <div className="space-y-6">
           <div>
             <h4 className="text-lg font-semibold">
               Day 1: Arrival – Luang Prabang International Airport
             </h4>
-            <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>Airport pickup</li>
-              <li>Hotel check-in</li>
-            </ul>
+            <p className="mt-1">
+              Upon arrival at Luang Prabang International Airport, you will be met and transferred to your hotel for check‑in. The rest of the day is free to relax or begin exploring this charming UNESCO World Heritage town.
+            </p>
+            <p className="mt-1 text-sm text-gray-600"><strong>Overnight:</strong> Luang Prabang</p>
           </div>
+
           <div>
             <h4 className="text-lg font-semibold">
               Day 2: Golf in Luang Prabang Club
             </h4>
-            <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>Transfer to Luang Prabang Golf Club</li>
-              <li>18 holes of golf (green fee included)</li>
-              <li>Return transfer to hotel</li>
-            </ul>
+            <p className="mt-1">
+              After breakfast, you will be transferred to Luang Prabang Golf Club for an 18‑hole round of golf. The course offers scenic views of the surrounding mountains and lush greenery. Green fees are included. Return transfer to your hotel is provided after your game.
+            </p>
+            <p className="mt-1 text-sm text-gray-600"><strong>Meal:</strong> Breakfast</p>
+            <p className="text-sm text-gray-600"><strong>Overnight:</strong> Luang Prabang</p>
           </div>
+
           <div>
             <h4 className="text-lg font-semibold">
               Day 3: Luang Prabang City &amp; Heritage Tour
             </h4>
-            <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>Guided tour of Luang Prabang&apos;s UNESCO World Heritage sites</li>
-              <li>Visit the Royal Palace Museum, Wat Xieng Thong, and other cultural landmarks</li>
-              <li>Explore the Old Town</li>
-              <li>Return transfer to hotel</li>
-            </ul>
+            <p className="mt-1">
+              Today, immerse yourself in the rich culture of Luang Prabang. A guided tour will take you to the Royal Palace Museum, the magnificent Wat Xieng Thong, and other significant temples. Stroll through the Old Town, a living museum of French‑colonial and traditional Lao architecture. The tour includes visits to local craft villages and the vibrant morning market (if time permits).
+            </p>
+            <p className="mt-1 text-sm text-gray-600"><strong>Meal:</strong> Breakfast</p>
+            <p className="text-sm text-gray-600"><strong>Overnight:</strong> Luang Prabang</p>
           </div>
+
           <div>
             <h4 className="text-lg font-semibold">Day 4: Departure</h4>
-            <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>Transfer to Luang Prabang International Airport</li>
-            </ul>
+            <p className="mt-1">
+              Enjoy a leisurely breakfast before checking out. At the scheduled time, you will be transferred to Luang Prabang International Airport for your departure flight.
+            </p>
+            <p className="mt-1 text-sm text-gray-600"><strong>Meal:</strong> Breakfast</p>
           </div>
         </div>
       </section>

@@ -677,7 +677,7 @@ const HomePage: React.FC = () => {
               <img
                 src="https://i.imgur.com/yrqYzbX.jpeg"
                 alt="Mist over mountains"
-                className="w-full h-full object-cover"
+                className="w-full h-full aspect-ratio"
               />
               <div className="absolute inset-0  pointer-events-none"></div>
               <div className="absolute bottom-4 right-4 z-10">
@@ -692,7 +692,7 @@ const HomePage: React.FC = () => {
               <img
                 src="https://i.imgur.com/HyLr96w.jpeg"
                 alt="Mist over mountains"
-                className="w-full h-full object-cover"
+                className="w-full h-full aspect-ratio"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div>
               <div className="absolute bottom-4 right-4 z-10">
@@ -707,7 +707,7 @@ const HomePage: React.FC = () => {
               <img
                 src="https://i.imgur.com/BqQTJV4.jpeg"
                 alt="Mist over mountains"
-                className="w-full h-full object-cover"
+                className="w-full h-full aspect-ratio"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div>
               <div className="absolute bottom-4 right-4 z-10">
@@ -722,7 +722,7 @@ const HomePage: React.FC = () => {
               <img
                 src="https://i.imgur.com/WhnDjDA.jpeg"
                 alt="Mist over mountains"
-                className="w-full h-full object-cover"
+                className="w-full h-full aspect-ratio"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div>
               <div className="absolute bottom-4 right-4 z-10">
@@ -737,7 +737,7 @@ const HomePage: React.FC = () => {
               <img
                 src="https://i.imgur.com/Ioye5Q6.jpeg"
                 alt="Mist over mountains"
-                className="w-full h-full object-cover"
+                className="w-full h-full aspect-ratio"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/30 to-transparent pointer-events-none"></div>
               <div className="absolute bottom-4 right-4 z-10">
